@@ -12,7 +12,7 @@ import javax.swing.JTextField;
  *
  * @author u07273579130
  */
-public class Util {
+public class Util_GME {
     public static void habilitar(boolean Valor, JComponent... componentes){
         for (int i = 0; i < componentes.length; i++) {
             JComponent componente = componentes[i];
