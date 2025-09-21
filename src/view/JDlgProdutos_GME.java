@@ -57,6 +57,7 @@ public class JDlgProdutos_GME extends javax.swing.JDialog {
 
         jCboSabor_GME.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tradicional", "Melancia com kiuwi", "Tropical", "Açai com coco", "Citrus", "Abacaxi com Hortelã", "Maça verde", " " }));
 
+        jBtnIncluir_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/incluir_1.png"))); // NOI18N
         jBtnIncluir_GME.setText("Incluir");
         jBtnIncluir_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,6 +83,7 @@ public class JDlgProdutos_GME extends javax.swing.JDialog {
 
         jCbx_Estoque_GME.setText("Disponivel");
 
+        jBtnConfirmar_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/confirmar.png"))); // NOI18N
         jBtnConfirmar_GME.setText("Confirmar");
         jBtnConfirmar_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +93,7 @@ public class JDlgProdutos_GME extends javax.swing.JDialog {
 
         codigo_GME.setText("Código [ID]");
 
+        jBtnExcluir_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Excluir_1.png"))); // NOI18N
         jBtnExcluir_GME.setText("Excluir");
         jBtnExcluir_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,6 +101,7 @@ public class JDlgProdutos_GME extends javax.swing.JDialog {
             }
         });
 
+        jBtnCancelar_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cancelar_1.png"))); // NOI18N
         jBtnCancelar_GME.setText("Cancelar");
         jBtnCancelar_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,6 +111,7 @@ public class JDlgProdutos_GME extends javax.swing.JDialog {
 
         exportacao_GME.setText("Exportação");
 
+        jBtnPesquisar_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pesquisar_1.png"))); // NOI18N
         jBtnPesquisar_GME.setText("Pesquisar");
         jBtnPesquisar_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,6 +121,7 @@ public class JDlgProdutos_GME extends javax.swing.JDialog {
 
         LitragemXQuant_GME.setText("Litragem X Quant.");
 
+        jBtnAlterar_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/alterar_1.png"))); // NOI18N
         jBtnAlterar_GME.setText("Alterar");
         jBtnAlterar_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

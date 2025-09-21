@@ -54,6 +54,7 @@ public class JDlgEmpresas_GME extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        GME_jBtnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/alterar_1.png"))); // NOI18N
         GME_jBtnAlterar.setText("Alterar");
         GME_jBtnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,6 +64,7 @@ public class JDlgEmpresas_GME extends javax.swing.JDialog {
 
         numero_GME.setText("Número [LOC]");
 
+        GME_jBtnIncluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/incluir.png"))); // NOI18N
         GME_jBtnIncluir.setText("Incluir");
         GME_jBtnIncluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,6 +106,7 @@ public class JDlgEmpresas_GME extends javax.swing.JDialog {
             ex.printStackTrace();
         }
 
+        GME_jBtnConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/confirmar.png"))); // NOI18N
         GME_jBtnConfirmar.setText("Confirmar");
         GME_jBtnConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,6 +120,7 @@ public class JDlgEmpresas_GME extends javax.swing.JDialog {
             }
         });
 
+        GME_jBtnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Excluir_1.png"))); // NOI18N
         GME_jBtnExcluir.setText("Excluir");
         GME_jBtnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,6 +130,7 @@ public class JDlgEmpresas_GME extends javax.swing.JDialog {
 
         Cargo_GME.setText("Telefone do Representante");
 
+        GME_jBtnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cancelar_1.png"))); // NOI18N
         GME_jBtnCancelar.setText("Cancelar");
         GME_jBtnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,6 +140,7 @@ public class JDlgEmpresas_GME extends javax.swing.JDialog {
 
         codigo_GME.setText("Codigo [ID]");
 
+        GME_jBtnPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pesquisar.png"))); // NOI18N
         GME_jBtnPesquisar.setText("Pesquisar");
         GME_jBtnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

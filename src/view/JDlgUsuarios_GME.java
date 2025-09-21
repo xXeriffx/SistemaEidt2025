@@ -22,7 +22,7 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
         initComponents();
         setTitle("Tela de Cadastro de Usuários");
         setLocationRelativeTo(null);
-        Util_GME.habilitar(true, jTxtCodigo_GME,jTxtNome_GME, jTxtApelido_GME,jFmtCpf_GME, jCboNivel_GME, jBtnIncluir_GME);
+        Util_GME.habilitar(true);
 
     }
     
@@ -97,6 +97,7 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
 
         jLbl_ativo_GME.setText("Ativo");
 
+        jBtnIncluir_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/incluir.png"))); // NOI18N
         jBtnIncluir_GME.setText("Incluir");
         jBtnIncluir_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,6 +105,7 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
             }
         });
 
+        jBtnAlterar_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/alterar_1.png"))); // NOI18N
         jBtnAlterar_GME.setText("Alterar");
         jBtnAlterar_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,6 +113,7 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
             }
         });
 
+        jBtnExcluir_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Excluir_1.png"))); // NOI18N
         jBtnExcluir_GME.setText("Excluir");
         jBtnExcluir_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,6 +121,7 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
             }
         });
 
+        jBtnConfirmar_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/confirmar.png"))); // NOI18N
         jBtnConfirmar_GME.setText("Confirmar");
         jBtnConfirmar_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,6 +129,7 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
             }
         });
 
+        jBtnCancelar_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cancelar_1.png"))); // NOI18N
         jBtnCancelar_GME.setText("Cancelar");
         jBtnCancelar_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,6 +137,7 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
             }
         });
 
+        jBtnPesquisar_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pesquisar.png"))); // NOI18N
         jBtnPesquisar_GME.setText("Pesquisar");
         jBtnPesquisar_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -225,14 +231,17 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
                         .addComponent(jPwfSenha_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jCboNivel_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLbl_ativo_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBtnIncluir_GME)
-                    .addComponent(jBtnAlterar_GME)
-                    .addComponent(jBtnExcluir_GME)
-                    .addComponent(jBtnConfirmar_GME)
-                    .addComponent(jBtnCancelar_GME)
-                    .addComponent(jBtnPesquisar_GME))
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jBtnIncluir_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBtnAlterar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBtnConfirmar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBtnCancelar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBtnPesquisar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jBtnExcluir_GME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -245,7 +254,7 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
 
     private void jBtnIncluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluir_GMEActionPerformed
         // TODO add your handling code here:
-        Util_GME.habilitar(false, jTxtCodigo_GME,jTxtNome_GME, jTxtApelido_GME,jFmtCpf_GME, jCboNivel_GME, jBtnIncluir_GME);
+        //Util_GME.habilitar(false);
 
     }//GEN-LAST:event_jBtnIncluir_GMEActionPerformed
 
