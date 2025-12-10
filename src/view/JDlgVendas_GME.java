@@ -33,9 +33,9 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTbl_Colunas_GME = new javax.swing.JTable();
         jLbl_code_GME = new javax.swing.JLabel();
-        jLbl_code_usuarios_GME = new javax.swing.JLabel();
+        jLbl_code_clientes_GME = new javax.swing.JLabel();
         jBtn_incluir_GME = new javax.swing.JButton();
-        jLbl_code_produto_GME = new javax.swing.JLabel();
+        jLbl_code_usuario_GME = new javax.swing.JLabel();
         jBtn_alterar_GME = new javax.swing.JButton();
         jLbl_valor_GME = new javax.swing.JLabel();
         jBtn_excluir_GME = new javax.swing.JButton();
@@ -43,13 +43,15 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
         jBtn_confirmar_GME = new javax.swing.JButton();
         jTxt_code_GME = new javax.swing.JTextField();
         jBtn_cancelar_GME = new javax.swing.JButton();
-        jTxt_code_usuario_GME = new javax.swing.JTextField();
+        jTxt_code_clientes_GME = new javax.swing.JTextField();
         jBtn_Pesquisar_GME = new javax.swing.JButton();
-        jTxt_code_produto_GME = new javax.swing.JTextField();
+        jTxt_code_usuario_GME = new javax.swing.JTextField();
         jBtn_side_adicionar_side = new javax.swing.JButton();
         jTxt_valor_GME = new javax.swing.JTextField();
         jBtn_side_alterar_GME = new javax.swing.JButton();
         jTxt_data_GME = new javax.swing.JTextField();
+        jTxt_code_empresas_GME = new javax.swing.JTextField();
+        jLbl_code_empresas_GME = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -81,7 +83,7 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
 
         jLbl_code_GME.setText("Código");
 
-        jLbl_code_usuarios_GME.setText("Código Usuário");
+        jLbl_code_clientes_GME.setText("Código Clientes");
 
         jBtn_incluir_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/incluir.png"))); // NOI18N
         jBtn_incluir_GME.setText("Incluir");
@@ -91,7 +93,7 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
             }
         });
 
-        jLbl_code_produto_GME.setText("Código Produto");
+        jLbl_code_usuario_GME.setText("Código Usuario");
 
         jBtn_alterar_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/alterar_1.png"))); // NOI18N
         jBtn_alterar_GME.setText("Alterar");
@@ -135,9 +137,9 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
             }
         });
 
-        jTxt_code_usuario_GME.addActionListener(new java.awt.event.ActionListener() {
+        jTxt_code_clientes_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxt_code_usuario_GMEActionPerformed(evt);
+                jTxt_code_clientes_GMEActionPerformed(evt);
             }
         });
 
@@ -149,9 +151,9 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
             }
         });
 
-        jTxt_code_produto_GME.addActionListener(new java.awt.event.ActionListener() {
+        jTxt_code_usuario_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxt_code_produto_GMEActionPerformed(evt);
+                jTxt_code_usuario_GMEActionPerformed(evt);
             }
         });
 
@@ -182,6 +184,14 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
             }
         });
 
+        jTxt_code_empresas_GME.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTxt_code_empresas_GMEActionPerformed(evt);
+            }
+        });
+
+        jLbl_code_empresas_GME.setText("Código Empresas");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -201,68 +211,80 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
                         .addComponent(jBtn_cancelar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jBtn_Pesquisar_GME))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLbl_code_GME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTxt_code_GME, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTxt_code_usuario_GME)
-                                    .addComponent(jLbl_code_usuarios_GME, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLbl_code_produto_GME)
-                                    .addComponent(jTxt_code_produto_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(68, 68, 68)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTxt_valor_GME, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
-                                    .addComponent(jLbl_valor_GME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTxt_data_GME)
-                                    .addComponent(jLbl_data_GME, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jBtn_side_delete_GME, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
-                            .addComponent(jBtn_side_alterar_GME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jBtn_side_adicionar_side, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLbl_code_GME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTxt_code_GME, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTxt_code_clientes_GME)
+                                .addComponent(jLbl_code_clientes_GME, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTxt_code_usuario_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLbl_code_usuario_GME))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLbl_code_empresas_GME)
+                                .addComponent(jTxt_code_empresas_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTxt_valor_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLbl_valor_GME, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jTxt_data_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLbl_data_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(34, 34, 34)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jBtn_side_delete_GME, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
+                                .addComponent(jBtn_side_alterar_GME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jBtn_side_adicionar_side, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLbl_valor_GME, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLbl_data_GME, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLbl_code_GME)
-                        .addComponent(jLbl_code_produto_GME)
-                        .addComponent(jLbl_code_usuarios_GME)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLbl_code_GME)
+                            .addComponent(jLbl_code_usuario_GME)
+                            .addComponent(jLbl_code_clientes_GME))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTxt_code_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTxt_code_clientes_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTxt_code_usuario_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLbl_valor_GME)
+                            .addComponent(jLbl_data_GME))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTxt_data_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTxt_valor_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLbl_code_empresas_GME)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTxt_code_empresas_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTxt_valor_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTxt_data_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
                         .addComponent(jBtn_side_adicionar_side, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jBtn_side_alterar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jBtn_side_delete_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(124, 124, 124))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTxt_code_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTxt_code_usuario_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTxt_code_produto_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(124, 124, 124)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBtn_incluir_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBtn_alterar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -304,18 +326,18 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
        
     }//GEN-LAST:event_jBtn_cancelar_GMEActionPerformed
 
-    private void jTxt_code_usuario_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_code_usuario_GMEActionPerformed
+    private void jTxt_code_clientes_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_code_clientes_GMEActionPerformed
         
-    }//GEN-LAST:event_jTxt_code_usuario_GMEActionPerformed
+    }//GEN-LAST:event_jTxt_code_clientes_GMEActionPerformed
 
     private void jBtn_Pesquisar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_Pesquisar_GMEActionPerformed
         JDlgVendasPesquisar_GME jDlgVendasPesquisar_GME = new JDlgVendasPesquisar_GME(null,true);
          jDlgVendasPesquisar_GME.setVisible(true);
     }//GEN-LAST:event_jBtn_Pesquisar_GMEActionPerformed
 
-    private void jTxt_code_produto_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_code_produto_GMEActionPerformed
+    private void jTxt_code_usuario_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_code_usuario_GMEActionPerformed
         
-    }//GEN-LAST:event_jTxt_code_produto_GMEActionPerformed
+    }//GEN-LAST:event_jTxt_code_usuario_GMEActionPerformed
 
     private void jBtn_side_adicionar_sideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_side_adicionar_sideActionPerformed
        
@@ -332,6 +354,10 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
     private void jTxt_data_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_data_GMEActionPerformed
      
     }//GEN-LAST:event_jTxt_data_GMEActionPerformed
+
+    private void jTxt_code_empresas_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_code_empresas_GMEActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTxt_code_empresas_GMEActionPerformed
 
     /**
      * @param args the command line arguments
@@ -386,14 +412,16 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
     private javax.swing.JButton jBtn_side_alterar_GME;
     private javax.swing.JButton jBtn_side_delete_GME;
     private javax.swing.JLabel jLbl_code_GME;
-    private javax.swing.JLabel jLbl_code_produto_GME;
-    private javax.swing.JLabel jLbl_code_usuarios_GME;
+    private javax.swing.JLabel jLbl_code_clientes_GME;
+    private javax.swing.JLabel jLbl_code_empresas_GME;
+    private javax.swing.JLabel jLbl_code_usuario_GME;
     private javax.swing.JLabel jLbl_data_GME;
     private javax.swing.JLabel jLbl_valor_GME;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTbl_Colunas_GME;
     private javax.swing.JTextField jTxt_code_GME;
-    private javax.swing.JTextField jTxt_code_produto_GME;
+    private javax.swing.JTextField jTxt_code_clientes_GME;
+    private javax.swing.JTextField jTxt_code_empresas_GME;
     private javax.swing.JTextField jTxt_code_usuario_GME;
     private javax.swing.JTextField jTxt_data_GME;
     private javax.swing.JTextField jTxt_valor_GME;

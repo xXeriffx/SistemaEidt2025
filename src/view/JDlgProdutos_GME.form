@@ -40,67 +40,52 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="Sabor_GME" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
                           <Component id="jBtnAlterar_GME" alignment="0" max="32767" attributes="0"/>
-                          <Component id="exportacao_GME" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jTxt_Catagoria_GME" alignment="0" max="32767" attributes="0"/>
                           <Component id="jCboSabor_GME" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCbo_expotacao_GME" alignment="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="jCbo_categoria_GME" alignment="0" pref="0" max="32767" attributes="0"/>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jCboLitragemXQuant_GME" max="32767" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="LitragemXQuant_GME" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="acucar_GME" max="32767" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="jCboACUCAR_GME" min="-2" pref="121" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="254" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jCboLitragemXQuant_GME" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="LitragemXQuant_GME" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="acucar_GME" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jBtnExcluir_GME" max="32767" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jBtnConfirmar_GME" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jBtnCancelar_GME" min="-2" pref="119" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jBtnPesquisar_GME" min="-2" pref="119" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jCboACUCAR_GME" min="-2" pref="121" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="254" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
-                              <Component id="estoque_GME" min="-2" pref="369" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jBtnExcluir_GME" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jBtnConfirmar_GME" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jBtnCancelar_GME" min="-2" pref="119" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jBtnPesquisar_GME" min="-2" pref="119" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="jCbx_Edição_Limitadal_GME" min="-2" pref="119" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jCbx_Estoque_GME" min="-2" pref="119" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="178" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="codigo_GME" max="32767" attributes="0"/>
@@ -142,41 +127,25 @@
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="preco_GME" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="exportacao_GME" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTxt_Catagoria_GME" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jTxtPreco_GME" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jCbo_expotacao_GME" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="33" max="32767" attributes="0"/>
-                              <Component id="estoque_GME" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTxtPreco_GME" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCbo_categoria_GME" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCbx_Edição_Limitadal_GME" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="12" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="codigo_GME" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                      <Component id="jTxt_Codigo_GME" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jCbx_Estoque_GME" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+              <EmptySpace pref="26" max="32767" attributes="0"/>
+              <Component id="codigo_GME" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+              <Component id="jTxt_Codigo_GME" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jBtnAlterar_GME" alignment="0" max="32767" attributes="0"/>
                   <Component id="jBtnExcluir_GME" alignment="1" max="32767" attributes="0"/>
-                  <Component id="jBtnConfirmar_GME" alignment="1" pref="45" max="32767" attributes="0"/>
+                  <Component id="jBtnConfirmar_GME" alignment="1" pref="44" max="32767" attributes="0"/>
                   <Component id="jBtnIncluir_GME" alignment="0" max="32767" attributes="0"/>
                   <Component id="jBtnCancelar_GME" alignment="0" max="32767" attributes="0"/>
                   <Component id="jBtnPesquisar_GME" alignment="0" max="32767" attributes="0"/>
@@ -269,14 +238,14 @@
         <Property name="text" type="java.lang.String" value="Sabor"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jCbo_expotacao_GME">
+    <Component class="javax.swing.JComboBox" name="jCbo_categoria_GME">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
-            <StringItem index="0" value="Brasil"/>
-            <StringItem index="1" value="Brasil/Paraguai"/>
-            <StringItem index="2" value="Brasil/Uruguai"/>
-            <StringItem index="3" value="Brasil/paraguai/Uruguai"/>
+            <StringItem index="0" value="Citricos"/>
+            <StringItem index="1" value="Doces"/>
+            <StringItem index="2" value="OGs"/>
+            <StringItem index="3" value="importados"/>
           </StringArray>
         </Property>
       </Properties>
@@ -286,20 +255,18 @@
     </Component>
     <Component class="javax.swing.JLabel" name="preco_GME">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Pre&#xe7;o"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="estoque_GME">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Em estoque"/>
+        <Property name="text" type="java.lang.String" value="Valor Unitario"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTxtPreco_GME">
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCbx_Estoque_GME">
+    <Component class="javax.swing.JCheckBox" name="jCbx_Edi&#xe7;&#xe3;o_Limitadal_GME">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Disponivel"/>
+        <Property name="text" type="java.lang.String" value="Edi&#xe7;&#xe3;o Limitada"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCbx_Edi&#xe7;&#xe3;o_Limitadal_GMEActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jBtnConfirmar_GME">
       <Properties>
@@ -341,9 +308,9 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnCancelar_GMEActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="exportacao_GME">
+    <Component class="javax.swing.JLabel" name="jTxt_Catagoria_GME">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Exporta&#xe7;&#xe3;o"/>
+        <Property name="text" type="java.lang.String" value="Categoria"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jBtnPesquisar_GME">
@@ -359,7 +326,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="LitragemXQuant_GME">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Litragem X Quant."/>
+        <Property name="text" type="java.lang.String" value="Quantidae X Litragem"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jBtnAlterar_GME">
@@ -372,11 +339,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnAlterar_GMEActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="(Vou retirar no trabalho final)"/>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>

@@ -37,21 +37,19 @@ public class JDlgProdutos_GME extends javax.swing.JDialog {
         jTxtNome_GME = new javax.swing.JTextField();
         jCboACUCAR_GME = new javax.swing.JComboBox<>();
         Sabor_GME = new javax.swing.JLabel();
-        jCbo_expotacao_GME = new javax.swing.JComboBox<>();
+        jCbo_categoria_GME = new javax.swing.JComboBox<>();
         preco_GME = new javax.swing.JLabel();
-        estoque_GME = new javax.swing.JLabel();
         jTxtPreco_GME = new javax.swing.JTextField();
-        jCbx_Estoque_GME = new javax.swing.JCheckBox();
+        jCbx_Edição_Limitadal_GME = new javax.swing.JCheckBox();
         jBtnConfirmar_GME = new javax.swing.JButton();
         codigo_GME = new javax.swing.JLabel();
         jBtnExcluir_GME = new javax.swing.JButton();
         jTxt_Codigo_GME = new javax.swing.JTextField();
         jBtnCancelar_GME = new javax.swing.JButton();
-        exportacao_GME = new javax.swing.JLabel();
+        jTxt_Catagoria_GME = new javax.swing.JLabel();
         jBtnPesquisar_GME = new javax.swing.JButton();
         LitragemXQuant_GME = new javax.swing.JLabel();
         jBtnAlterar_GME = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -75,13 +73,16 @@ public class JDlgProdutos_GME extends javax.swing.JDialog {
 
         Sabor_GME.setText("Sabor");
 
-        jCbo_expotacao_GME.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Brasil", "Brasil/Paraguai", "Brasil/Uruguai", "Brasil/paraguai/Uruguai" }));
+        jCbo_categoria_GME.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Citricos", "Doces", "OGs", "importados" }));
 
-        preco_GME.setText("Preço");
+        preco_GME.setText("Valor Unitario");
 
-        estoque_GME.setText("Em estoque");
-
-        jCbx_Estoque_GME.setText("Disponivel");
+        jCbx_Edição_Limitadal_GME.setText("Edição Limitada");
+        jCbx_Edição_Limitadal_GME.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCbx_Edição_Limitadal_GMEActionPerformed(evt);
+            }
+        });
 
         jBtnConfirmar_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/confirmar.png"))); // NOI18N
         jBtnConfirmar_GME.setText("Confirmar");
@@ -109,7 +110,7 @@ public class JDlgProdutos_GME extends javax.swing.JDialog {
             }
         });
 
-        exportacao_GME.setText("Exportação");
+        jTxt_Catagoria_GME.setText("Categoria");
 
         jBtnPesquisar_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pesquisar_1.png"))); // NOI18N
         jBtnPesquisar_GME.setText("Pesquisar");
@@ -119,7 +120,7 @@ public class JDlgProdutos_GME extends javax.swing.JDialog {
             }
         });
 
-        LitragemXQuant_GME.setText("Litragem X Quant.");
+        LitragemXQuant_GME.setText("Quantidae X Litragem");
 
         jBtnAlterar_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/alterar_1.png"))); // NOI18N
         jBtnAlterar_GME.setText("Alterar");
@@ -128,8 +129,6 @@ public class JDlgProdutos_GME extends javax.swing.JDialog {
                 jBtnAlterar_GMEActionPerformed(evt);
             }
         });
-
-        jLabel1.setText("(Vou retirar no trabalho final)");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -150,50 +149,40 @@ public class JDlgProdutos_GME extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(Sabor_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jBtnAlterar_GME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(exportacao_GME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTxt_Catagoria_GME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jCboSabor_GME, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCbo_expotacao_GME, 0, 1, Short.MAX_VALUE))
+                            .addComponent(jCbo_categoria_GME, 0, 1, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jCboLitragemXQuant_GME, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(LitragemXQuant_GME)
+                                        .addGap(46, 46, 46)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(acucar_GME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addContainerGap())
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jCboLitragemXQuant_GME, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(LitragemXQuant_GME)
-                                                .addGap(46, 46, 46)))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(acucar_GME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addContainerGap())
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(jCboACUCAR_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(254, 254, 254))))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jBtnExcluir_GME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jBtnConfirmar_GME)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jBtnCancelar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jBtnPesquisar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addContainerGap())))
+                                        .addComponent(jCboACUCAR_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(254, 254, 254))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jBtnExcluir_GME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBtnConfirmar_GME)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBtnCancelar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBtnPesquisar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(78, 78, 78)
-                                .addComponent(estoque_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jCbx_Edição_Limitadal_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jCbx_Estoque_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(178, 178, 178))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(169, 169, 169)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(codigo_GME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -224,31 +213,21 @@ public class JDlgProdutos_GME extends javax.swing.JDialog {
                         .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(preco_GME)
-                            .addComponent(exportacao_GME))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTxtPreco_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCbo_expotacao_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                                .addComponent(estoque_GME)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(codigo_GME)
-                        .addGap(7, 7, 7)
-                        .addComponent(jTxt_Codigo_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jCbx_Estoque_GME)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1)))
+                            .addComponent(jTxt_Catagoria_GME))
+                        .addGap(11, 11, 11)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTxtPreco_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCbo_categoria_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCbx_Edição_Limitadal_GME))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(codigo_GME)
+                .addGap(7, 7, 7)
+                .addComponent(jTxt_Codigo_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jBtnAlterar_GME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jBtnExcluir_GME, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jBtnConfirmar_GME, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                    .addComponent(jBtnConfirmar_GME, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
                     .addComponent(jBtnIncluir_GME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jBtnCancelar_GME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jBtnPesquisar_GME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -282,6 +261,10 @@ public class JDlgProdutos_GME extends javax.swing.JDialog {
     private void jBtnAlterar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterar_GMEActionPerformed
        
     }//GEN-LAST:event_jBtnAlterar_GMEActionPerformed
+
+    private void jCbx_Edição_Limitadal_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCbx_Edição_Limitadal_GMEActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCbx_Edição_Limitadal_GMEActionPerformed
 
     /**
      * @param args the command line arguments
@@ -332,8 +315,6 @@ public class JDlgProdutos_GME extends javax.swing.JDialog {
     private javax.swing.JLabel Sabor_GME;
     private javax.swing.JLabel acucar_GME;
     private javax.swing.JLabel codigo_GME;
-    private javax.swing.JLabel estoque_GME;
-    private javax.swing.JLabel exportacao_GME;
     private javax.swing.JButton jBtnAlterar_GME;
     private javax.swing.JButton jBtnCancelar_GME;
     private javax.swing.JButton jBtnConfirmar_GME;
@@ -343,11 +324,11 @@ public class JDlgProdutos_GME extends javax.swing.JDialog {
     private javax.swing.JComboBox<String> jCboACUCAR_GME;
     private javax.swing.JComboBox<String> jCboLitragemXQuant_GME;
     private javax.swing.JComboBox<String> jCboSabor_GME;
-    private javax.swing.JComboBox<String> jCbo_expotacao_GME;
-    private javax.swing.JCheckBox jCbx_Estoque_GME;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JComboBox<String> jCbo_categoria_GME;
+    private javax.swing.JCheckBox jCbx_Edição_Limitadal_GME;
     private javax.swing.JTextField jTxtNome_GME;
     private javax.swing.JTextField jTxtPreco_GME;
+    private javax.swing.JLabel jTxt_Catagoria_GME;
     private javax.swing.JTextField jTxt_Codigo_GME;
     private javax.swing.JLabel preco_GME;
     // End of variables declaration//GEN-END:variables
