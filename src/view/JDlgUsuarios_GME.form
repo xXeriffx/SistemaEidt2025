@@ -26,62 +26,54 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLbl_codigo_GME" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLbl_nome_GME" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLbl_apelido_GME" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLbl_cpf_GME" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="jPwfSenha_GME" min="-2" pref="169" max="-2" attributes="0"/>
-                                      <Component id="jFmtCpf_GME" min="-2" pref="169" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="jLbl_senha_GME" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLbl_nivel_GME" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jCboNivel_GME" min="-2" pref="103" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Component id="jTxtCodigo_GME" alignment="0" min="-2" pref="165" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLbl_date_GME" min="-2" max="-2" attributes="0"/>
-                          <Component id="jFmtDataDeNascimento_GME" min="-2" pref="110" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jTxtApelido_GME" pref="478" max="32767" attributes="0"/>
                       <Component id="jTxtNome_GME" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jPwfSenha_GME" alignment="0" pref="169" max="32767" attributes="0"/>
+                              <Component id="jLbl_senha_GME" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jFmtCpf_GME" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="jLbl_cpf_GME" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLbl_codigo_GME" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLbl_nome_GME" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLbl_apelido_GME" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTxtCodigo_GME" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLbl_date_GME" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jLbl_nivel_GME" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCboNivel_GME" min="-2" pref="103" max="-2" attributes="0"/>
+                                  <Component id="jFmtDataDeNascimento_GME" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="jChbAtivo_GME" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLbl_ativo_GME" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jChbAtivo_GME" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLbl_ativo_GME" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="jBtnIncluir_GME" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jBtnAlterar_GME" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jBtnExcluir_GME" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jBtnConfirmar_GME" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jBtnCancelar_GME" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jBtnPesquisar_GME" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+              <Component id="jBtnIncluir_GME" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jBtnAlterar_GME" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jBtnExcluir_GME" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jBtnConfirmar_GME" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jBtnCancelar_GME" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jBtnPesquisar_GME" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -102,44 +94,47 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jTxtApelido_GME" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLbl_date_GME" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLbl_cpf_GME" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLbl_cpf_GME" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLbl_date_GME" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jFmtDataDeNascimento_GME" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jFmtCpf_GME" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jChbAtivo_GME" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jLbl_ativo_GME" min="-2" pref="21" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jFmtCpf_GME" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jFmtDataDeNascimento_GME" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLbl_senha_GME" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLbl_nivel_GME" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jPwfSenha_GME" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jCboNivel_GME" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="29" pref="29" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jChbAtivo_GME" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jPwfSenha_GME" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCboNivel_GME" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBtnIncluir_GME" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                      <Component id="jBtnAlterar_GME" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                      <Component id="jBtnConfirmar_GME" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                      <Component id="jBtnCancelar_GME" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                      <Component id="jBtnPesquisar_GME" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jLbl_ativo_GME" min="-2" pref="21" max="-2" attributes="0"/>
+                  <Component id="jBtnExcluir_GME" alignment="1" min="-2" pref="46" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jBtnIncluir_GME" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
-                          <Component id="jBtnAlterar_GME" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
-                          <Component id="jBtnConfirmar_GME" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
-                          <Component id="jBtnCancelar_GME" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
-                          <Component id="jBtnPesquisar_GME" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Component id="jBtnExcluir_GME" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace pref="18" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -199,6 +194,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="jChbAtivo_GME">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jChbAtivo_GMEActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="jCboNivel_GME">
       <Properties>

@@ -5,6 +5,8 @@
  */
 package view;
 
+import tools.Util_GME;
+
 /**
  *
  * @author u07273579130
@@ -19,6 +21,12 @@ public class JDlgVendas_produtos_GME extends javax.swing.JDialog {
         initComponents();
         setTitle("Tela de Vendas Produtos");
         setLocationRelativeTo(null);
+        Util_GME.habilitar(false, jTxt_code_GME,jTxt_ValorUnitario_GME,jTxt_code_Venda_GME,jTxt_code_produto_GME,jTxt_quantidade_GME,
+                
+                jBtn_alterar_GME,jBtn_excluir_GME,jBtn_confirmar_GME,jBtn_cancelar_GME,
+                
+                jBtn_side_adicionar_side,jBtn_side_alterar_GME,jBtn_side_delete_GME
+        );
     }
 
     /**
@@ -296,7 +304,15 @@ public class JDlgVendas_produtos_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtn_side_alterar_GMEActionPerformed
 
     private void jBtn_excluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_excluir_GMEActionPerformed
-
+        if(Util_GME.perguntar("Deseja excluir esse registro de Venda Produto?") == true){
+            Util_GME.habilitar(false, jTxt_code_GME,jTxt_ValorUnitario_GME,jTxt_code_Venda_GME,jTxt_code_produto_GME,jTxt_quantidade_GME,
+                
+                jBtn_alterar_GME,jBtn_excluir_GME,jBtn_confirmar_GME,jBtn_cancelar_GME,
+                
+                jBtn_side_adicionar_side,jBtn_side_alterar_GME,jBtn_side_delete_GME
+            );
+            Util_GME.habilitar(true, jBtn_incluir_GME,jBtn_Pesquisar_GME);
+        }
     }//GEN-LAST:event_jBtn_excluir_GMEActionPerformed
 
     private void jTxt_ValorUnitario_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_ValorUnitario_GMEActionPerformed
@@ -304,10 +320,18 @@ public class JDlgVendas_produtos_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jTxt_ValorUnitario_GMEActionPerformed
 
     private void jBtn_side_delete_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_side_delete_GMEActionPerformed
-
+        if(Util_GME.perguntar("Deseja DELETAR esse registro de Venda Produto?") == true){
+        }
     }//GEN-LAST:event_jBtn_side_delete_GMEActionPerformed
 
     private void jBtn_confirmar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_confirmar_GMEActionPerformed
+        Util_GME.habilitar(false, jTxt_code_GME,jTxt_ValorUnitario_GME,jTxt_code_Venda_GME,jTxt_code_produto_GME,jTxt_quantidade_GME,
+                
+        jBtn_alterar_GME,jBtn_excluir_GME,jBtn_confirmar_GME,jBtn_cancelar_GME,
+                
+        jBtn_side_adicionar_side,jBtn_side_alterar_GME,jBtn_side_delete_GME
+        );
+        Util_GME.habilitar(true, jBtn_incluir_GME,jBtn_Pesquisar_GME);
 
     }//GEN-LAST:event_jBtn_confirmar_GMEActionPerformed
 
@@ -316,7 +340,15 @@ public class JDlgVendas_produtos_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jTxt_code_GMEActionPerformed
 
     private void jBtn_cancelar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_cancelar_GMEActionPerformed
-
+        if(Util_GME.perguntar("Deseja cancelar esse registro de Venda Produto?") == true){
+            Util_GME.habilitar(false, jTxt_code_GME,jTxt_ValorUnitario_GME,jTxt_code_Venda_GME,jTxt_code_produto_GME,jTxt_quantidade_GME,
+                
+                jBtn_alterar_GME,jBtn_excluir_GME,jBtn_confirmar_GME,jBtn_cancelar_GME,
+                
+                jBtn_side_adicionar_side,jBtn_side_alterar_GME,jBtn_side_delete_GME
+            );
+            Util_GME.habilitar(true, jBtn_incluir_GME,jBtn_Pesquisar_GME);
+        }
     }//GEN-LAST:event_jBtn_cancelar_GMEActionPerformed
 
     private void jTxt_code_Venda_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_code_Venda_GMEActionPerformed
@@ -329,7 +361,13 @@ public class JDlgVendas_produtos_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtn_Pesquisar_GMEActionPerformed
 
     private void jBtn_incluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_incluir_GMEActionPerformed
-
+        Util_GME.habilitar(true, jTxt_code_GME,jTxt_ValorUnitario_GME,jTxt_code_Venda_GME,jTxt_code_produto_GME,jTxt_quantidade_GME,
+                
+                jBtn_alterar_GME,jBtn_excluir_GME,jBtn_confirmar_GME,jBtn_cancelar_GME,
+                
+                jBtn_side_adicionar_side,jBtn_side_alterar_GME,jBtn_side_delete_GME
+        );
+        Util_GME.habilitar(false, jBtn_incluir_GME,jBtn_Pesquisar_GME);
     }//GEN-LAST:event_jBtn_incluir_GMEActionPerformed
 
     private void jTxt_code_produto_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_code_produto_GMEActionPerformed

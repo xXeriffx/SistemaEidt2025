@@ -4,6 +4,8 @@
  */
 package view;
 
+import tools.Util_GME;
+
 /**
  *
  * @author guilh
@@ -17,7 +19,16 @@ public class JDlgEmpresas_GME extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setTitle("Tela de Cadastro de Empresas");
-        setLocationRelativeTo(null);   
+        setLocationRelativeTo(null);
+        
+        Util_GME.habilitar(false, jTxtCodigo_GME,jTxtNomeEMPRE_GME,jTxtNomeREP_GME,jTxtnumero_GME , jTxtCodigo_GME,
+                jTxtnumero_GME,
+                
+                jFmt_CEP_GME,jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
+
+                jBtnCancelar_GME,jBtnConfirmar_GME,jBtnExcluir_GME,jBtnAlterar_GME
+        );
+        Util_GME.habilitar(true,jBtnIncluir_GME, jBtnPesquisar_GME);
     }
 
     /**
@@ -30,9 +41,9 @@ public class JDlgEmpresas_GME extends javax.swing.JDialog {
     private void initComponents() {
 
         jTxtCodigo_GME = new javax.swing.JTextField();
-        GME_jBtnAlterar = new javax.swing.JButton();
+        jBtnAlterar_GME = new javax.swing.JButton();
         numero_GME = new javax.swing.JLabel();
-        GME_jBtnIncluir = new javax.swing.JButton();
+        jBtnIncluir_GME = new javax.swing.JButton();
         jTxtnumero_GME = new javax.swing.JTextField();
         nome_GME = new javax.swing.JLabel();
         CNPJ_GME = new javax.swing.JLabel();
@@ -44,31 +55,31 @@ public class JDlgEmpresas_GME extends javax.swing.JDialog {
         jFmt_cnpj_GME = new javax.swing.JFormattedTextField();
         TelefonePessoal_GME = new javax.swing.JLabel();
         jFmt_TEL_REP_GME = new javax.swing.JFormattedTextField();
-        GME_jBtnConfirmar = new javax.swing.JButton();
+        jBtnConfirmar_GME = new javax.swing.JButton();
         jTxtNomeREP_GME = new javax.swing.JTextField();
-        GME_jBtnExcluir = new javax.swing.JButton();
+        jBtnExcluir_GME = new javax.swing.JButton();
         Cargo_GME = new javax.swing.JLabel();
-        GME_jBtnCancelar = new javax.swing.JButton();
+        jBtnCancelar_GME = new javax.swing.JButton();
         codigo_GME = new javax.swing.JLabel();
-        GME_jBtnPesquisar = new javax.swing.JButton();
+        jBtnPesquisar_GME = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        GME_jBtnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/alterar_1.png"))); // NOI18N
-        GME_jBtnAlterar.setText("Alterar");
-        GME_jBtnAlterar.addActionListener(new java.awt.event.ActionListener() {
+        jBtnAlterar_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/alterar_1.png"))); // NOI18N
+        jBtnAlterar_GME.setText("Alterar");
+        jBtnAlterar_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GME_jBtnAlterarActionPerformed(evt);
+                jBtnAlterar_GMEActionPerformed(evt);
             }
         });
 
         numero_GME.setText("Número [LOC]");
 
-        GME_jBtnIncluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/incluir.png"))); // NOI18N
-        GME_jBtnIncluir.setText("Incluir");
-        GME_jBtnIncluir.addActionListener(new java.awt.event.ActionListener() {
+        jBtnIncluir_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/incluir.png"))); // NOI18N
+        jBtnIncluir_GME.setText("Incluir");
+        jBtnIncluir_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GME_jBtnIncluirActionPerformed(evt);
+                jBtnIncluir_GMEActionPerformed(evt);
             }
         });
 
@@ -106,11 +117,11 @@ public class JDlgEmpresas_GME extends javax.swing.JDialog {
             ex.printStackTrace();
         }
 
-        GME_jBtnConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/confirmar.png"))); // NOI18N
-        GME_jBtnConfirmar.setText("Confirmar");
-        GME_jBtnConfirmar.addActionListener(new java.awt.event.ActionListener() {
+        jBtnConfirmar_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/confirmar.png"))); // NOI18N
+        jBtnConfirmar_GME.setText("Confirmar");
+        jBtnConfirmar_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GME_jBtnConfirmarActionPerformed(evt);
+                jBtnConfirmar_GMEActionPerformed(evt);
             }
         });
 
@@ -120,31 +131,31 @@ public class JDlgEmpresas_GME extends javax.swing.JDialog {
             }
         });
 
-        GME_jBtnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Excluir_1.png"))); // NOI18N
-        GME_jBtnExcluir.setText("Excluir");
-        GME_jBtnExcluir.addActionListener(new java.awt.event.ActionListener() {
+        jBtnExcluir_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Excluir_1.png"))); // NOI18N
+        jBtnExcluir_GME.setText("Excluir");
+        jBtnExcluir_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GME_jBtnExcluirActionPerformed(evt);
+                jBtnExcluir_GMEActionPerformed(evt);
             }
         });
 
         Cargo_GME.setText("Telefone do Representante");
 
-        GME_jBtnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cancelar_1.png"))); // NOI18N
-        GME_jBtnCancelar.setText("Cancelar");
-        GME_jBtnCancelar.addActionListener(new java.awt.event.ActionListener() {
+        jBtnCancelar_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cancelar_1.png"))); // NOI18N
+        jBtnCancelar_GME.setText("Cancelar");
+        jBtnCancelar_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GME_jBtnCancelarActionPerformed(evt);
+                jBtnCancelar_GMEActionPerformed(evt);
             }
         });
 
         codigo_GME.setText("Codigo [ID]");
 
-        GME_jBtnPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pesquisar.png"))); // NOI18N
-        GME_jBtnPesquisar.setText("Pesquisar");
-        GME_jBtnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+        jBtnPesquisar_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pesquisar.png"))); // NOI18N
+        jBtnPesquisar_GME.setText("Pesquisar");
+        jBtnPesquisar_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GME_jBtnPesquisarActionPerformed(evt);
+                jBtnPesquisar_GMEActionPerformed(evt);
             }
         });
 
@@ -159,7 +170,7 @@ public class JDlgEmpresas_GME extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(GME_jBtnIncluir, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jBtnIncluir_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jTxtNomeEMPRE_GME)
                                         .addComponent(nome_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -170,7 +181,7 @@ public class JDlgEmpresas_GME extends javax.swing.JDialog {
                                     .addComponent(jFmt_TEL_EMPRE_GME)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(GME_jBtnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jBtnAlterar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(Telefone_GME)
                                             .addComponent(CNPJ_GME))
                                         .addGap(0, 0, Short.MAX_VALUE))
@@ -181,13 +192,13 @@ public class JDlgEmpresas_GME extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(GME_jBtnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jBtnExcluir_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(GME_jBtnConfirmar)
+                                .addComponent(jBtnConfirmar_GME)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(GME_jBtnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jBtnCancelar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(GME_jBtnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jBtnPesquisar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap())
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
@@ -245,46 +256,85 @@ public class JDlgEmpresas_GME extends javax.swing.JDialog {
                         .addComponent(jTxtnumero_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(GME_jBtnAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(GME_jBtnExcluir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(GME_jBtnConfirmar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
-                    .addComponent(GME_jBtnIncluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(GME_jBtnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(GME_jBtnPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jBtnAlterar_GME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jBtnExcluir_GME, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jBtnConfirmar_GME, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
+                    .addComponent(jBtnIncluir_GME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jBtnCancelar_GME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jBtnPesquisar_GME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(14, 14, 14))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void GME_jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GME_jBtnAlterarActionPerformed
+    private void jBtnAlterar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterar_GMEActionPerformed
+        Util_GME.habilitar(true,jTxtNomeEMPRE_GME,jTxtNomeREP_GME,jTxtnumero_GME , jTxtnumero_GME,
+                
+                jFmt_CEP_GME,jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
+               
+               jBtnCancelar_GME,jBtnExcluir_GME,jBtnConfirmar_GME
+        );
+        Util_GME.habilitar(false,jBtnIncluir_GME, jBtnPesquisar_GME, jBtnAlterar_GME);
+    }//GEN-LAST:event_jBtnAlterar_GMEActionPerformed
 
-    }//GEN-LAST:event_GME_jBtnAlterarActionPerformed
+    private void jBtnIncluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluir_GMEActionPerformed
+        Util_GME.habilitar(true, jTxtCodigo_GME,jTxtNomeEMPRE_GME,jTxtNomeREP_GME,jTxtnumero_GME , jTxtCodigo_GME,
+                jTxtnumero_GME,
+                
+                jFmt_CEP_GME,jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
 
-    private void GME_jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GME_jBtnIncluirActionPerformed
-   
-    }//GEN-LAST:event_GME_jBtnIncluirActionPerformed
+                jBtnCancelar_GME,jBtnConfirmar_GME
+        );
+        Util_GME.habilitar(false,jBtnIncluir_GME, jBtnPesquisar_GME,jBtnExcluir_GME,jBtnAlterar_GME);
+    }//GEN-LAST:event_jBtnIncluir_GMEActionPerformed
 
-    private void GME_jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GME_jBtnConfirmarActionPerformed
-    
-    }//GEN-LAST:event_GME_jBtnConfirmarActionPerformed
+    private void jBtnConfirmar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmar_GMEActionPerformed
+        Util_GME.habilitar(false, jTxtCodigo_GME,jTxtNomeEMPRE_GME,jTxtNomeREP_GME,jTxtnumero_GME , jTxtCodigo_GME,
+                jTxtnumero_GME,
+                
+                jFmt_CEP_GME,jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
+
+                jBtnCancelar_GME,jBtnConfirmar_GME,jBtnExcluir_GME,jBtnAlterar_GME
+        );
+        Util_GME.habilitar(true,jBtnIncluir_GME, jBtnPesquisar_GME);
+    }//GEN-LAST:event_jBtnConfirmar_GMEActionPerformed
 
     private void jTxtNomeREP_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtNomeREP_GMEActionPerformed
 
     }//GEN-LAST:event_jTxtNomeREP_GMEActionPerformed
 
-    private void GME_jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GME_jBtnExcluirActionPerformed
+    private void jBtnExcluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluir_GMEActionPerformed
+        if(Util_GME.perguntar("Deseja excluir esse registro de Empresa?") == true){
+        }
+    }//GEN-LAST:event_jBtnExcluir_GMEActionPerformed
 
-    }//GEN-LAST:event_GME_jBtnExcluirActionPerformed
+    private void jBtnCancelar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelar_GMEActionPerformed
+        if(Util_GME.perguntar("Deseja excluir esse registro de Empresa?") == true){
+            Util_GME.habilitar(false, jTxtCodigo_GME,jTxtNomeEMPRE_GME,jTxtNomeREP_GME,jTxtnumero_GME , jTxtCodigo_GME,
+                jTxtnumero_GME,
+                
+                jFmt_CEP_GME,jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
 
-    private void GME_jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GME_jBtnCancelarActionPerformed
+                jBtnCancelar_GME,jBtnConfirmar_GME,jBtnExcluir_GME,jBtnAlterar_GME
+            );
+            Util_GME.habilitar(true,jBtnIncluir_GME, jBtnPesquisar_GME);
+        }      
+    }//GEN-LAST:event_jBtnCancelar_GMEActionPerformed
 
-    }//GEN-LAST:event_GME_jBtnCancelarActionPerformed
-
-    private void GME_jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GME_jBtnPesquisarActionPerformed
+    private void jBtnPesquisar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisar_GMEActionPerformed
         JDlgEmpresasPesquisar_GME jDlgEmpresasPesquisar_GME = new JDlgEmpresasPesquisar_GME(null,true);
          jDlgEmpresasPesquisar_GME.setVisible(true);
-    }//GEN-LAST:event_GME_jBtnPesquisarActionPerformed
+  
+        Util_GME.habilitar(false, jTxtCodigo_GME,jTxtNomeEMPRE_GME,jTxtNomeREP_GME,jTxtnumero_GME , jTxtCodigo_GME,
+                jTxtnumero_GME,
+                
+                jFmt_CEP_GME,jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
+               
+               jBtnIncluir_GME, jBtnPesquisar_GME
+        );
+        Util_GME.habilitar(true,jBtnExcluir_GME,jBtnAlterar_GME,jBtnCancelar_GME);
+    }//GEN-LAST:event_jBtnPesquisar_GMEActionPerformed
 
     /**
      * @param args the command line arguments
@@ -333,15 +383,15 @@ public class JDlgEmpresas_GME extends javax.swing.JDialog {
     private javax.swing.JLabel CEP_GME;
     private javax.swing.JLabel CNPJ_GME;
     private javax.swing.JLabel Cargo_GME;
-    private javax.swing.JButton GME_jBtnAlterar;
-    private javax.swing.JButton GME_jBtnCancelar;
-    private javax.swing.JButton GME_jBtnConfirmar;
-    private javax.swing.JButton GME_jBtnExcluir;
-    private javax.swing.JButton GME_jBtnIncluir;
-    private javax.swing.JButton GME_jBtnPesquisar;
     private javax.swing.JLabel TelefonePessoal_GME;
     private javax.swing.JLabel Telefone_GME;
     private javax.swing.JLabel codigo_GME;
+    private javax.swing.JButton jBtnAlterar_GME;
+    private javax.swing.JButton jBtnCancelar_GME;
+    private javax.swing.JButton jBtnConfirmar_GME;
+    private javax.swing.JButton jBtnExcluir_GME;
+    private javax.swing.JButton jBtnIncluir_GME;
+    private javax.swing.JButton jBtnPesquisar_GME;
     private javax.swing.JFormattedTextField jFmt_CEP_GME;
     private javax.swing.JFormattedTextField jFmt_TEL_EMPRE_GME;
     private javax.swing.JFormattedTextField jFmt_TEL_REP_GME;

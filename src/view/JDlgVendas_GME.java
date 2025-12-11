@@ -4,6 +4,8 @@
  */
 package view;
 
+import tools.Util_GME;
+
 /**
  *
  * @author guilh
@@ -18,6 +20,14 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
         initComponents();
          setTitle("Tela de Vendas");
         setLocationRelativeTo(null);
+        
+        Util_GME.habilitar(false, jTxt_code_GME, jTxt_code_clientes_GME, jTxt_code_empresas_GME, jTxt_code_usuario_GME,
+                jTxt_data_GME,jTxt_valor_GME,
+                
+                jBtn_alterar_GME,jBtn_excluir_GME,jBtn_confirmar_GME,jBtn_cancelar_GME,
+                
+                jBtn_side_adicionar_side,jBtn_side_alterar_GME,jBtn_side_delete_GME
+        );
     }
 
     /**
@@ -299,11 +309,19 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtn_side_delete_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_side_delete_GMEActionPerformed
-      
+        if(Util_GME.perguntar("Deseja Deletar esse registro de Venda?") == true){
+        }
     }//GEN-LAST:event_jBtn_side_delete_GMEActionPerformed
 
     private void jBtn_incluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_incluir_GMEActionPerformed
-       
+        Util_GME.habilitar(true, jTxt_code_GME, jTxt_code_clientes_GME, jTxt_code_empresas_GME, jTxt_code_usuario_GME,
+                jTxt_data_GME,jTxt_valor_GME,
+                
+                jBtn_alterar_GME,jBtn_excluir_GME,jBtn_confirmar_GME,jBtn_cancelar_GME,
+                
+                jBtn_side_adicionar_side,jBtn_side_alterar_GME,jBtn_side_delete_GME
+        );
+        Util_GME.habilitar(false, jBtn_incluir_GME, jBtn_Pesquisar_GME);
     }//GEN-LAST:event_jBtn_incluir_GMEActionPerformed
 
     private void jBtn_alterar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_alterar_GMEActionPerformed
@@ -311,11 +329,27 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtn_alterar_GMEActionPerformed
 
     private void jBtn_excluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_excluir_GMEActionPerformed
-       
+        if(Util_GME.perguntar("Deseja excluir esse registro de Venda?") == true){
+        Util_GME.habilitar(false, jTxt_code_GME, jTxt_code_clientes_GME, jTxt_code_empresas_GME, jTxt_code_usuario_GME,
+                jTxt_data_GME,jTxt_valor_GME,
+                
+                jBtn_alterar_GME,jBtn_excluir_GME,jBtn_confirmar_GME,jBtn_cancelar_GME,
+                
+                jBtn_side_adicionar_side,jBtn_side_alterar_GME,jBtn_side_delete_GME
+        );
+        Util_GME.habilitar(true, jBtn_incluir_GME, jBtn_Pesquisar_GME);
+        }
     }//GEN-LAST:event_jBtn_excluir_GMEActionPerformed
 
     private void jBtn_confirmar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_confirmar_GMEActionPerformed
-       
+        Util_GME.habilitar(false, jTxt_code_GME, jTxt_code_clientes_GME, jTxt_code_empresas_GME, jTxt_code_usuario_GME,
+                jTxt_data_GME,jTxt_valor_GME,
+                
+                jBtn_alterar_GME,jBtn_excluir_GME,jBtn_confirmar_GME,jBtn_cancelar_GME,
+                
+                jBtn_side_adicionar_side,jBtn_side_alterar_GME,jBtn_side_delete_GME
+        );
+        Util_GME.habilitar(true, jBtn_incluir_GME, jBtn_Pesquisar_GME);
     }//GEN-LAST:event_jBtn_confirmar_GMEActionPerformed
 
     private void jTxt_code_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_code_GMEActionPerformed
@@ -323,7 +357,16 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jTxt_code_GMEActionPerformed
 
     private void jBtn_cancelar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_cancelar_GMEActionPerformed
-       
+        if(Util_GME.perguntar("Deseja cancelar esse registro de Venda?") == true){
+        Util_GME.habilitar(false, jTxt_code_GME, jTxt_code_clientes_GME, jTxt_code_empresas_GME, jTxt_code_usuario_GME,
+                jTxt_data_GME,jTxt_valor_GME,
+                
+                jBtn_alterar_GME,jBtn_excluir_GME,jBtn_confirmar_GME,jBtn_cancelar_GME,
+                
+                jBtn_side_adicionar_side,jBtn_side_alterar_GME,jBtn_side_delete_GME
+        );
+        Util_GME.habilitar(true, jBtn_incluir_GME, jBtn_Pesquisar_GME);
+        }
     }//GEN-LAST:event_jBtn_cancelar_GMEActionPerformed
 
     private void jTxt_code_clientes_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_code_clientes_GMEActionPerformed

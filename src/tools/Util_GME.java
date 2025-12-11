@@ -40,7 +40,7 @@ public class Util_GME {
         if (componentes[i] instanceof JTextField) {
             ((JTextField) componentes[i]).setText("");
         }
-          
+        
         if (componentes[i] instanceof JComboBox){
             ((JComboBox) componentes[i]).setSelectedIndex(-1);
         }
@@ -64,9 +64,8 @@ public class Util_GME {
     }
     
     public static boolean perguntar(String cad){
-        JOptionPane.showConfirmDialog(null, cad);
-        return true;
-        //se o botao for "yes" returna true /// se nao retorna false (palavras ditas em sala)
+        int opcao = JOptionPane.showConfirmDialog(null, cad, cad, JOptionPane.YES_NO_OPTION);
+        return opcao == JOptionPane.YES_OPTION;
     }
     
     public static int strToInt(String num){

@@ -4,6 +4,8 @@
  */
 package view;
 
+import tools.Util_GME;
+
 /**
  *
  * @author guilh
@@ -246,7 +248,8 @@ public class JDlgProdutos_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtnConfirmar_GMEActionPerformed
 
     private void jBtnExcluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluir_GMEActionPerformed
-  
+        if(Util_GME.perguntar("Deseja excluir esse registro de Produto?") == true){
+        }
     }//GEN-LAST:event_jBtnExcluir_GMEActionPerformed
 
     private void jBtnCancelar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelar_GMEActionPerformed

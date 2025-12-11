@@ -30,7 +30,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="GME_jBtnIncluir" alignment="0" min="-2" pref="119" max="-2" attributes="0"/>
+                                  <Component id="jBtnIncluir_GME" alignment="0" min="-2" pref="119" max="-2" attributes="0"/>
                                   <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jTxtNomeEMPRE_GME" alignment="0" max="32767" attributes="0"/>
                                       <Component id="nome_GME" alignment="0" min="-2" pref="119" max="-2" attributes="0"/>
@@ -43,7 +43,7 @@
                                   <Component id="jFmt_TEL_EMPRE_GME" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="GME_jBtnAlterar" alignment="0" min="-2" pref="119" max="-2" attributes="0"/>
+                                          <Component id="jBtnAlterar_GME" alignment="0" min="-2" pref="119" max="-2" attributes="0"/>
                                           <Component id="Telefone_GME" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="CNPJ_GME" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
@@ -60,13 +60,13 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="GME_jBtnExcluir" min="-2" pref="119" max="-2" attributes="0"/>
+                              <Component id="jBtnExcluir_GME" min="-2" pref="119" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="GME_jBtnConfirmar" min="-2" max="-2" attributes="0"/>
+                              <Component id="jBtnConfirmar_GME" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="GME_jBtnCancelar" min="-2" pref="119" max="-2" attributes="0"/>
+                              <Component id="jBtnCancelar_GME" min="-2" pref="119" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="GME_jBtnPesquisar" min="-2" pref="119" max="-2" attributes="0"/>
+                              <Component id="jBtnPesquisar_GME" min="-2" pref="119" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
@@ -141,12 +141,12 @@
                   </Group>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="GME_jBtnAlterar" alignment="0" max="32767" attributes="0"/>
-                  <Component id="GME_jBtnExcluir" alignment="1" max="32767" attributes="0"/>
-                  <Component id="GME_jBtnConfirmar" alignment="1" pref="56" max="32767" attributes="0"/>
-                  <Component id="GME_jBtnIncluir" alignment="0" max="32767" attributes="0"/>
-                  <Component id="GME_jBtnCancelar" alignment="0" max="32767" attributes="0"/>
-                  <Component id="GME_jBtnPesquisar" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jBtnAlterar_GME" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jBtnExcluir_GME" alignment="1" max="32767" attributes="0"/>
+                  <Component id="jBtnConfirmar_GME" alignment="1" pref="56" max="32767" attributes="0"/>
+                  <Component id="jBtnIncluir_GME" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jBtnCancelar_GME" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jBtnPesquisar_GME" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
           </Group>
@@ -156,7 +156,7 @@
   <SubComponents>
     <Component class="javax.swing.JTextField" name="jTxtCodigo_GME">
     </Component>
-    <Component class="javax.swing.JButton" name="GME_jBtnAlterar">
+    <Component class="javax.swing.JButton" name="jBtnAlterar_GME">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/imagens/alterar_1.png"/>
@@ -164,7 +164,7 @@
         <Property name="text" type="java.lang.String" value="Alterar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GME_jBtnAlterarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnAlterar_GMEActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="numero_GME">
@@ -172,7 +172,7 @@
         <Property name="text" type="java.lang.String" value="N&#xfa;mero [LOC]"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="GME_jBtnIncluir">
+    <Component class="javax.swing.JButton" name="jBtnIncluir_GME">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/imagens/incluir.png"/>
@@ -180,7 +180,7 @@
         <Property name="text" type="java.lang.String" value="Incluir"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GME_jBtnIncluirActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnIncluir_GMEActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTxtnumero_GME">
@@ -240,7 +240,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="GME_jBtnConfirmar">
+    <Component class="javax.swing.JButton" name="jBtnConfirmar_GME">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/imagens/confirmar.png"/>
@@ -248,7 +248,7 @@
         <Property name="text" type="java.lang.String" value="Confirmar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GME_jBtnConfirmarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnConfirmar_GMEActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTxtNomeREP_GME">
@@ -256,7 +256,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTxtNomeREP_GMEActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="GME_jBtnExcluir">
+    <Component class="javax.swing.JButton" name="jBtnExcluir_GME">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/imagens/Excluir_1.png"/>
@@ -264,7 +264,7 @@
         <Property name="text" type="java.lang.String" value="Excluir"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GME_jBtnExcluirActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnExcluir_GMEActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="Cargo_GME">
@@ -272,7 +272,7 @@
         <Property name="text" type="java.lang.String" value="Telefone do Representante"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="GME_jBtnCancelar">
+    <Component class="javax.swing.JButton" name="jBtnCancelar_GME">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/imagens/cancelar_1.png"/>
@@ -280,7 +280,7 @@
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GME_jBtnCancelarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnCancelar_GMEActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="codigo_GME">
@@ -288,7 +288,7 @@
         <Property name="text" type="java.lang.String" value="Codigo [ID]"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="GME_jBtnPesquisar">
+    <Component class="javax.swing.JButton" name="jBtnPesquisar_GME">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/imagens/pesquisar.png"/>
@@ -296,7 +296,7 @@
         <Property name="text" type="java.lang.String" value="Pesquisar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GME_jBtnPesquisarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnPesquisar_GMEActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

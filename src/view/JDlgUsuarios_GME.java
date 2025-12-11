@@ -22,11 +22,16 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
         initComponents();
         setTitle("Tela de Cadastro de Usuários");
         setLocationRelativeTo(null);
-        Util_GME.habilitar(true);
+
+        Util_GME.habilitar(false, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
+                jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME,
+        
+                jBtnAlterar_GME,jBtnConfirmar_GME,jBtnExcluir_GME, jBtnCancelar_GME
+        );
 
     }
     
-
+    private boolean incluir;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -87,6 +92,12 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
         jLbl_senha_GME.setText("Senha");
 
         jLbl_nivel_GME.setText("Nível");
+
+        jChbAtivo_GME.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jChbAtivo_GMEActionPerformed(evt);
+            }
+        });
 
         jCboNivel_GME.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "administrador", "funcionario", "vendedor", "gerente" }));
         jCboNivel_GME.addActionListener(new java.awt.event.ActionListener() {
@@ -152,49 +163,45 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jTxtApelido_GME, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
+                        .addComponent(jTxtNome_GME))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jPwfSenha_GME, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                                .addComponent(jLbl_senha_GME)
+                                .addComponent(jFmtCpf_GME))
+                            .addComponent(jLbl_cpf_GME)
                             .addComponent(jLbl_codigo_GME)
                             .addComponent(jLbl_nome_GME)
                             .addComponent(jLbl_apelido_GME)
-                            .addComponent(jLbl_cpf_GME)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jPwfSenha_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jFmtCpf_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLbl_senha_GME))
-                                .addGap(75, 75, 75)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLbl_nivel_GME)
-                                    .addComponent(jCboNivel_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jTxtCodigo_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(22, 22, 22)
+                            .addComponent(jTxtCodigo_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(67, 67, 67)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLbl_date_GME)
-                            .addComponent(jFmtDataDeNascimento_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTxtApelido_GME, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
-                        .addComponent(jTxtNome_GME)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLbl_nivel_GME)
+                                    .addComponent(jCboNivel_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jFmtDataDeNascimento_GME))
+                                .addGap(25, 25, 25)
+                                .addComponent(jChbAtivo_GME)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLbl_ativo_GME)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jChbAtivo_GME)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLbl_ativo_GME))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jBtnIncluir_GME)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBtnAlterar_GME)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBtnExcluir_GME)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBtnConfirmar_GME)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBtnCancelar_GME)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBtnPesquisar_GME)))
+                .addComponent(jBtnIncluir_GME)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBtnAlterar_GME)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBtnExcluir_GME)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBtnConfirmar_GME)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBtnCancelar_GME)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBtnPesquisar_GME)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -213,36 +220,37 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTxtApelido_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLbl_date_GME, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLbl_cpf_GME))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFmtCpf_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFmtDataDeNascimento_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLbl_cpf_GME)
+                            .addComponent(jLbl_date_GME))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jFmtDataDeNascimento_GME, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jFmtCpf_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jChbAtivo_GME)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLbl_ativo_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(3, 3, 3)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLbl_senha_GME)
                     .addComponent(jLbl_nivel_GME))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jChbAtivo_GME)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jPwfSenha_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jCboNivel_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLbl_ativo_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jPwfSenha_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCboNivel_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jBtnIncluir_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jBtnAlterar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jBtnConfirmar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jBtnCancelar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jBtnPesquisar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jBtnExcluir_GME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jBtnIncluir_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBtnAlterar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBtnConfirmar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBtnCancelar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBtnPesquisar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jBtnExcluir_GME, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -253,37 +261,101 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jTxtNome_GMEActionPerformed
 
     private void jBtnIncluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluir_GMEActionPerformed
-        // TODO add your handling code here:
-        //Util_GME.habilitar(false);
+
+        incluir = true;
+        Util_GME.habilitar(true, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
+                jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME,
+        
+                jBtnConfirmar_GME, jBtnCancelar_GME
+        );
+        Util_GME.habilitar(false, jBtnIncluir_GME,jBtnPesquisar_GME);
 
     }//GEN-LAST:event_jBtnIncluir_GMEActionPerformed
 
     private void jBtnAlterar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterar_GMEActionPerformed
-        // TODO add your handling code here:
+        incluir = false;
+        Util_GME.habilitar(true, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
+                jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME, jBtnConfirmar_GME,jBtnCancelar_GME);
+        Util_GME.habilitar(false, jTxtCodigo_GME, jBtnAlterar_GME);
 
     }//GEN-LAST:event_jBtnAlterar_GMEActionPerformed
 
     private void jBtnExcluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluir_GMEActionPerformed
-        // TODO add your handling code here:
-
+      if(Util_GME.perguntar("Deseja excluir esse registro de Usuario?") == true){
+            //limpar
+            Util_GME.habilitar(false, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
+                jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME,
+        
+                jBtnAlterar_GME,jBtnConfirmar_GME,jBtnExcluir_GME, jBtnCancelar_GME
+            );
+            Util_GME.habilitar(true, jBtnIncluir_GME, jBtnPesquisar_GME);
+        } else{
+            
+        }
     }//GEN-LAST:event_jBtnExcluir_GMEActionPerformed
 
 
     private void jBtnConfirmar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmar_GMEActionPerformed
-        // TODO add your handling code here:
- 
-
-
+        Util_GME.habilitar(false,jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
+                jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME,
+        
+                jBtnAlterar_GME,jBtnConfirmar_GME,jBtnExcluir_GME, jBtnCancelar_GME
+            );
+            Util_GME.habilitar(true, jBtnIncluir_GME, jBtnPesquisar_GME);
     }//GEN-LAST:event_jBtnConfirmar_GMEActionPerformed
 
     private void jBtnPesquisar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisar_GMEActionPerformed
         JDlgUsuariosPesquisar_GME jDlgUsuariosPesquisar_GME = new JDlgUsuariosPesquisar_GME(null,true);
          jDlgUsuariosPesquisar_GME.setVisible(true);
+         
+         incluir = true;
+         
+        Util_GME.habilitar(false, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
+                jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME,jBtnIncluir_GME, jBtnPesquisar_GME
+        
+                
+            );
+            Util_GME.habilitar(true,jBtnAlterar_GME,jBtnExcluir_GME, jBtnCancelar_GME);      
     }//GEN-LAST:event_jBtnPesquisar_GMEActionPerformed
 
     private void jBtnCancelar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelar_GMEActionPerformed
-        // TODO add your handling code here:
-      Util_GME.habilitar(true, jTxtCodigo_GME,jTxtNome_GME, jTxtApelido_GME,jFmtCpf_GME, jCboNivel_GME, jBtnIncluir_GME);   
+                            //limpar
+     //System.out.println("incluir = " + incluir);
+     //if((Util_GME.perguntar("Deseja cancelar esse registro de Usuario?") == true)){
+      //    if(incluir == true){
+      //      Util_GME.habilitar(false, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
+      //       jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME,
+      //
+      //       jBtnConfirmar_GME, jBtnCancelar_GME, jBtnAlterar_GME,jBtnExcluir_GME
+      //         );
+      //       Util_GME.habilitar(true, jBtnIncluir_GME,jBtnPesquisar_GME);
+      //    }
+      //    else{
+      //        Util_GME.habilitar(false, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
+      //         jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME,jBtnIncluir_GME, jBtnPesquisar_GME, jBtnConfirmar_GME
+      // 
+      //         );
+      //         Util_GME.habilitar(true,jBtnAlterar_GME,jBtnExcluir_GME);
+      //
+      //      }
+      //  }
+      //  else{
+      //                        MEGA FUNÇÃO PARA FAZRE O CANCELAR RECONHCER DEPOIS DE QUEM QUE ELE FOI ATIVADO!
+      //  }
+      
+      if(Util_GME.perguntar("Deseja cancelar esse registro de Usuarios?") == true){
+      
+        Util_GME.habilitar(false, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
+                jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME,
+        
+                jBtnAlterar_GME,jBtnConfirmar_GME,jBtnExcluir_GME, jBtnCancelar_GME
+        );
+                
+        Util_GME.habilitar(true, jBtnIncluir_GME,jBtnPesquisar_GME
+        );  
+      
+      }
+
     }//GEN-LAST:event_jBtnCancelar_GMEActionPerformed
 
     private void jTxtCodigo_GMEFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTxtCodigo_GMEFocusLost
@@ -294,6 +366,10 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
     private void jCboNivel_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCboNivel_GMEActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCboNivel_GMEActionPerformed
+
+    private void jChbAtivo_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jChbAtivo_GMEActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jChbAtivo_GMEActionPerformed
 
     /**
      * @param args the command line arguments
