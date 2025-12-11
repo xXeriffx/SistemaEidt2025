@@ -330,7 +330,10 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
 
     private void jBtn_excluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_excluir_GMEActionPerformed
         if(Util_GME.perguntar("Deseja excluir esse registro de Venda?") == true){
-        Util_GME.habilitar(false, jTxt_code_GME, jTxt_code_clientes_GME, jTxt_code_empresas_GME, jTxt_code_usuario_GME,
+            Util_GME.Limpar(jTxt_code_GME, jTxt_code_clientes_GME, jTxt_code_empresas_GME, jTxt_code_usuario_GME,
+                jTxt_data_GME,jTxt_valor_GME);
+            
+            Util_GME.habilitar(false, jTxt_code_GME, jTxt_code_clientes_GME, jTxt_code_empresas_GME, jTxt_code_usuario_GME,
                 jTxt_data_GME,jTxt_valor_GME,
                 
                 jBtn_alterar_GME,jBtn_excluir_GME,jBtn_confirmar_GME,jBtn_cancelar_GME,
@@ -342,6 +345,9 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtn_excluir_GMEActionPerformed
 
     private void jBtn_confirmar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_confirmar_GMEActionPerformed
+        Util_GME.Limpar(jTxt_code_GME, jTxt_code_clientes_GME, jTxt_code_empresas_GME, jTxt_code_usuario_GME,
+                jTxt_data_GME,jTxt_valor_GME);
+        
         Util_GME.habilitar(false, jTxt_code_GME, jTxt_code_clientes_GME, jTxt_code_empresas_GME, jTxt_code_usuario_GME,
                 jTxt_data_GME,jTxt_valor_GME,
                 
@@ -358,7 +364,10 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
 
     private void jBtn_cancelar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_cancelar_GMEActionPerformed
         if(Util_GME.perguntar("Deseja cancelar esse registro de Venda?") == true){
-        Util_GME.habilitar(false, jTxt_code_GME, jTxt_code_clientes_GME, jTxt_code_empresas_GME, jTxt_code_usuario_GME,
+            Util_GME.Limpar(jTxt_code_GME, jTxt_code_clientes_GME, jTxt_code_empresas_GME, jTxt_code_usuario_GME,
+                jTxt_data_GME,jTxt_valor_GME);
+            
+            Util_GME.habilitar(false, jTxt_code_GME, jTxt_code_clientes_GME, jTxt_code_empresas_GME, jTxt_code_usuario_GME,
                 jTxt_data_GME,jTxt_valor_GME,
                 
                 jBtn_alterar_GME,jBtn_excluir_GME,jBtn_confirmar_GME,jBtn_cancelar_GME,

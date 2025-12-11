@@ -100,6 +100,11 @@ public class JDlgEmpresas_GME extends javax.swing.JDialog {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jFmt_TEL_EMPRE_GME.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFmt_TEL_EMPRE_GMEActionPerformed(evt);
+            }
+        });
 
         Telefone_GME.setText("Telefone da empresa");
 
@@ -290,6 +295,10 @@ public class JDlgEmpresas_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtnIncluir_GMEActionPerformed
 
     private void jBtnConfirmar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmar_GMEActionPerformed
+        Util_GME.Limpar( jTxtCodigo_GME,jTxtNomeEMPRE_GME,jTxtNomeREP_GME,jTxtnumero_GME , jTxtCodigo_GME,
+                jTxtnumero_GME,jFmt_CEP_GME,jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
+                jBtnCancelar_GME,jBtnConfirmar_GME,jBtnExcluir_GME,jBtnAlterar_GME);
+        
         Util_GME.habilitar(false, jTxtCodigo_GME,jTxtNomeEMPRE_GME,jTxtNomeREP_GME,jTxtnumero_GME , jTxtCodigo_GME,
                 jTxtnumero_GME,
                 
@@ -306,11 +315,18 @@ public class JDlgEmpresas_GME extends javax.swing.JDialog {
 
     private void jBtnExcluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluir_GMEActionPerformed
         if(Util_GME.perguntar("Deseja excluir esse registro de Empresa?") == true){
+             Util_GME.Limpar( jTxtCodigo_GME,jTxtNomeEMPRE_GME,jTxtNomeREP_GME,jTxtnumero_GME , jTxtCodigo_GME,
+                jTxtnumero_GME,jFmt_CEP_GME,jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
+                jBtnCancelar_GME,jBtnConfirmar_GME,jBtnExcluir_GME,jBtnAlterar_GME);
         }
     }//GEN-LAST:event_jBtnExcluir_GMEActionPerformed
 
     private void jBtnCancelar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelar_GMEActionPerformed
         if(Util_GME.perguntar("Deseja excluir esse registro de Empresa?") == true){
+            Util_GME.Limpar( jTxtCodigo_GME,jTxtNomeEMPRE_GME,jTxtNomeREP_GME,jTxtnumero_GME , jTxtCodigo_GME,
+                jTxtnumero_GME,jFmt_CEP_GME,jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
+                jBtnCancelar_GME,jBtnConfirmar_GME,jBtnExcluir_GME,jBtnAlterar_GME);
+            
             Util_GME.habilitar(false, jTxtCodigo_GME,jTxtNomeEMPRE_GME,jTxtNomeREP_GME,jTxtnumero_GME , jTxtCodigo_GME,
                 jTxtnumero_GME,
                 
@@ -335,6 +351,10 @@ public class JDlgEmpresas_GME extends javax.swing.JDialog {
         );
         Util_GME.habilitar(true,jBtnExcluir_GME,jBtnAlterar_GME,jBtnCancelar_GME);
     }//GEN-LAST:event_jBtnPesquisar_GMEActionPerformed
+
+    private void jFmt_TEL_EMPRE_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmt_TEL_EMPRE_GMEActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFmt_TEL_EMPRE_GMEActionPerformed
 
     /**
      * @param args the command line arguments

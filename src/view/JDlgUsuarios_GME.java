@@ -282,7 +282,9 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
 
     private void jBtnExcluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluir_GMEActionPerformed
       if(Util_GME.perguntar("Deseja excluir esse registro de Usuario?") == true){
-            //limpar
+            Util_GME.Limpar(jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
+                jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME);
+            
             Util_GME.habilitar(false, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
                 jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME,
         
@@ -296,6 +298,9 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
 
 
     private void jBtnConfirmar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmar_GMEActionPerformed
+        Util_GME.Limpar(jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
+                jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME);
+        
         Util_GME.habilitar(false,jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
                 jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME,
         
@@ -319,7 +324,7 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtnPesquisar_GMEActionPerformed
 
     private void jBtnCancelar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelar_GMEActionPerformed
-                            //limpar
+      
      //System.out.println("incluir = " + incluir);
      //if((Util_GME.perguntar("Deseja cancelar esse registro de Usuario?") == true)){
       //    if(incluir == true){
@@ -344,7 +349,10 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
       //  }
       
       if(Util_GME.perguntar("Deseja cancelar esse registro de Usuarios?") == true){
-      
+          
+        Util_GME.Limpar(jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
+                jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME);
+          
         Util_GME.habilitar(false, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
                 jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME,
         

@@ -305,6 +305,8 @@ public class JDlgVendas_produtos_GME extends javax.swing.JDialog {
 
     private void jBtn_excluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_excluir_GMEActionPerformed
         if(Util_GME.perguntar("Deseja excluir esse registro de Venda Produto?") == true){
+            Util_GME.Limpar(jTxt_code_GME,jTxt_ValorUnitario_GME,jTxt_code_Venda_GME,jTxt_code_produto_GME,jTxt_quantidade_GME);
+            
             Util_GME.habilitar(false, jTxt_code_GME,jTxt_ValorUnitario_GME,jTxt_code_Venda_GME,jTxt_code_produto_GME,jTxt_quantidade_GME,
                 
                 jBtn_alterar_GME,jBtn_excluir_GME,jBtn_confirmar_GME,jBtn_cancelar_GME,
@@ -325,6 +327,8 @@ public class JDlgVendas_produtos_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtn_side_delete_GMEActionPerformed
 
     private void jBtn_confirmar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_confirmar_GMEActionPerformed
+        Util_GME.Limpar(jTxt_code_GME,jTxt_ValorUnitario_GME,jTxt_code_Venda_GME,jTxt_code_produto_GME,jTxt_quantidade_GME);
+        
         Util_GME.habilitar(false, jTxt_code_GME,jTxt_ValorUnitario_GME,jTxt_code_Venda_GME,jTxt_code_produto_GME,jTxt_quantidade_GME,
                 
         jBtn_alterar_GME,jBtn_excluir_GME,jBtn_confirmar_GME,jBtn_cancelar_GME,
@@ -341,6 +345,8 @@ public class JDlgVendas_produtos_GME extends javax.swing.JDialog {
 
     private void jBtn_cancelar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_cancelar_GMEActionPerformed
         if(Util_GME.perguntar("Deseja cancelar esse registro de Venda Produto?") == true){
+            Util_GME.Limpar(jTxt_code_GME,jTxt_ValorUnitario_GME,jTxt_code_Venda_GME,jTxt_code_produto_GME,jTxt_quantidade_GME);
+            
             Util_GME.habilitar(false, jTxt_code_GME,jTxt_ValorUnitario_GME,jTxt_code_Venda_GME,jTxt_code_produto_GME,jTxt_quantidade_GME,
                 
                 jBtn_alterar_GME,jBtn_excluir_GME,jBtn_confirmar_GME,jBtn_cancelar_GME,

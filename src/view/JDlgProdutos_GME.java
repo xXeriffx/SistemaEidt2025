@@ -20,6 +20,10 @@ public class JDlgProdutos_GME extends javax.swing.JDialog {
         initComponents();
         setTitle("Tela de Cadastro de Produtos");
         setLocationRelativeTo(null);
+        Util_GME.habilitar(false, jTxtNome_GME,jTxtPreco_GME,jTxt_Catagoria_GME,jTxt_Codigo_GME, jCboACUCAR_GME,
+                jCboLitragemXQuant_GME,jCboSabor_GME, jCbo_categoria_GME, jCbx_Edição_Limitadal_GME
+        
+                ,jBtnAlterar_GME,jBtnExcluir_GME,jBtnConfirmar_GME , jBtnCancelar_GME);
     }
 
     /**
@@ -240,29 +244,70 @@ public class JDlgProdutos_GME extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtnIncluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluir_GMEActionPerformed
-  
+        
+        Util_GME.habilitar(true, jTxtNome_GME,jTxtPreco_GME,jTxt_Catagoria_GME,jTxt_Codigo_GME, jCboACUCAR_GME,
+                jCboLitragemXQuant_GME,jCboSabor_GME, jCbo_categoria_GME, jCbx_Edição_Limitadal_GME
+        
+                ,jBtnConfirmar_GME , jBtnCancelar_GME);
+        Util_GME.habilitar(false, jBtnIncluir_GME, jBtnPesquisar_GME, jBtnAlterar_GME, jBtnExcluir_GME);
     }//GEN-LAST:event_jBtnIncluir_GMEActionPerformed
 
     private void jBtnConfirmar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmar_GMEActionPerformed
-
+        Util_GME.Limpar(jTxtNome_GME,jTxtPreco_GME,jTxt_Catagoria_GME,jTxt_Codigo_GME, jCboACUCAR_GME,
+                jCboLitragemXQuant_GME,jCboSabor_GME, jCbo_categoria_GME, jCbx_Edição_Limitadal_GME);
+        
+        Util_GME.habilitar(false, jTxtNome_GME,jTxtPreco_GME,jTxt_Catagoria_GME,jTxt_Codigo_GME, jCboACUCAR_GME,
+                jCboLitragemXQuant_GME,jCboSabor_GME, jCbo_categoria_GME, jCbx_Edição_Limitadal_GME
+        
+                , jBtnAlterar_GME, jBtnExcluir_GME, jBtnConfirmar_GME , jBtnCancelar_GME);
+        Util_GME.habilitar(true, jBtnIncluir_GME, jBtnPesquisar_GME);
     }//GEN-LAST:event_jBtnConfirmar_GMEActionPerformed
 
     private void jBtnExcluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluir_GMEActionPerformed
         if(Util_GME.perguntar("Deseja excluir esse registro de Produto?") == true){
+            Util_GME.Limpar(jTxtNome_GME,jTxtPreco_GME,jTxt_Catagoria_GME,jTxt_Codigo_GME, jCboACUCAR_GME,
+                jCboLitragemXQuant_GME,jCboSabor_GME, jCbo_categoria_GME, jCbx_Edição_Limitadal_GME);
+            
+            Util_GME.habilitar(false, jTxtNome_GME,jTxtPreco_GME,jTxt_Catagoria_GME,jTxt_Codigo_GME, jCboACUCAR_GME,
+                jCboLitragemXQuant_GME,jCboSabor_GME, jCbo_categoria_GME, jCbx_Edição_Limitadal_GME
+        
+                , jBtnAlterar_GME, jBtnExcluir_GME,jBtnConfirmar_GME , jBtnCancelar_GME);
+            Util_GME.habilitar(true, jBtnIncluir_GME, jBtnPesquisar_GME);
         }
     }//GEN-LAST:event_jBtnExcluir_GMEActionPerformed
 
     private void jBtnCancelar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelar_GMEActionPerformed
-  
+        if(Util_GME.perguntar("Deseja cancelar esse registro de Produto?") == true){
+            Util_GME.Limpar(jTxtNome_GME,jTxtPreco_GME,jTxt_Catagoria_GME,jTxt_Codigo_GME, jCboACUCAR_GME,
+                jCboLitragemXQuant_GME,jCboSabor_GME, jCbo_categoria_GME, jCbx_Edição_Limitadal_GME);
+            
+            Util_GME.habilitar(false, jTxtNome_GME,jTxtPreco_GME,jTxt_Catagoria_GME,jTxt_Codigo_GME, jCboACUCAR_GME,
+                jCboLitragemXQuant_GME,jCboSabor_GME, jCbo_categoria_GME, jCbx_Edição_Limitadal_GME
+        
+                , jBtnAlterar_GME, jBtnExcluir_GME,jBtnConfirmar_GME , jBtnCancelar_GME);
+            Util_GME.habilitar(true, jBtnIncluir_GME, jBtnPesquisar_GME);
+        }
     }//GEN-LAST:event_jBtnCancelar_GMEActionPerformed
 
     private void jBtnPesquisar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisar_GMEActionPerformed
         JDlgProdutosPesquisar_GME jDlgProdutosPesquisar_GME = new JDlgProdutosPesquisar_GME(null,true);
          jDlgProdutosPesquisar_GME.setVisible(true);
+         
+         
+         
+         Util_GME.habilitar(false, jTxtNome_GME,jTxtPreco_GME,jTxt_Catagoria_GME,jTxt_Codigo_GME, jCboACUCAR_GME,
+                jCboLitragemXQuant_GME,jCboSabor_GME, jCbo_categoria_GME, jCbx_Edição_Limitadal_GME
+        
+                ,jBtnIncluir_GME, jBtnPesquisar_GME ,jBtnConfirmar_GME );
+         Util_GME.habilitar(true,jBtnAlterar_GME, jBtnExcluir_GME,jBtnCancelar_GME );
     }//GEN-LAST:event_jBtnPesquisar_GMEActionPerformed
 
     private void jBtnAlterar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterar_GMEActionPerformed
-       
+        Util_GME.habilitar(true, jTxtNome_GME,jTxtPreco_GME,jTxt_Catagoria_GME, jCboACUCAR_GME,
+                jCboLitragemXQuant_GME,jCboSabor_GME, jCbo_categoria_GME, jCbx_Edição_Limitadal_GME
+        
+                ,jBtnExcluir_GME,jBtnCancelar_GME ,jBtnConfirmar_GME );
+         Util_GME.habilitar(false,jBtnAlterar_GME,jBtnIncluir_GME, jBtnPesquisar_GME  );
     }//GEN-LAST:event_jBtnAlterar_GMEActionPerformed
 
     private void jCbx_Edição_Limitadal_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCbx_Edição_Limitadal_GMEActionPerformed
