@@ -33,14 +33,14 @@ public class Usuarios  implements java.io.Serializable {
      private Date gmeDatanasc;
      private String gmeSenha;
      private int gmeNivel;
-     private char gmeAtivo;
+     private String gmeAtivo;
      
 
     public Usuarios() {
     }
 
 	
-    public Usuarios(String gmeApelido, String gmeCpf, String gmeNome, Date gmeDatanasc, String gmeSenha, int gmeNivel, char gmeAtivo) {
+    public Usuarios(String gmeApelido, String gmeCpf, String gmeNome, Date gmeDatanasc, String gmeSenha, int gmeNivel, String gmeAtivo) {
         this.gmeApelido = gmeApelido;
         this.gmeCpf = gmeCpf;
         this.gmeNome = gmeNome;
@@ -49,7 +49,7 @@ public class Usuarios  implements java.io.Serializable {
         this.gmeNivel = gmeNivel;
         this.gmeAtivo = gmeAtivo;
     }
-    public Usuarios(String gmeApelido, String gmeCpf, String gmeNome, Date gmeDatanasc, String gmeSenha, int gmeNivel, char gmeAtivo, Set vendas) {
+    public Usuarios(String gmeApelido, String gmeCpf, String gmeNome, Date gmeDatanasc, String gmeSenha, int gmeNivel, String gmeAtivo, Set vendas) {
        this.gmeApelido = gmeApelido;
        this.gmeCpf = gmeCpf;
        this.gmeNome = gmeNome;
@@ -134,11 +134,11 @@ public class Usuarios  implements java.io.Serializable {
 
     
     @Column(name="gme_ativo", nullable=false, length=1)
-    public char getGmeAtivo() {
+    public String getGmeAtivo() {
         return this.gmeAtivo;
     }
     
-    public void setGmeAtivo(char gmeAtivo) {
+    public void setGmeAtivo(String gmeAtivo) {
         this.gmeAtivo = gmeAtivo;
     }
 

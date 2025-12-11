@@ -5,17 +5,15 @@
  */
 package view;
 
+import bean.Usuarios;
+import dao.UsuariosDAO;
 import tools.Util_GME;
-
 
 /**
  *
  * @author guilh
  */
 public class JDlgUsuarios_GME extends javax.swing.JDialog {
-
-
-
 
     public JDlgUsuarios_GME(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -25,13 +23,48 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
 
         Util_GME.habilitar(false, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
                 jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME,
-        
-                jBtnAlterar_GME,jBtnConfirmar_GME,jBtnExcluir_GME, jBtnCancelar_GME
+                jBtnAlterar_GME, jBtnConfirmar_GME, jBtnExcluir_GME, jBtnCancelar_GME
         );
 
     }
-    
+
     private boolean incluir;
+    
+    public Usuarios viewBean(){
+    Usuarios usuarios = new Usuarios();
+    int codigo = Util_GME.strToInt(jTxtCodigo_GME.getText());
+    usuarios.setGmeIdUsuarios(codigo);
+    
+    usuarios.setGmeApelido(jTxtApelido_GME.getText());
+    usuarios.setGmeCpf(jFmtCpf_GME.getText());
+    usuarios.setGmeNome(jTxtNome_GME.getText());
+    usuarios.setGmeDatanasc(Util_GME.strToDate(jFmtDataDeNascimento_GME.getText()));
+    usuarios.setGmeSenha(jPwfSenha_GME.getText());
+    usuarios.setGmeNivel(jCboNivel_GME.getSelectedIndex());
+    if(jChbAtivo_GME.isSelected()== true){
+       usuarios.setGmeAtivo("S");
+       }else{
+       usuarios.setGmeAtivo("N");
+       }
+    
+    return usuarios;
+    }
+    
+    public void beanView(Usuarios usuarios){
+        jTxtCodigo_GME.setText(Util_GME.intToStr(usuarios.getGmeIdUsuarios()));
+        jTxtNome_GME.setText(usuarios.getGmeNome());
+        jTxtApelido_GME.setText(usuarios.getGmeApelido());
+        jFmtCpf_GME.setText(usuarios.getGmeSenha());
+        jFmtDataDeNascimento_GME.setText(Util_GME.dateToStr(usuarios.getGmeDatanasc()));
+        jPwfSenha_GME.setText(usuarios.getGmeSenha());
+        jCboNivel_GME.setSelectedIndex(usuarios.getGmeNivel());
+        if (usuarios.getGmeAtivo().equals("S") == true){
+        jChbAtivo_GME.setSelected(true);
+        }else{
+        jChbAtivo_GME.setSelected(false);
+        }
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -264,105 +297,110 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
 
         incluir = true;
         Util_GME.habilitar(true, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
-                jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME,
-        
-                jBtnConfirmar_GME, jBtnCancelar_GME
-        );
-        Util_GME.habilitar(false, jBtnIncluir_GME,jBtnPesquisar_GME);
+                jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME, jBtnConfirmar_GME, jBtnCancelar_GME);
+        Util_GME.habilitar(false, jBtnIncluir_GME, jBtnPesquisar_GME);
 
+        jTxtCodigo_GME.grabFocus();
     }//GEN-LAST:event_jBtnIncluir_GMEActionPerformed
 
     private void jBtnAlterar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterar_GMEActionPerformed
         incluir = false;
         Util_GME.habilitar(true, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
-                jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME, jBtnConfirmar_GME,jBtnCancelar_GME);
+                jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME, jBtnConfirmar_GME, jBtnCancelar_GME);
         Util_GME.habilitar(false, jTxtCodigo_GME, jBtnAlterar_GME);
 
     }//GEN-LAST:event_jBtnAlterar_GMEActionPerformed
 
     private void jBtnExcluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluir_GMEActionPerformed
-      if(Util_GME.perguntar("Deseja excluir esse registro de Usuario?") == true){
-            Util_GME.Limpar(jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
-                jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME);
+        if (Util_GME.perguntar("Deseja excluir esse registro de Usuario?") == true) {
             
+            UsuariosDAO lvbUsuariosDAO = new UsuariosDAO();
+            lvbUsuariosDAO.delete(viewBean());
+            
+            Util_GME.Limpar(jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
+                    jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME);
+
             Util_GME.habilitar(false, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
-                jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME,
-        
-                jBtnAlterar_GME,jBtnConfirmar_GME,jBtnExcluir_GME, jBtnCancelar_GME
+                    jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME,
+                    jBtnAlterar_GME, jBtnConfirmar_GME, jBtnExcluir_GME, jBtnCancelar_GME
             );
             Util_GME.habilitar(true, jBtnIncluir_GME, jBtnPesquisar_GME);
-        } else{
-            
+        } else {
+
         }
     }//GEN-LAST:event_jBtnExcluir_GMEActionPerformed
 
 
     private void jBtnConfirmar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmar_GMEActionPerformed
+
+        UsuariosDAO usuariosDAO = new UsuariosDAO();
+        if (incluir == true) {
+
+            usuariosDAO.insert(viewBean());
+
+        } else {
+
+            usuariosDAO.update(viewBean());
+        }
+
         Util_GME.Limpar(jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
                 jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME);
-        
-        Util_GME.habilitar(false,jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
+        Util_GME.habilitar(false, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
                 jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME,
-        
-                jBtnAlterar_GME,jBtnConfirmar_GME,jBtnExcluir_GME, jBtnCancelar_GME
-            );
-            Util_GME.habilitar(true, jBtnIncluir_GME, jBtnPesquisar_GME);
+                jBtnAlterar_GME, jBtnConfirmar_GME, jBtnExcluir_GME, jBtnCancelar_GME);
+        Util_GME.habilitar(true, jBtnIncluir_GME, jBtnPesquisar_GME);
     }//GEN-LAST:event_jBtnConfirmar_GMEActionPerformed
 
     private void jBtnPesquisar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisar_GMEActionPerformed
-        JDlgUsuariosPesquisar_GME jDlgUsuariosPesquisar_GME = new JDlgUsuariosPesquisar_GME(null,true);
-         jDlgUsuariosPesquisar_GME.setVisible(true);
-         
-         incluir = true;
-         
+        JDlgUsuariosPesquisar_GME jDlgUsuariosPesquisar_GME = new JDlgUsuariosPesquisar_GME(null, true);
+        jDlgUsuariosPesquisar_GME.setVisible(true);
+
+        incluir = true;
+
         Util_GME.habilitar(false, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
-                jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME,jBtnIncluir_GME, jBtnPesquisar_GME
-        
-                
-            );
-            Util_GME.habilitar(true,jBtnAlterar_GME,jBtnExcluir_GME, jBtnCancelar_GME);      
+                jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME, jBtnIncluir_GME, jBtnPesquisar_GME
+        );
+        Util_GME.habilitar(true, jBtnAlterar_GME, jBtnExcluir_GME, jBtnCancelar_GME);
     }//GEN-LAST:event_jBtnPesquisar_GMEActionPerformed
 
     private void jBtnCancelar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelar_GMEActionPerformed
-      
-     //System.out.println("incluir = " + incluir);
-     //if((Util_GME.perguntar("Deseja cancelar esse registro de Usuario?") == true)){
-      //    if(incluir == true){
-      //      Util_GME.habilitar(false, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
-      //       jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME,
-      //
-      //       jBtnConfirmar_GME, jBtnCancelar_GME, jBtnAlterar_GME,jBtnExcluir_GME
-      //         );
-      //       Util_GME.habilitar(true, jBtnIncluir_GME,jBtnPesquisar_GME);
-      //    }
-      //    else{
-      //        Util_GME.habilitar(false, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
-      //         jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME,jBtnIncluir_GME, jBtnPesquisar_GME, jBtnConfirmar_GME
-      // 
-      //         );
-      //         Util_GME.habilitar(true,jBtnAlterar_GME,jBtnExcluir_GME);
-      //
-      //      }
-      //  }
-      //  else{
-      //                        MEGA FUNÇÃO PARA FAZRE O CANCELAR RECONHCER DEPOIS DE QUEM QUE ELE FOI ATIVADO!
-      //  }
-      
-      if(Util_GME.perguntar("Deseja cancelar esse registro de Usuarios?") == true){
-          
-        Util_GME.Limpar(jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
-                jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME);
-          
-        Util_GME.habilitar(false, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
-                jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME,
-        
-                jBtnAlterar_GME,jBtnConfirmar_GME,jBtnExcluir_GME, jBtnCancelar_GME
-        );
-                
-        Util_GME.habilitar(true, jBtnIncluir_GME,jBtnPesquisar_GME
-        );  
-      
-      }
+
+        //System.out.println("incluir = " + incluir);
+        //if((Util_GME.perguntar("Deseja cancelar esse registro de Usuario?") == true)){
+        //    if(incluir == true){
+        //      Util_GME.habilitar(false, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
+        //       jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME,
+        //
+        //       jBtnConfirmar_GME, jBtnCancelar_GME, jBtnAlterar_GME,jBtnExcluir_GME
+        //         );
+        //       Util_GME.habilitar(true, jBtnIncluir_GME,jBtnPesquisar_GME);
+        //    }
+        //    else{
+        //        Util_GME.habilitar(false, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
+        //         jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME,jBtnIncluir_GME, jBtnPesquisar_GME, jBtnConfirmar_GME
+        // 
+        //         );
+        //         Util_GME.habilitar(true,jBtnAlterar_GME,jBtnExcluir_GME);
+        //
+        //      }
+        //  }
+        //  else{
+        //                        MEGA FUNÇÃO PARA FAZRE O CANCELAR RECONHCER DEPOIS DE QUEM QUE ELE FOI ATIVADO!
+        //  }
+        if (Util_GME.perguntar("Deseja cancelar esse registro de Usuarios?") == true) {
+
+            Util_GME.Limpar(jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
+                    jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME);
+
+            Util_GME.habilitar(false, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
+                    jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME,
+                    jBtnAlterar_GME, jBtnConfirmar_GME, jBtnExcluir_GME, jBtnCancelar_GME
+            );
+
+            Util_GME.habilitar(true, jBtnIncluir_GME, jBtnPesquisar_GME
+            );
+
+        }
 
     }//GEN-LAST:event_jBtnCancelar_GMEActionPerformed
 

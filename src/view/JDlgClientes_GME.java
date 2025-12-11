@@ -4,6 +4,7 @@
  */
 package view;
 
+import bean.Clientes;
 import tools.Util_GME;
 
 /**
@@ -20,15 +21,34 @@ public class JDlgClientes_GME extends javax.swing.JDialog {
         initComponents();
         setTitle("Tela de Cadastro de Clientes");
         setLocationRelativeTo(null);
-        Util_GME.habilitar(false, jTxtCodigo_GME, jTxtCargo_GME,jTxtCodigo_GME, jTxtEmailLoja_GME, jTxtEmail_pessoal_GME,
-                jTxtNomeLoja_GME, jTxtNomePessoal_GME, jTxtnumero_GME,
-                
-                jFmt_CEP_GME,jFmt_CNPJ_GME,jFmt_DataCadastro_GME,jFmt_Datanasc_GME,jFmt_telefone_loja_GME,jFmt_telefone_pessoal_GME,
-                
-                jCbxEstadoCivil_GME,jCbxGenero_GME,
-        
-                jBtnAlterar_GME,jBtnConfirmar_GME,jBtnExcluir_GME, jBtnCancelar_GME
-        );
+        Util_GME.habilitar(false, jTxtCodigo_GME, jTxtCargo_GME, jTxtCodigo_GME, jTxtEmailLoja_GME, jTxtEmail_pessoal_GME,
+                jTxtNomeLoja_GME, jTxtNomePessoal_GME, jTxtnumero_GME, jFmt_CEP_GME, jFmt_CNPJ_GME, jFmt_DataCadastro_GME,
+                jFmt_Datanasc_GME, jFmt_telefone_loja_GME, jFmt_telefone_pessoal_GME, jCbxEstadoCivil_GME, jCbxGenero_GME,
+                jBtnAlterar_GME, jBtnConfirmar_GME, jBtnExcluir_GME, jBtnCancelar_GME);
+    }
+
+    private boolean incluir;
+
+    public Clientes viewBean() {
+        Clientes clientes = new Clientes();
+        int codigo = Util_GME.strToInt(jTxtCodigo_GME.getText());
+        clientes.setGmeIdClientes(codigo);
+        clientes.setGmeNomePessoal(jTxtNomePessoal_GME.getText());
+        clientes.setGmeEmailPessoal(jTxtEmail_pessoal_GME.getText());
+        clientes.setGmeTelefonePessoal(jFmt_telefone_pessoal_GME.getText());
+        clientes.setGmeDatanasc(Util_GME.strToDate(jFmt_Datanasc_GME.getText()));
+        //clientes.setGmeGenero(Util_GME.intToStr(jCbxGenero_GME.getSelectedItem()));
+        //clientes.setGmeEstadocivil(Util_GME.intToStr(jCbxEstadoCivil_GME.getSelectedItem()));
+        //clientes.setGmeCargo;
+        clientes.setGmeNomeLoja(jTxtNomeLoja_GME.getText());
+        clientes.setGmeEmailLoja(jTxtEmailLoja_GME.getText());
+        clientes.setGmeTelefoneLoja(jTxtNomeLoja_GME.getText());
+        //clientes.setGmeDataCadastro;
+        clientes.setGmeCnpj(jFmt_CNPJ_GME.getText());
+        clientes.setGmeCep(jFmt_CEP_GME.getText());
+        clientes.setGmeNumero(jTxtnumero_GME.getText());
+
+        return clientes;
     }
 
     /**
@@ -383,88 +403,75 @@ public class JDlgClientes_GME extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtnConfirmar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmar_GMEActionPerformed
-        Util_GME.Limpar( jTxtCodigo_GME, jTxtCargo_GME,jTxtCodigo_GME, jTxtEmailLoja_GME, jTxtEmail_pessoal_GME,
-                jTxtNomeLoja_GME, jTxtNomePessoal_GME, jTxtnumero_GME, jFmt_CEP_GME,jFmt_CNPJ_GME,jFmt_DataCadastro_GME,
-                jFmt_Datanasc_GME,jFmt_telefone_loja_GME,jFmt_telefone_pessoal_GME,jCbxEstadoCivil_GME,jCbxGenero_GME);
-        
-        Util_GME.habilitar(false, jTxtCodigo_GME, jTxtCargo_GME,jTxtCodigo_GME, jTxtEmailLoja_GME, jTxtEmail_pessoal_GME,
+        Util_GME.Limpar(jTxtCodigo_GME, jTxtCargo_GME, jTxtCodigo_GME, jTxtEmailLoja_GME, jTxtEmail_pessoal_GME,
+                jTxtNomeLoja_GME, jTxtNomePessoal_GME, jTxtnumero_GME, jFmt_CEP_GME, jFmt_CNPJ_GME, jFmt_DataCadastro_GME,
+                jFmt_Datanasc_GME, jFmt_telefone_loja_GME, jFmt_telefone_pessoal_GME, jCbxEstadoCivil_GME, jCbxGenero_GME);
+
+        Util_GME.habilitar(false, jTxtCodigo_GME, jTxtCargo_GME, jTxtCodigo_GME, jTxtEmailLoja_GME, jTxtEmail_pessoal_GME,
                 jTxtNomeLoja_GME, jTxtNomePessoal_GME, jTxtnumero_GME,
-                
-                jFmt_CEP_GME,jFmt_CNPJ_GME,jFmt_DataCadastro_GME,jFmt_Datanasc_GME,jFmt_telefone_loja_GME,jFmt_telefone_pessoal_GME,
-                
-                jCbxEstadoCivil_GME,jCbxGenero_GME,
-        
-                jBtnAlterar_GME,jBtnConfirmar_GME, jBtnCancelar_GME,jBtnExcluir_GME
+                jFmt_CEP_GME, jFmt_CNPJ_GME, jFmt_DataCadastro_GME, jFmt_Datanasc_GME, jFmt_telefone_loja_GME, jFmt_telefone_pessoal_GME,
+                jCbxEstadoCivil_GME, jCbxGenero_GME,
+                jBtnAlterar_GME, jBtnConfirmar_GME, jBtnCancelar_GME, jBtnExcluir_GME
         );
         Util_GME.habilitar(true, jBtnIncluir_GME, jBtnPesquisar_GME);
     }//GEN-LAST:event_jBtnConfirmar_GMEActionPerformed
 
     private void jBtnExcluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluir_GMEActionPerformed
-        if(Util_GME.perguntar("Deseja excluir esse registro de Clientes?") == true){
-          Util_GME.Limpar( jTxtCodigo_GME, jTxtCargo_GME,jTxtCodigo_GME, jTxtEmailLoja_GME, jTxtEmail_pessoal_GME,
-                jTxtNomeLoja_GME, jTxtNomePessoal_GME, jTxtnumero_GME, jFmt_CEP_GME,jFmt_CNPJ_GME,jFmt_DataCadastro_GME,
-                jFmt_Datanasc_GME,jFmt_telefone_loja_GME,jFmt_telefone_pessoal_GME,jCbxEstadoCivil_GME,jCbxGenero_GME);
-          
-          Util_GME.habilitar(false, jTxtCodigo_GME, jTxtCargo_GME,jTxtCodigo_GME, jTxtEmailLoja_GME, jTxtEmail_pessoal_GME,
-                jTxtNomeLoja_GME, jTxtNomePessoal_GME, jTxtnumero_GME,
-                
-                jFmt_CEP_GME,jFmt_CNPJ_GME,jFmt_DataCadastro_GME,jFmt_Datanasc_GME,jFmt_telefone_loja_GME,jFmt_telefone_pessoal_GME,
-                
-                jCbxEstadoCivil_GME,jCbxGenero_GME,
-        
-                jBtnAlterar_GME,jBtnConfirmar_GME, jBtnCancelar_GME,jBtnExcluir_GME
+        if (Util_GME.perguntar("Deseja excluir esse registro de Clientes?") == true) {
+            Util_GME.Limpar(jTxtCodigo_GME, jTxtCargo_GME, jTxtCodigo_GME, jTxtEmailLoja_GME, jTxtEmail_pessoal_GME,
+                    jTxtNomeLoja_GME, jTxtNomePessoal_GME, jTxtnumero_GME, jFmt_CEP_GME, jFmt_CNPJ_GME, jFmt_DataCadastro_GME,
+                    jFmt_Datanasc_GME, jFmt_telefone_loja_GME, jFmt_telefone_pessoal_GME, jCbxEstadoCivil_GME, jCbxGenero_GME);
+
+            Util_GME.habilitar(false, jTxtCodigo_GME, jTxtCargo_GME, jTxtCodigo_GME, jTxtEmailLoja_GME, jTxtEmail_pessoal_GME,
+                    jTxtNomeLoja_GME, jTxtNomePessoal_GME, jTxtnumero_GME,
+                    jFmt_CEP_GME, jFmt_CNPJ_GME, jFmt_DataCadastro_GME, jFmt_Datanasc_GME, jFmt_telefone_loja_GME, jFmt_telefone_pessoal_GME,
+                    jCbxEstadoCivil_GME, jCbxGenero_GME,
+                    jBtnAlterar_GME, jBtnConfirmar_GME, jBtnCancelar_GME, jBtnExcluir_GME
             );
-        Util_GME.habilitar(true, jBtnIncluir_GME, jBtnPesquisar_GME);
-        } else{}
+            Util_GME.habilitar(true, jBtnIncluir_GME, jBtnPesquisar_GME);
+        } else {
+        }
 
     }//GEN-LAST:event_jBtnExcluir_GMEActionPerformed
 
     private void jBtnCancelar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelar_GMEActionPerformed
-        if(Util_GME.perguntar("Deseja cancelar esse registro de Clientes?") == true){
-           Util_GME.Limpar( jTxtCodigo_GME, jTxtCargo_GME,jTxtCodigo_GME, jTxtEmailLoja_GME, jTxtEmail_pessoal_GME,
-                jTxtNomeLoja_GME, jTxtNomePessoal_GME, jTxtnumero_GME, jFmt_CEP_GME,jFmt_CNPJ_GME,jFmt_DataCadastro_GME,
-                jFmt_Datanasc_GME,jFmt_telefone_loja_GME,jFmt_telefone_pessoal_GME,jCbxEstadoCivil_GME,jCbxGenero_GME);
-           
-          Util_GME.habilitar(false, jTxtCodigo_GME, jTxtCargo_GME,jTxtCodigo_GME, jTxtEmailLoja_GME, jTxtEmail_pessoal_GME,
-                jTxtNomeLoja_GME, jTxtNomePessoal_GME, jTxtnumero_GME,
-                
-                jFmt_CEP_GME,jFmt_CNPJ_GME,jFmt_DataCadastro_GME,jFmt_Datanasc_GME,jFmt_telefone_loja_GME,jFmt_telefone_pessoal_GME,
-                
-                jCbxEstadoCivil_GME,jCbxGenero_GME,
-        
-                jBtnAlterar_GME,jBtnConfirmar_GME, jBtnCancelar_GME,jBtnExcluir_GME
+        if (Util_GME.perguntar("Deseja cancelar esse registro de Clientes?") == true) {
+            Util_GME.Limpar(jTxtCodigo_GME, jTxtCargo_GME, jTxtCodigo_GME, jTxtEmailLoja_GME, jTxtEmail_pessoal_GME,
+                    jTxtNomeLoja_GME, jTxtNomePessoal_GME, jTxtnumero_GME, jFmt_CEP_GME, jFmt_CNPJ_GME, jFmt_DataCadastro_GME,
+                    jFmt_Datanasc_GME, jFmt_telefone_loja_GME, jFmt_telefone_pessoal_GME, jCbxEstadoCivil_GME, jCbxGenero_GME);
+
+            Util_GME.habilitar(false, jTxtCodigo_GME, jTxtCargo_GME, jTxtCodigo_GME, jTxtEmailLoja_GME, jTxtEmail_pessoal_GME,
+                    jTxtNomeLoja_GME, jTxtNomePessoal_GME, jTxtnumero_GME,
+                    jFmt_CEP_GME, jFmt_CNPJ_GME, jFmt_DataCadastro_GME, jFmt_Datanasc_GME, jFmt_telefone_loja_GME, jFmt_telefone_pessoal_GME,
+                    jCbxEstadoCivil_GME, jCbxGenero_GME,
+                    jBtnAlterar_GME, jBtnConfirmar_GME, jBtnCancelar_GME, jBtnExcluir_GME
             );
-        Util_GME.habilitar(true, jBtnIncluir_GME, jBtnPesquisar_GME);
-        } else{}
+            Util_GME.habilitar(true, jBtnIncluir_GME, jBtnPesquisar_GME);
+        } else {
+        }
     }//GEN-LAST:event_jBtnCancelar_GMEActionPerformed
 
     private void jBtnPesquisar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisar_GMEActionPerformed
-         JDlgClientesPesquisar_GME jDlgClientesPesquisar_GME = new JDlgClientesPesquisar_GME(null,true);
-         jDlgClientesPesquisar_GME.setVisible(true);
-         
-         Util_GME.habilitar(false, jTxtCodigo_GME, jTxtCargo_GME,jTxtCodigo_GME, jTxtEmailLoja_GME, jTxtEmail_pessoal_GME,
+        JDlgClientesPesquisar_GME jDlgClientesPesquisar_GME = new JDlgClientesPesquisar_GME(null, true);
+        jDlgClientesPesquisar_GME.setVisible(true);
+
+        Util_GME.habilitar(false, jTxtCodigo_GME, jTxtCargo_GME, jTxtCodigo_GME, jTxtEmailLoja_GME, jTxtEmail_pessoal_GME,
                 jTxtNomeLoja_GME, jTxtNomePessoal_GME, jTxtnumero_GME,
-                
-                jFmt_CEP_GME,jFmt_CNPJ_GME,jFmt_DataCadastro_GME,jFmt_Datanasc_GME,jFmt_telefone_loja_GME,jFmt_telefone_pessoal_GME,
-                
-                jCbxEstadoCivil_GME,jCbxGenero_GME,
-        
-                jBtnConfirmar_GME,jBtnIncluir_GME, jBtnPesquisar_GME
+                jFmt_CEP_GME, jFmt_CNPJ_GME, jFmt_DataCadastro_GME, jFmt_Datanasc_GME, jFmt_telefone_loja_GME, jFmt_telefone_pessoal_GME,
+                jCbxEstadoCivil_GME, jCbxGenero_GME,
+                jBtnConfirmar_GME, jBtnIncluir_GME, jBtnPesquisar_GME
         );
-        Util_GME.habilitar(true,jBtnAlterar_GME, jBtnCancelar_GME,jBtnExcluir_GME );
+        Util_GME.habilitar(true, jBtnAlterar_GME, jBtnCancelar_GME, jBtnExcluir_GME);
     }//GEN-LAST:event_jBtnPesquisar_GMEActionPerformed
 
     private void jBtnAlterar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterar_GMEActionPerformed
-        Util_GME.habilitar(true, jTxtCargo_GME,jTxtCodigo_GME, jTxtEmailLoja_GME, jTxtEmail_pessoal_GME,
+        Util_GME.habilitar(true, jTxtCargo_GME, jTxtCodigo_GME, jTxtEmailLoja_GME, jTxtEmail_pessoal_GME,
                 jTxtNomeLoja_GME, jTxtNomePessoal_GME, jTxtnumero_GME,
-                
-                jFmt_CEP_GME,jFmt_CNPJ_GME,jFmt_DataCadastro_GME,jFmt_Datanasc_GME,jFmt_telefone_loja_GME,jFmt_telefone_pessoal_GME,
-                
-                jCbxEstadoCivil_GME,jCbxGenero_GME,
-        
-                jBtnCancelar_GME,jBtnConfirmar_GME,jBtnExcluir_GME
+                jFmt_CEP_GME, jFmt_CNPJ_GME, jFmt_DataCadastro_GME, jFmt_Datanasc_GME, jFmt_telefone_loja_GME, jFmt_telefone_pessoal_GME,
+                jCbxEstadoCivil_GME, jCbxGenero_GME,
+                jBtnCancelar_GME, jBtnConfirmar_GME, jBtnExcluir_GME
         );
-        Util_GME.habilitar(false,jTxtCodigo_GME,jBtnIncluir_GME, jBtnPesquisar_GME, jBtnAlterar_GME );
+        Util_GME.habilitar(false, jTxtCodigo_GME, jBtnIncluir_GME, jBtnPesquisar_GME, jBtnAlterar_GME);
     }//GEN-LAST:event_jBtnAlterar_GMEActionPerformed
 
     private void jCbxGenero_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCbxGenero_GMEActionPerformed
@@ -472,24 +479,21 @@ public class JDlgClientes_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jCbxGenero_GMEActionPerformed
 
     private void jBtnIncluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluir_GMEActionPerformed
-        Util_GME.habilitar(true, jTxtCodigo_GME, jTxtCargo_GME,jTxtCodigo_GME, jTxtEmailLoja_GME, jTxtEmail_pessoal_GME,
+        Util_GME.habilitar(true, jTxtCodigo_GME, jTxtCargo_GME, jTxtCodigo_GME, jTxtEmailLoja_GME, jTxtEmail_pessoal_GME,
                 jTxtNomeLoja_GME, jTxtNomePessoal_GME, jTxtnumero_GME,
-                
-                jFmt_CEP_GME,jFmt_CNPJ_GME,jFmt_DataCadastro_GME,jFmt_Datanasc_GME,jFmt_telefone_loja_GME,jFmt_telefone_pessoal_GME,
-                
-                jCbxEstadoCivil_GME,jCbxGenero_GME,
-        
+                jFmt_CEP_GME, jFmt_CNPJ_GME, jFmt_DataCadastro_GME, jFmt_Datanasc_GME, jFmt_telefone_loja_GME, jFmt_telefone_pessoal_GME,
+                jCbxEstadoCivil_GME, jCbxGenero_GME,
                 jBtnConfirmar_GME, jBtnCancelar_GME
         );
-        Util_GME.habilitar(false, jBtnIncluir_GME,jBtnAlterar_GME,jBtnExcluir_GME, jBtnPesquisar_GME);
+        Util_GME.habilitar(false, jBtnIncluir_GME, jBtnAlterar_GME, jBtnExcluir_GME, jBtnPesquisar_GME);
     }//GEN-LAST:event_jBtnIncluir_GMEActionPerformed
 
     private void jCbxEstadoCivil_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCbxEstadoCivil_GMEActionPerformed
-       
+
     }//GEN-LAST:event_jCbxEstadoCivil_GMEActionPerformed
 
     private void jTxtNomePessoal_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtNomePessoal_GMEActionPerformed
- 
+
     }//GEN-LAST:event_jTxtNomePessoal_GMEActionPerformed
 
     /**

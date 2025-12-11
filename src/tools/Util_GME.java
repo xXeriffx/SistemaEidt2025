@@ -68,18 +68,18 @@ public class Util_GME {
         return opcao == JOptionPane.YES_OPTION;
     }
     
-    public static int strToInt(String num){
-        return Integer.valueOf(num);
+    public static int strToInt(String cad){
+        return Integer.parseInt(cad);
     }
-    
-    public static String intToStr(String cad){
-        return String.valueOf(cad);
+    public static String intToStr(int num){
+        return String.valueOf(num);
     }
-    
     public static double strToDouble(String cad){
-    return Double.valueOf(cad);
+        return Double.parseDouble(cad);
     }
-    
+    public static String doubleToStr(double num){
+        return String.valueOf(num);
+    }
     
     //O lucas Boeira me ajudou nessa parte, eu usei o chat mas não parecia em nada com oque a gente viu na sala. 
     
