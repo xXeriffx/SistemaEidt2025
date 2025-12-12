@@ -28,11 +28,10 @@ public class JDlgVendas_produtos_GME extends javax.swing.JDialog {
         initComponents();
         setTitle("Tela de Vendas Produtos");
         setLocationRelativeTo(null);
+        jTxt_quantidade_GME.setText("1");
         Util_GME.habilitar(true, jCbxProduto_GME, jTxt_quantidade_GME,
                 jBtn_OK_GME, jBtn_Sair_GME);
-        Util_GME.habilitar(false,jTxt_ValorUnitario_GME, jTxt_code_GME, jTxt_Total_GME);
-jTxt_quantidade_GME.setText("1");
-        jCbxProduto_GME.removeAllItems();
+        Util_GME.habilitar(false, jTxt_ValorUnitario_GME, jTxt_code_GME, jTxt_Total_GME);
         ProdutosDAO produtosDAO = new ProdutosDAO();
         List listaPD = (List) produtosDAO.listAll();
         for (Object object : listaPD) {
@@ -203,17 +202,17 @@ jTxt_quantidade_GME.setText("1");
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTxt_quantidade_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_quantidade_GMEActionPerformed
-         if (jTxt_quantidade_GME.getText().isEmpty()== false) {
-            Produtos produtos = (Produtos) jCbxProduto_GME.getSelectedItem();        
+        if (jTxt_quantidade_GME.getText().isEmpty() == false) {
+            Produtos produtos = (Produtos) jCbxProduto_GME.getSelectedItem();
             int quant = Util_GME.strToInt(jTxt_quantidade_GME.getText());
-            jTxt_Total_GME.setText(Util_GME.doubleToStr(quant * produtos.getGmeValorUnitario() ));                
+            jTxt_Total_GME.setText(Util_GME.doubleToStr(quant * produtos.getGmeValorUnitario()));
         } else {
             jTxt_Total_GME.setText("");
         }
     }//GEN-LAST:event_jTxt_quantidade_GMEActionPerformed
 
     private void jTxt_ValorUnitario_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_ValorUnitario_GMEActionPerformed
-        
+
     }//GEN-LAST:event_jTxt_ValorUnitario_GMEActionPerformed
 
     private void jBtn_OK_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_OK_GMEActionPerformed
@@ -244,16 +243,13 @@ jTxt_quantidade_GME.setText("1");
 
     private void jBtn_Sair_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_Sair_GMEActionPerformed
         if (Util_GME.perguntar("Deseja cancelar esse registro de Venda Produto?") == true) {
-            Util_GME.Limpar(jTxt_code_GME, jTxt_ValorUnitario_GME, jCbxProduto_GME, jTxt_quantidade_GME);
-
-            Util_GME.habilitar(false, jTxt_code_GME, jTxt_ValorUnitario_GME, jCbxProduto_GME, jTxt_quantidade_GME,
-                    jBtn_OK_GME, jBtn_Sair_GME);
+            dispose();
 
         }
     }//GEN-LAST:event_jBtn_Sair_GMEActionPerformed
 
     private void jTxt_Total_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_Total_GMEActionPerformed
-        
+
     }//GEN-LAST:event_jTxt_Total_GMEActionPerformed
 
     private void jCbxProduto_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCbxProduto_GMEActionPerformed

@@ -38,8 +38,6 @@ public class JFrmPrincipal_GME extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMnuMovimento_GME = new javax.swing.JMenu();
         jMnuVenda_GME = new javax.swing.JMenuItem();
-        jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -109,17 +107,6 @@ public class JFrmPrincipal_GME extends javax.swing.JFrame {
             }
         });
         jMnuMovimento_GME.add(jMnuVenda_GME);
-        jMnuMovimento_GME.add(jSeparator1);
-
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produto_1.png"))); // NOI18N
-        jMenuItem2.setText("Venda Produtos");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMnuMovimento_GME.add(jMenuItem2);
 
         jMenuBar1.add(jMnuMovimento_GME);
 
@@ -164,14 +151,9 @@ public class JFrmPrincipal_GME extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMnuVenda_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuVenda_GMEActionPerformed
-       JDlgVendas_GME jDlgVendas_GME = new JDlgVendas_GME(null,true);
-       jDlgVendas_GME.setVisible(true);
+        JDlgVendas_GME jDlgVendas_GME = new JDlgVendas_GME(null,true);
+        jDlgVendas_GME.setVisible(true);
     }//GEN-LAST:event_jMnuVenda_GMEActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        JDlgVendas_produtos_GME jDlgVendas_produtos_GME = new JDlgVendas_produtos_GME(null,true);
-        jDlgVendas_produtos_GME.setVisible(true);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -213,7 +195,6 @@ public class JFrmPrincipal_GME extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMnuClientes_GME;
     private javax.swing.JMenuItem jMnuEmpresas_GME;
     private javax.swing.JMenu jMnuMovimento_GME;
@@ -221,7 +202,6 @@ public class JFrmPrincipal_GME extends javax.swing.JFrame {
     private javax.swing.JMenu jMnuSair_GME;
     private javax.swing.JMenuItem jMnuUsuarios_GME;
     private javax.swing.JMenuItem jMnuVenda_GME;
-    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     // End of variables declaration//GEN-END:variables
 }

@@ -392,7 +392,8 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtn_Pesquisar_GMEActionPerformed
 
     private void jBtn_side_adicionar_sideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_side_adicionar_sideActionPerformed
-
+        JDlgVendas_produtos_GME jDlgVendas_produtos_GME = new JDlgVendas_produtos_GME(null,true);
+        jDlgVendas_produtos_GME.setVisible(true);
     }//GEN-LAST:event_jBtn_side_adicionar_sideActionPerformed
 
     private void jTxt_valor_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_valor_GMEActionPerformed
