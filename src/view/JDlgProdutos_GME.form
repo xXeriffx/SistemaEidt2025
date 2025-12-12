@@ -30,8 +30,8 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jBtnIncluir_GME" alignment="0" min="-2" pref="119" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="preco_GME" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTxtPreco_GME" alignment="0" max="32767" attributes="0"/>
+                              <Component id="Valor_GME" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTxtValor_GME" alignment="0" max="32767" attributes="0"/>
                               <Component id="jTxtNome_GME" alignment="0" max="32767" attributes="0"/>
                               <Component id="Nome_GME" alignment="0" min="-2" pref="119" max="-2" attributes="0"/>
                           </Group>
@@ -126,12 +126,12 @@
                       </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="preco_GME" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Valor_GME" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTxt_Catagoria_GME" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTxtPreco_GME" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTxtValor_GME" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jCbo_categoria_GME" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jCbx_Edição_Limitadal_GME" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -253,12 +253,12 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="preco_GME">
+    <Component class="javax.swing.JLabel" name="Valor_GME">
       <Properties>
         <Property name="text" type="java.lang.String" value="Valor Unitario"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTxtPreco_GME">
+    <Component class="javax.swing.JTextField" name="jTxtValor_GME">
     </Component>
     <Component class="javax.swing.JCheckBox" name="jCbx_Edi&#xe7;&#xe3;o_Limitadal_GME">
       <Properties>

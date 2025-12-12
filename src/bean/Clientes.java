@@ -234,6 +234,21 @@ public class Clientes  implements java.io.Serializable {
     }
 
 
+    @Override
+    public String toString() {
+        return this.gmeNomePessoal;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object instanceof Clientes) {
+            Clientes clientes = (Clientes) object;
+            if (this.getGmeIdClientes() == clientes.getGmeIdClientes()) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 
 

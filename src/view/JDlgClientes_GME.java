@@ -5,6 +5,7 @@
 package view;
 
 import bean.Clientes;
+import dao.ClientesDAO;
 import tools.Util_GME;
 
 /**
@@ -37,18 +38,37 @@ public class JDlgClientes_GME extends javax.swing.JDialog {
         clientes.setGmeEmailPessoal(jTxtEmail_pessoal_GME.getText());
         clientes.setGmeTelefonePessoal(jFmt_telefone_pessoal_GME.getText());
         clientes.setGmeDatanasc(Util_GME.strToDate(jFmt_Datanasc_GME.getText()));
-        //clientes.setGmeGenero(Util_GME.intToStr(jCbxGenero_GME.getSelectedItem()));
-        //clientes.setGmeEstadocivil(Util_GME.intToStr(jCbxEstadoCivil_GME.getSelectedItem()));
-        //clientes.setGmeCargo;
+        clientes.setGmeGenero(jCbxGenero_GME.getSelectedIndex());
+        clientes.setGmeEstadocivil(jCbxEstadoCivil_GME.getSelectedIndex());
+        clientes.setGmeCargo(jTxtCargo_GME.getText());
         clientes.setGmeNomeLoja(jTxtNomeLoja_GME.getText());
         clientes.setGmeEmailLoja(jTxtEmailLoja_GME.getText());
         clientes.setGmeTelefoneLoja(jTxtNomeLoja_GME.getText());
-        //clientes.setGmeDataCadastro;
+        clientes.setGmeDataCadastro(Util_GME.strToDate(jFmt_DataCadastro_GME.getText()));
         clientes.setGmeCnpj(jFmt_CNPJ_GME.getText());
         clientes.setGmeCep(jFmt_CEP_GME.getText());
         clientes.setGmeNumero(jTxtnumero_GME.getText());
 
         return clientes;
+    }
+
+    public void beanView(Clientes clientes) {
+        jTxtCodigo_GME.setText(Util_GME.intToStr(clientes.getGmeIdClientes()));
+        jTxtCargo_GME.setText(clientes.getGmeCargo());
+        jTxtEmailLoja_GME.setText(clientes.getGmeEmailLoja());
+        jTxtEmail_pessoal_GME.setText(clientes.getGmeEmailPessoal());
+        jTxtNomeLoja_GME.setText(clientes.getGmeNomeLoja());
+        jTxtNomePessoal_GME.setText(clientes.getGmeNomePessoal());
+        jTxtnumero_GME.setText(clientes.getGmeNumero());
+
+        jCbxEstadoCivil_GME.setSelectedIndex(clientes.getGmeEstadocivil());
+        jCbxGenero_GME.setSelectedIndex(clientes.getGmeGenero());
+
+        jFmt_CEP_GME.setText(clientes.getGmeCep());
+        jFmt_CNPJ_GME.setText(clientes.getGmeCnpj());
+        jFmt_telefone_pessoal_GME.setText(clientes.getGmeTelefonePessoal());
+        jFmt_Datanasc_GME.setText(Util_GME.dateToStr(clientes.getGmeDatanasc()));
+        jFmt_DataCadastro_GME.setText(Util_GME.dateToStr(clientes.getGmeDataCadastro()));
     }
 
     /**
@@ -403,6 +423,16 @@ public class JDlgClientes_GME extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtnConfirmar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmar_GMEActionPerformed
+        ClientesDAO clientesDAO = new ClientesDAO();
+        if (incluir == true) {
+
+            clientesDAO.insert(viewBean());
+
+        } else {
+
+            clientesDAO.update(viewBean());
+        }
+        
         Util_GME.Limpar(jTxtCodigo_GME, jTxtCargo_GME, jTxtCodigo_GME, jTxtEmailLoja_GME, jTxtEmail_pessoal_GME,
                 jTxtNomeLoja_GME, jTxtNomePessoal_GME, jTxtnumero_GME, jFmt_CEP_GME, jFmt_CNPJ_GME, jFmt_DataCadastro_GME,
                 jFmt_Datanasc_GME, jFmt_telefone_loja_GME, jFmt_telefone_pessoal_GME, jCbxEstadoCivil_GME, jCbxGenero_GME);
@@ -465,6 +495,8 @@ public class JDlgClientes_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtnPesquisar_GMEActionPerformed
 
     private void jBtnAlterar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterar_GMEActionPerformed
+        incluir = false;
+        
         Util_GME.habilitar(true, jTxtCargo_GME, jTxtCodigo_GME, jTxtEmailLoja_GME, jTxtEmail_pessoal_GME,
                 jTxtNomeLoja_GME, jTxtNomePessoal_GME, jTxtnumero_GME,
                 jFmt_CEP_GME, jFmt_CNPJ_GME, jFmt_DataCadastro_GME, jFmt_Datanasc_GME, jFmt_telefone_loja_GME, jFmt_telefone_pessoal_GME,
@@ -479,6 +511,8 @@ public class JDlgClientes_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jCbxGenero_GMEActionPerformed
 
     private void jBtnIncluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluir_GMEActionPerformed
+        incluir = true;
+        
         Util_GME.habilitar(true, jTxtCodigo_GME, jTxtCargo_GME, jTxtCodigo_GME, jTxtEmailLoja_GME, jTxtEmail_pessoal_GME,
                 jTxtNomeLoja_GME, jTxtNomePessoal_GME, jTxtnumero_GME,
                 jFmt_CEP_GME, jFmt_CNPJ_GME, jFmt_DataCadastro_GME, jFmt_Datanasc_GME, jFmt_telefone_loja_GME, jFmt_telefone_pessoal_GME,

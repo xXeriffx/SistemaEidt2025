@@ -4,7 +4,16 @@
  */
 package view;
 
+import bean.Empresas;
+import bean.Usuarios;
+import bean.Clientes;
+import bean.Venda;
 import tools.Util_GME;
+import dao.ClientesDAO;
+import dao.EmpresasDAO;
+import dao.UsuariosDAO;
+import dao.VendaDAO;
+import java.util.List;
 
 /**
  *
@@ -18,16 +27,47 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
     public JDlgVendas_GME(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-         setTitle("Tela de Vendas");
+        setTitle("Tela de Vendas");
         setLocationRelativeTo(null);
+
+        jCbx_clientes_GME.removeAllItems();
+        ClientesDAO clientesdao = new ClientesDAO();
+        List listaCL = (List)clientesdao.listAll();
+        for (Object object : listaCL) {
+            jCbx_clientes_GME.addItem((Clientes) object);
+        }
+        jCbx_empresas_GME.removeAllItems();
+        EmpresasDAO empresasDAO = new EmpresasDAO();
+        List listaEM = (List) empresasDAO.listAll();
+        for (Object object : listaEM) {
+            jCbx_empresas_GME.addItem((Empresas) object);
+        }
+        jCbx_usuarios_GME.removeAllItems();
+        UsuariosDAO usuariosDAO = new UsuariosDAO();
+        List listaUS = (List) usuariosDAO.listAll();
+        for (Object object : listaUS) {
+            jCbx_usuarios_GME.addItem((Usuarios) object);
+        }
+
+        Util_GME.habilitar(false, jTxt_code_GME, jCbx_clientes_GME,jCbx_empresas_GME, jCbx_usuarios_GME,
+                jTxt_data_GME, jTxt_valor_GME, jBtn_alterar_GME, jBtn_excluir_GME, jBtn_confirmar_GME, jBtn_cancelar_GME,
+                jBtn_side_adicionar_side, jBtn_side_alterar_GME, jBtn_side_delete_GME);
+    }
+
+    private boolean incluir;
+
+    public Venda viewBean() {
+        Venda venda = new Venda();
+        venda.setGmeIdVenda(Util_GME.strToInt(jTxt_code_GME.getText()));
+            
+        venda.setUsuarios((Usuarios) jCbx_usuarios_GME.getSelectedItem()); 
+        venda.setClientes((Clientes) jCbx_clientes_GME.getSelectedItem());
+        venda.setEmpresas((Empresas) jCbx_empresas_GME.getSelectedItem());
         
-        Util_GME.habilitar(false, jTxt_code_GME, jTxt_code_clientes_GME, jTxt_code_empresas_GME, jTxt_code_usuario_GME,
-                jTxt_data_GME,jTxt_valor_GME,
-                
-                jBtn_alterar_GME,jBtn_excluir_GME,jBtn_confirmar_GME,jBtn_cancelar_GME,
-                
-                jBtn_side_adicionar_side,jBtn_side_alterar_GME,jBtn_side_delete_GME
-        );
+        venda.setGmeData(Util_GME.strToDate(jTxt_data_GME.getText()));
+        venda.setGmeTotal(Util_GME.strToDouble(jTxt_valor_GME.getText()));
+        
+        return venda;
     }
 
     /**
@@ -53,15 +93,15 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
         jBtn_confirmar_GME = new javax.swing.JButton();
         jTxt_code_GME = new javax.swing.JTextField();
         jBtn_cancelar_GME = new javax.swing.JButton();
-        jTxt_code_clientes_GME = new javax.swing.JTextField();
         jBtn_Pesquisar_GME = new javax.swing.JButton();
-        jTxt_code_usuario_GME = new javax.swing.JTextField();
         jBtn_side_adicionar_side = new javax.swing.JButton();
         jTxt_valor_GME = new javax.swing.JTextField();
         jBtn_side_alterar_GME = new javax.swing.JButton();
         jTxt_data_GME = new javax.swing.JTextField();
-        jTxt_code_empresas_GME = new javax.swing.JTextField();
         jLbl_code_empresas_GME = new javax.swing.JLabel();
+        jCbx_clientes_GME = new javax.swing.JComboBox<Clientes>();
+        jCbx_empresas_GME = new javax.swing.JComboBox<Empresas>();
+        jCbx_usuarios_GME = new javax.swing.JComboBox<Usuarios>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -147,23 +187,11 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
             }
         });
 
-        jTxt_code_clientes_GME.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxt_code_clientes_GMEActionPerformed(evt);
-            }
-        });
-
         jBtn_Pesquisar_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pesquisar_1.png"))); // NOI18N
         jBtn_Pesquisar_GME.setText("Pesquisar");
         jBtn_Pesquisar_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtn_Pesquisar_GMEActionPerformed(evt);
-            }
-        });
-
-        jTxt_code_usuario_GME.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxt_code_usuario_GMEActionPerformed(evt);
             }
         });
 
@@ -191,12 +219,6 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
         jTxt_data_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTxt_data_GMEActionPerformed(evt);
-            }
-        });
-
-        jTxt_code_empresas_GME.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxt_code_empresas_GMEActionPerformed(evt);
             }
         });
 
@@ -228,16 +250,16 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
                                 .addComponent(jTxt_code_GME, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTxt_code_clientes_GME)
-                                .addComponent(jLbl_code_clientes_GME, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTxt_code_usuario_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLbl_code_usuario_GME))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLbl_code_empresas_GME)
-                                .addComponent(jTxt_code_empresas_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLbl_code_clientes_GME, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                                .addComponent(jCbx_clientes_GME, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGap(27, 27, 27)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLbl_code_usuario_GME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jCbx_usuarios_GME, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGap(37, 37, 37)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLbl_code_empresas_GME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jCbx_empresas_GME, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jTxt_valor_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -268,8 +290,9 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTxt_code_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTxt_code_clientes_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTxt_code_usuario_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jCbx_clientes_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCbx_empresas_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCbx_usuarios_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLbl_valor_GME)
@@ -280,15 +303,12 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
                             .addComponent(jTxt_valor_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLbl_code_empresas_GME)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTxt_code_empresas_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(26, 26, 26)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
                         .addComponent(jBtn_side_adicionar_side, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jBtn_side_alterar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -308,108 +328,103 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void jBtn_side_delete_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_side_delete_GMEActionPerformed
-        if(Util_GME.perguntar("Deseja Deletar esse registro de Venda?") == true){
+        if (Util_GME.perguntar("Deseja Deletar esse registro de Venda?") == true) {
         }
     }//GEN-LAST:event_jBtn_side_delete_GMEActionPerformed
 
     private void jBtn_incluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_incluir_GMEActionPerformed
-        Util_GME.habilitar(true, jTxt_code_GME, jTxt_code_clientes_GME, jTxt_code_empresas_GME, jTxt_code_usuario_GME,
-                jTxt_data_GME,jTxt_valor_GME,
-                
-                jBtn_alterar_GME,jBtn_excluir_GME,jBtn_confirmar_GME,jBtn_cancelar_GME,
-                
-                jBtn_side_adicionar_side,jBtn_side_alterar_GME,jBtn_side_delete_GME
+        incluir = true;
+        
+        Util_GME.habilitar(true, jTxt_code_GME,  jCbx_clientes_GME,jCbx_empresas_GME, jCbx_usuarios_GME,
+                jTxt_data_GME, jTxt_valor_GME,
+                jBtn_alterar_GME, jBtn_excluir_GME, jBtn_confirmar_GME, jBtn_cancelar_GME,
+                jBtn_side_adicionar_side, jBtn_side_alterar_GME, jBtn_side_delete_GME
         );
         Util_GME.habilitar(false, jBtn_incluir_GME, jBtn_Pesquisar_GME);
     }//GEN-LAST:event_jBtn_incluir_GMEActionPerformed
 
     private void jBtn_alterar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_alterar_GMEActionPerformed
-        
+        incluir = false;
     }//GEN-LAST:event_jBtn_alterar_GMEActionPerformed
 
     private void jBtn_excluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_excluir_GMEActionPerformed
-        if(Util_GME.perguntar("Deseja excluir esse registro de Venda?") == true){
-            Util_GME.Limpar(jTxt_code_GME, jTxt_code_clientes_GME, jTxt_code_empresas_GME, jTxt_code_usuario_GME,
-                jTxt_data_GME,jTxt_valor_GME);
-            
-            Util_GME.habilitar(false, jTxt_code_GME, jTxt_code_clientes_GME, jTxt_code_empresas_GME, jTxt_code_usuario_GME,
-                jTxt_data_GME,jTxt_valor_GME,
-                
-                jBtn_alterar_GME,jBtn_excluir_GME,jBtn_confirmar_GME,jBtn_cancelar_GME,
-                
-                jBtn_side_adicionar_side,jBtn_side_alterar_GME,jBtn_side_delete_GME
-        );
-        Util_GME.habilitar(true, jBtn_incluir_GME, jBtn_Pesquisar_GME);
+        if (Util_GME.perguntar("Deseja excluir esse registro de Venda?") == true) {
+            Util_GME.Limpar(jTxt_code_GME,  jCbx_clientes_GME,jCbx_empresas_GME, jCbx_usuarios_GME,
+                    jTxt_data_GME, jTxt_valor_GME);
+
+            Util_GME.habilitar(false, jTxt_code_GME,  jCbx_clientes_GME,jCbx_empresas_GME, jCbx_usuarios_GME,
+                    jTxt_data_GME, jTxt_valor_GME,
+                    jBtn_alterar_GME, jBtn_excluir_GME, jBtn_confirmar_GME, jBtn_cancelar_GME,
+                    jBtn_side_adicionar_side, jBtn_side_alterar_GME, jBtn_side_delete_GME
+            );
+            Util_GME.habilitar(true, jBtn_incluir_GME, jBtn_Pesquisar_GME);
         }
     }//GEN-LAST:event_jBtn_excluir_GMEActionPerformed
 
     private void jBtn_confirmar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_confirmar_GMEActionPerformed
-        Util_GME.Limpar(jTxt_code_GME, jTxt_code_clientes_GME, jTxt_code_empresas_GME, jTxt_code_usuario_GME,
-                jTxt_data_GME,jTxt_valor_GME);
         
-        Util_GME.habilitar(false, jTxt_code_GME, jTxt_code_clientes_GME, jTxt_code_empresas_GME, jTxt_code_usuario_GME,
-                jTxt_data_GME,jTxt_valor_GME,
-                
-                jBtn_alterar_GME,jBtn_excluir_GME,jBtn_confirmar_GME,jBtn_cancelar_GME,
-                
-                jBtn_side_adicionar_side,jBtn_side_alterar_GME,jBtn_side_delete_GME
+        VendaDAO vendaDAO = new VendaDAO();
+        
+        if (incluir == true) {
+
+            vendaDAO.insert(viewBean());
+
+        } else {
+
+            vendaDAO.update(viewBean());
+        }
+        
+        Util_GME.Limpar(jTxt_code_GME,  jCbx_clientes_GME,jCbx_empresas_GME, jCbx_usuarios_GME,
+                jTxt_data_GME, jTxt_valor_GME);
+
+        Util_GME.habilitar(false, jTxt_code_GME,  jCbx_clientes_GME,jCbx_empresas_GME, jCbx_usuarios_GME,
+                jTxt_data_GME, jTxt_valor_GME,
+                jBtn_alterar_GME, jBtn_excluir_GME, jBtn_confirmar_GME, jBtn_cancelar_GME,
+                jBtn_side_adicionar_side, jBtn_side_alterar_GME, jBtn_side_delete_GME
         );
         Util_GME.habilitar(true, jBtn_incluir_GME, jBtn_Pesquisar_GME);
     }//GEN-LAST:event_jBtn_confirmar_GMEActionPerformed
 
     private void jTxt_code_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_code_GMEActionPerformed
-      
+
     }//GEN-LAST:event_jTxt_code_GMEActionPerformed
 
     private void jBtn_cancelar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_cancelar_GMEActionPerformed
-        if(Util_GME.perguntar("Deseja cancelar esse registro de Venda?") == true){
-            Util_GME.Limpar(jTxt_code_GME, jTxt_code_clientes_GME, jTxt_code_empresas_GME, jTxt_code_usuario_GME,
-                jTxt_data_GME,jTxt_valor_GME);
-            
-            Util_GME.habilitar(false, jTxt_code_GME, jTxt_code_clientes_GME, jTxt_code_empresas_GME, jTxt_code_usuario_GME,
-                jTxt_data_GME,jTxt_valor_GME,
-                
-                jBtn_alterar_GME,jBtn_excluir_GME,jBtn_confirmar_GME,jBtn_cancelar_GME,
-                
-                jBtn_side_adicionar_side,jBtn_side_alterar_GME,jBtn_side_delete_GME
-        );
-        Util_GME.habilitar(true, jBtn_incluir_GME, jBtn_Pesquisar_GME);
+        if (Util_GME.perguntar("Deseja cancelar esse registro de Venda?") == true) {
+            Util_GME.Limpar(jTxt_code_GME,  jCbx_clientes_GME,jCbx_empresas_GME, jCbx_usuarios_GME,
+                    jTxt_data_GME, jTxt_valor_GME);
+
+            Util_GME.habilitar(false, jTxt_code_GME,  jCbx_clientes_GME,jCbx_empresas_GME, jCbx_usuarios_GME,
+                    jTxt_data_GME, jTxt_valor_GME,
+                    jBtn_alterar_GME, jBtn_excluir_GME, jBtn_confirmar_GME, jBtn_cancelar_GME,
+                    jBtn_side_adicionar_side, jBtn_side_alterar_GME, jBtn_side_delete_GME
+            );
+            Util_GME.habilitar(true, jBtn_incluir_GME, jBtn_Pesquisar_GME);
         }
     }//GEN-LAST:event_jBtn_cancelar_GMEActionPerformed
 
-    private void jTxt_code_clientes_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_code_clientes_GMEActionPerformed
-        
-    }//GEN-LAST:event_jTxt_code_clientes_GMEActionPerformed
-
     private void jBtn_Pesquisar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_Pesquisar_GMEActionPerformed
-        JDlgVendasPesquisar_GME jDlgVendasPesquisar_GME = new JDlgVendasPesquisar_GME(null,true);
-         jDlgVendasPesquisar_GME.setVisible(true);
+        JDlgVendasPesquisar_GME jDlgVendasPesquisar_GME = new JDlgVendasPesquisar_GME(null, true);
+        jDlgVendasPesquisar_GME.setVisible(true);
     }//GEN-LAST:event_jBtn_Pesquisar_GMEActionPerformed
 
-    private void jTxt_code_usuario_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_code_usuario_GMEActionPerformed
-        
-    }//GEN-LAST:event_jTxt_code_usuario_GMEActionPerformed
-
     private void jBtn_side_adicionar_sideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_side_adicionar_sideActionPerformed
-       
+
     }//GEN-LAST:event_jBtn_side_adicionar_sideActionPerformed
 
     private void jTxt_valor_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_valor_GMEActionPerformed
-      
+
     }//GEN-LAST:event_jTxt_valor_GMEActionPerformed
 
     private void jBtn_side_alterar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_side_alterar_GMEActionPerformed
-       
+
     }//GEN-LAST:event_jBtn_side_alterar_GMEActionPerformed
 
     private void jTxt_data_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_data_GMEActionPerformed
-     
-    }//GEN-LAST:event_jTxt_data_GMEActionPerformed
 
-    private void jTxt_code_empresas_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_code_empresas_GMEActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTxt_code_empresas_GMEActionPerformed
+    }//GEN-LAST:event_jTxt_data_GMEActionPerformed
 
     /**
      * @param args the command line arguments
@@ -463,6 +478,9 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
     private javax.swing.JButton jBtn_side_adicionar_side;
     private javax.swing.JButton jBtn_side_alterar_GME;
     private javax.swing.JButton jBtn_side_delete_GME;
+    private javax.swing.JComboBox<Clientes> jCbx_clientes_GME;
+    private javax.swing.JComboBox<Empresas> jCbx_empresas_GME;
+    private javax.swing.JComboBox<Usuarios> jCbx_usuarios_GME;
     private javax.swing.JLabel jLbl_code_GME;
     private javax.swing.JLabel jLbl_code_clientes_GME;
     private javax.swing.JLabel jLbl_code_empresas_GME;
@@ -472,10 +490,8 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTbl_Colunas_GME;
     private javax.swing.JTextField jTxt_code_GME;
-    private javax.swing.JTextField jTxt_code_clientes_GME;
-    private javax.swing.JTextField jTxt_code_empresas_GME;
-    private javax.swing.JTextField jTxt_code_usuario_GME;
     private javax.swing.JTextField jTxt_data_GME;
     private javax.swing.JTextField jTxt_valor_GME;
     // End of variables declaration//GEN-END:variables
+
 }

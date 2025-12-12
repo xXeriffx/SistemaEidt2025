@@ -26,13 +26,13 @@ public class VendaProduto  implements java.io.Serializable {
      private int gmeIdVendaProduto;
      private Produtos produtos;
      private Venda venda;
-     private short gmeQuantidade;
+     private int gmeQuantidade;
      private double gmeValorUnitario;
 
     public VendaProduto() {
     }
 
-    public VendaProduto(Produtos produtos, Venda venda, short gmeQuantidade, double gmeValorUnitario) {
+    public VendaProduto(Produtos produtos, Venda venda, int gmeQuantidade, double gmeValorUnitario) {
        this.produtos = produtos;
        this.venda = venda;
        this.gmeQuantidade = gmeQuantidade;
@@ -73,11 +73,11 @@ public class VendaProduto  implements java.io.Serializable {
 
     
     @Column(name="gme_quantidade", nullable=false)
-    public short getGmeQuantidade() {
+    public int getGmeQuantidade() {
         return this.gmeQuantidade;
     }
     
-    public void setGmeQuantidade(short gmeQuantidade) {
+    public void setGmeQuantidade(int gmeQuantidade) {
         this.gmeQuantidade = gmeQuantidade;
     }
 

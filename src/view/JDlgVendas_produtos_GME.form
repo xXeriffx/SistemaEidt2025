@@ -33,13 +33,13 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTxt_code_Venda_GME" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLbl_code_Venda_GME" alignment="0" pref="99" max="32767" attributes="0"/>
+                          <Component id="jLbl_Venda_GME" max="32767" attributes="0"/>
+                          <Component id="jCbxVenda_GME" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLbl_code_produto_GME" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTxt_code_produto_GME" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jCbxProduto_GME" max="32767" attributes="0"/>
+                          <Component id="jLbl_produto_GME" pref="99" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -92,14 +92,14 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLbl_code_GME" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLbl_code_produto_GME" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLbl_code_Venda_GME" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLbl_produto_GME" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLbl_Venda_GME" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jTxt_code_GME" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTxt_code_Venda_GME" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTxt_code_produto_GME" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCbxVenda_GME" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCbxProduto_GME" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
@@ -260,14 +260,9 @@
         <Property name="text" type="java.lang.String" value="C&#xf3;digo"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTxt_code_Venda_GME">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTxt_code_Venda_GMEActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLbl_code_Venda_GME">
+    <Component class="javax.swing.JLabel" name="jLbl_Venda_GME">
       <Properties>
-        <Property name="text" type="java.lang.String" value="C&#xf3;digo Venda"/>
+        <Property name="text" type="java.lang.String" value="Empresa adquirente "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jBtn_Pesquisar_GME">
@@ -292,14 +287,9 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtn_incluir_GMEActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTxt_code_produto_GME">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTxt_code_produto_GMEActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLbl_code_produto_GME">
+    <Component class="javax.swing.JLabel" name="jLbl_produto_GME">
       <Properties>
-        <Property name="text" type="java.lang.String" value="C&#xf3;digo Produto"/>
+        <Property name="text" type="java.lang.String" value="Produto Vendido"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jBtn_side_adicionar_side">
@@ -314,6 +304,28 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtn_side_adicionar_sideActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jCbxVenda_GME">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JComboBox&lt;Venda&gt;()"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Venda&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jCbxProduto_GME">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JComboBox&lt;Produtos&gt;()"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Produtos&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

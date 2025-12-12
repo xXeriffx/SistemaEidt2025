@@ -142,7 +142,20 @@ public class Usuarios  implements java.io.Serializable {
         this.gmeAtivo = gmeAtivo;
     }
 
-
+@Override
+public String toString() {
+return this.gmeNome;
+}
+@Override
+public boolean equals(Object object) {
+if (object instanceof Usuarios) {
+Usuarios usuarios = (Usuarios) object;
+if (this.getGmeIdUsuarios()== usuarios.getGmeIdUsuarios()) {
+return true;
+}
+}
+return false;
+}
 
 
 

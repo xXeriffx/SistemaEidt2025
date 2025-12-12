@@ -4,6 +4,8 @@
  */
 package view;
 
+import bean.Empresas;
+import dao.EmpresasDAO;
 import tools.Util_GME;
 
 /**
@@ -20,15 +22,40 @@ public class JDlgEmpresas_GME extends javax.swing.JDialog {
         initComponents();
         setTitle("Tela de Cadastro de Empresas");
         setLocationRelativeTo(null);
-        
-        Util_GME.habilitar(false, jTxtCodigo_GME,jTxtNomeEMPRE_GME,jTxtNomeREP_GME,jTxtnumero_GME , jTxtCodigo_GME,
-                jTxtnumero_GME,
-                
-                jFmt_CEP_GME,jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
 
-                jBtnCancelar_GME,jBtnConfirmar_GME,jBtnExcluir_GME,jBtnAlterar_GME
-        );
-        Util_GME.habilitar(true,jBtnIncluir_GME, jBtnPesquisar_GME);
+        Util_GME.habilitar(false, jTxtCodigo_GME, jTxtNomeEMPRE_GME, jTxtNomeREP_GME, jTxtnumero_GME, jTxtCodigo_GME,
+                jTxtnumero_GME, jFmt_CEP_GME, jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME, jBtnCancelar_GME,
+                jBtnConfirmar_GME, jBtnExcluir_GME, jBtnAlterar_GME);
+        Util_GME.habilitar(true, jBtnIncluir_GME, jBtnPesquisar_GME);
+    }
+
+    private boolean incluir;
+
+    public Empresas viewBean() {
+        Empresas empresa = new Empresas();
+
+        empresa.setGmeIdEmpresas(Util_GME.strToInt(jTxtCodigo_GME.getText()));
+        empresa.setGmeNomeEmpresa(jTxtNomeEMPRE_GME.getText());
+        empresa.setGmeNomeRepresentante(jTxtNomeREP_GME.getText());
+        empresa.setGmeNumero(jTxtnumero_GME.getText());
+        empresa.setGmeCep(jFmt_CEP_GME.getText());
+        empresa.setGmeTelefoneEmpresa(jFmt_TEL_EMPRE_GME.getText());
+        empresa.setGmeTelefoneRepresentante(jFmt_TEL_REP_GME.getText());
+        empresa.setGmeCnpj(jFmt_cnpj_GME.getText());
+
+        return empresa;
+    }
+
+    public void beanView(Empresas empresa) {
+        jTxtCodigo_GME.setText(Util_GME.intToStr(empresa.getGmeIdEmpresas()));
+        jTxtNomeEMPRE_GME.setText(empresa.getGmeNomeEmpresa());
+        jTxtNomeREP_GME.setText(empresa.getGmeNomeRepresentante());
+        jTxtnumero_GME.setText(empresa.getGmeNumero());
+
+        jFmt_CEP_GME.setText(empresa.getGmeCep());
+        jFmt_TEL_EMPRE_GME.setText(empresa.getGmeTelefoneEmpresa());
+        jFmt_TEL_REP_GME.setText(empresa.getGmeTelefoneRepresentante());
+        jFmt_cnpj_GME.setText(empresa.getGmeCnpj());
     }
 
     /**
@@ -274,39 +301,49 @@ public class JDlgEmpresas_GME extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtnAlterar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterar_GMEActionPerformed
-        Util_GME.habilitar(true,jTxtNomeEMPRE_GME,jTxtNomeREP_GME,jTxtnumero_GME , jTxtnumero_GME,
-                
-                jFmt_CEP_GME,jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
-               
-               jBtnCancelar_GME,jBtnExcluir_GME,jBtnConfirmar_GME
+        incluir = false;
+        
+        
+        
+        Util_GME.habilitar(true, jTxtNomeEMPRE_GME, jTxtNomeREP_GME, jTxtnumero_GME, jTxtnumero_GME,
+                jFmt_CEP_GME, jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
+                jBtnCancelar_GME, jBtnExcluir_GME, jBtnConfirmar_GME
         );
-        Util_GME.habilitar(false,jBtnIncluir_GME, jBtnPesquisar_GME, jBtnAlterar_GME);
+        Util_GME.habilitar(false, jBtnIncluir_GME, jBtnPesquisar_GME, jBtnAlterar_GME);
     }//GEN-LAST:event_jBtnAlterar_GMEActionPerformed
 
     private void jBtnIncluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluir_GMEActionPerformed
-        Util_GME.habilitar(true, jTxtCodigo_GME,jTxtNomeEMPRE_GME,jTxtNomeREP_GME,jTxtnumero_GME , jTxtCodigo_GME,
+       incluir = true;
+        
+        Util_GME.habilitar(true, jTxtCodigo_GME, jTxtNomeEMPRE_GME, jTxtNomeREP_GME, jTxtnumero_GME, jTxtCodigo_GME,
                 jTxtnumero_GME,
-                
-                jFmt_CEP_GME,jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
-
-                jBtnCancelar_GME,jBtnConfirmar_GME
+                jFmt_CEP_GME, jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
+                jBtnCancelar_GME, jBtnConfirmar_GME
         );
-        Util_GME.habilitar(false,jBtnIncluir_GME, jBtnPesquisar_GME,jBtnExcluir_GME,jBtnAlterar_GME);
+        Util_GME.habilitar(false, jBtnIncluir_GME, jBtnPesquisar_GME, jBtnExcluir_GME, jBtnAlterar_GME);
     }//GEN-LAST:event_jBtnIncluir_GMEActionPerformed
 
     private void jBtnConfirmar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmar_GMEActionPerformed
-        Util_GME.Limpar( jTxtCodigo_GME,jTxtNomeEMPRE_GME,jTxtNomeREP_GME,jTxtnumero_GME , jTxtCodigo_GME,
-                jTxtnumero_GME,jFmt_CEP_GME,jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
-                jBtnCancelar_GME,jBtnConfirmar_GME,jBtnExcluir_GME,jBtnAlterar_GME);
-        
-        Util_GME.habilitar(false, jTxtCodigo_GME,jTxtNomeEMPRE_GME,jTxtNomeREP_GME,jTxtnumero_GME , jTxtCodigo_GME,
-                jTxtnumero_GME,
-                
-                jFmt_CEP_GME,jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
+        EmpresasDAO empresasDAO = new EmpresasDAO();
+        if (incluir == true) {
 
-                jBtnCancelar_GME,jBtnConfirmar_GME,jBtnExcluir_GME,jBtnAlterar_GME
+            empresasDAO.insert(viewBean());
+
+        } else {
+
+            empresasDAO.update(viewBean());
+        }
+        
+        Util_GME.Limpar(jTxtCodigo_GME, jTxtNomeEMPRE_GME, jTxtNomeREP_GME, jTxtnumero_GME, jTxtCodigo_GME,
+                jTxtnumero_GME, jFmt_CEP_GME, jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
+                jBtnCancelar_GME, jBtnConfirmar_GME, jBtnExcluir_GME, jBtnAlterar_GME);
+
+        Util_GME.habilitar(false, jTxtCodigo_GME, jTxtNomeEMPRE_GME, jTxtNomeREP_GME, jTxtnumero_GME, jTxtCodigo_GME,
+                jTxtnumero_GME,
+                jFmt_CEP_GME, jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
+                jBtnCancelar_GME, jBtnConfirmar_GME, jBtnExcluir_GME, jBtnAlterar_GME
         );
-        Util_GME.habilitar(true,jBtnIncluir_GME, jBtnPesquisar_GME);
+        Util_GME.habilitar(true, jBtnIncluir_GME, jBtnPesquisar_GME);
     }//GEN-LAST:event_jBtnConfirmar_GMEActionPerformed
 
     private void jTxtNomeREP_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtNomeREP_GMEActionPerformed
@@ -314,42 +351,38 @@ public class JDlgEmpresas_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jTxtNomeREP_GMEActionPerformed
 
     private void jBtnExcluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluir_GMEActionPerformed
-        if(Util_GME.perguntar("Deseja excluir esse registro de Empresa?") == true){
-             Util_GME.Limpar( jTxtCodigo_GME,jTxtNomeEMPRE_GME,jTxtNomeREP_GME,jTxtnumero_GME , jTxtCodigo_GME,
-                jTxtnumero_GME,jFmt_CEP_GME,jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
-                jBtnCancelar_GME,jBtnConfirmar_GME,jBtnExcluir_GME,jBtnAlterar_GME);
+        if (Util_GME.perguntar("Deseja excluir esse registro de Empresa?") == true) {
+            Util_GME.Limpar(jTxtCodigo_GME, jTxtNomeEMPRE_GME, jTxtNomeREP_GME, jTxtnumero_GME, jTxtCodigo_GME,
+                    jTxtnumero_GME, jFmt_CEP_GME, jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
+                    jBtnCancelar_GME, jBtnConfirmar_GME, jBtnExcluir_GME, jBtnAlterar_GME);
         }
     }//GEN-LAST:event_jBtnExcluir_GMEActionPerformed
 
     private void jBtnCancelar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelar_GMEActionPerformed
-        if(Util_GME.perguntar("Deseja excluir esse registro de Empresa?") == true){
-            Util_GME.Limpar( jTxtCodigo_GME,jTxtNomeEMPRE_GME,jTxtNomeREP_GME,jTxtnumero_GME , jTxtCodigo_GME,
-                jTxtnumero_GME,jFmt_CEP_GME,jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
-                jBtnCancelar_GME,jBtnConfirmar_GME,jBtnExcluir_GME,jBtnAlterar_GME);
-            
-            Util_GME.habilitar(false, jTxtCodigo_GME,jTxtNomeEMPRE_GME,jTxtNomeREP_GME,jTxtnumero_GME , jTxtCodigo_GME,
-                jTxtnumero_GME,
-                
-                jFmt_CEP_GME,jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
+        if (Util_GME.perguntar("Deseja excluir esse registro de Empresa?") == true) {
+            Util_GME.Limpar(jTxtCodigo_GME, jTxtNomeEMPRE_GME, jTxtNomeREP_GME, jTxtnumero_GME, jTxtCodigo_GME,
+                    jTxtnumero_GME, jFmt_CEP_GME, jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
+                    jBtnCancelar_GME, jBtnConfirmar_GME, jBtnExcluir_GME, jBtnAlterar_GME);
 
-                jBtnCancelar_GME,jBtnConfirmar_GME,jBtnExcluir_GME,jBtnAlterar_GME
+            Util_GME.habilitar(false, jTxtCodigo_GME, jTxtNomeEMPRE_GME, jTxtNomeREP_GME, jTxtnumero_GME, jTxtCodigo_GME,
+                    jTxtnumero_GME,
+                    jFmt_CEP_GME, jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
+                    jBtnCancelar_GME, jBtnConfirmar_GME, jBtnExcluir_GME, jBtnAlterar_GME
             );
-            Util_GME.habilitar(true,jBtnIncluir_GME, jBtnPesquisar_GME);
-        }      
+            Util_GME.habilitar(true, jBtnIncluir_GME, jBtnPesquisar_GME);
+        }
     }//GEN-LAST:event_jBtnCancelar_GMEActionPerformed
 
     private void jBtnPesquisar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisar_GMEActionPerformed
-        JDlgEmpresasPesquisar_GME jDlgEmpresasPesquisar_GME = new JDlgEmpresasPesquisar_GME(null,true);
-         jDlgEmpresasPesquisar_GME.setVisible(true);
-  
-        Util_GME.habilitar(false, jTxtCodigo_GME,jTxtNomeEMPRE_GME,jTxtNomeREP_GME,jTxtnumero_GME , jTxtCodigo_GME,
+        JDlgEmpresasPesquisar_GME jDlgEmpresasPesquisar_GME = new JDlgEmpresasPesquisar_GME(null, true);
+        jDlgEmpresasPesquisar_GME.setVisible(true);
+
+        Util_GME.habilitar(false, jTxtCodigo_GME, jTxtNomeEMPRE_GME, jTxtNomeREP_GME, jTxtnumero_GME, jTxtCodigo_GME,
                 jTxtnumero_GME,
-                
-                jFmt_CEP_GME,jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
-               
-               jBtnIncluir_GME, jBtnPesquisar_GME
+                jFmt_CEP_GME, jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
+                jBtnIncluir_GME, jBtnPesquisar_GME
         );
-        Util_GME.habilitar(true,jBtnExcluir_GME,jBtnAlterar_GME,jBtnCancelar_GME);
+        Util_GME.habilitar(true, jBtnExcluir_GME, jBtnAlterar_GME, jBtnCancelar_GME);
     }//GEN-LAST:event_jBtnPesquisar_GMEActionPerformed
 
     private void jFmt_TEL_EMPRE_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmt_TEL_EMPRE_GMEActionPerformed

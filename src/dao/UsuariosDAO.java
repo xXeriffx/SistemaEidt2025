@@ -68,7 +68,7 @@ public class UsuariosDAO extends AbstractDAO {
     public Usuarios login(String nome, String senha) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(Usuarios.class);
-        criteria.add(Restrictions.and(Restrictions.eq("gmeNome", nome), Restrictions.eq("gmeSenha", senha)));
+        criteria.add(Restrictions.and(Restrictions.eq("gmeApelido", nome), Restrictions.eq("gmeSenha", senha)));
         List<Usuarios> lista = criteria.list();
         session.getTransaction().commit();
         if(!lista.isEmpty()){
@@ -78,10 +78,10 @@ public class UsuariosDAO extends AbstractDAO {
     return null;
     
     }
-    public boolean verificarNome(String nome) {
+    public boolean verificarApelido(String nome) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(Usuarios.class);
-        criteria.add(Restrictions.eq("gmeNome", nome));
+        criteria.add(Restrictions.eq("gmeApelido", nome));
         List lista = criteria.list();
         session.getTransaction().commit();
         return !lista.isEmpty();
