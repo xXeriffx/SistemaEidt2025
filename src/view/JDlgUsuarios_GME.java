@@ -42,9 +42,9 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
     usuarios.setGmeSenha(jPwfSenha_GME.getText());
     usuarios.setGmeNivel(jCboNivel_GME.getSelectedIndex());
     if(jChbAtivo_GME.isSelected()== true){
-       usuarios.setGmeAtivo("S");
+       usuarios.setGmeAtivo(Util_GME.strToChar("S"));
        }else{
-       usuarios.setGmeAtivo("N");
+       usuarios.setGmeAtivo(Util_GME.strToChar("N"));
        }
     
     return usuarios;
@@ -58,7 +58,7 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
         jFmtDataDeNascimento_GME.setText(Util_GME.dateToStr(usuarios.getGmeDatanasc()));
         jPwfSenha_GME.setText(usuarios.getGmeSenha());
         jCboNivel_GME.setSelectedIndex(usuarios.getGmeNivel());
-        if (usuarios.getGmeAtivo().equals("S") == true){
+        if (usuarios.getGmeAtivo() =='S'){
         jChbAtivo_GME.setSelected(true);
         }else{
         jChbAtivo_GME.setSelected(false);

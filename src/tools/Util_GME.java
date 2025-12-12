@@ -18,13 +18,14 @@ import javax.swing.JTextField;
  * @author u07273579130
  */
 public class Util_GME {
-    public static void habilitar(boolean Valor, JComponent... componentes){
+
+    public static void habilitar(boolean Valor, JComponent... componentes) {
         for (int i = 0; i < componentes.length; i++) {
             JComponent componente = componentes[i];
             componentes[i].setEnabled(Valor);
         }
     }
-    
+
     //SEM instanceof
     //public static void Limpar(JComponent ...componentes){
     //    for(int i = 0; i < componentes.length; i ++){
@@ -33,66 +34,77 @@ public class Util_GME {
     //    }
     //}
     //Com instanceof
-    public static void Limpar(JComponent ...componentes){
-        for(int i = 0; i < componentes.length; i ++){
-           
-        //instanceof
-        if (componentes[i] instanceof JTextField) {
-            ((JTextField) componentes[i]).setText("");
+    public static void Limpar(JComponent... componentes) {
+        for (int i = 0; i < componentes.length; i++) {
+
+            //instanceof
+            if (componentes[i] instanceof JTextField) {
+                ((JTextField) componentes[i]).setText("");
+            }
+
+            if (componentes[i] instanceof JComboBox) {
+                ((JComboBox) componentes[i]).setSelectedIndex(-1);
+            }
+
+            if (componentes[i] instanceof JFormattedTextField) {
+                ((JFormattedTextField) componentes[i]).setText("");
+            }
+
+            if (componentes[i] instanceof JPasswordField) {
+                ((JPasswordField) componentes[i]).setText("");
+            }
+
+            if (componentes[i] instanceof JCheckBox) {
+                ((JCheckBox) componentes[i]).setSelected(false);
+            }
         }
-        
-        if (componentes[i] instanceof JComboBox){
-            ((JComboBox) componentes[i]).setSelectedIndex(-1);
-        }
-        
-        if (componentes[i] instanceof JFormattedTextField){
-            ((JFormattedTextField) componentes[i]).setText("");
-        }
-        
-        if (componentes[i] instanceof JPasswordField){
-            ((JPasswordField) componentes[i]).setText("");
-        }
-        
-        if (componentes[i] instanceof JCheckBox){
-            ((JCheckBox) componentes[i]).setSelected(false);
-        }
-      }
     }
-    
-    public static void messagem(String cad){
-        JOptionPane.showMessageDialog(null,cad);
+
+    public static void messagem(String cad) {
+        JOptionPane.showMessageDialog(null, cad);
     }
-    
-    public static boolean perguntar(String cad){
+
+    public static boolean perguntar(String cad) {
         int opcao = JOptionPane.showConfirmDialog(null, cad, cad, JOptionPane.YES_NO_OPTION);
         return opcao == JOptionPane.YES_OPTION;
     }
-    
-    public static int strToInt(String cad){
+
+    public static int strToInt(String cad) {
         return Integer.parseInt(cad);
     }
-    public static String intToStr(int num){
+
+    public static String intToStr(int num) {
         return String.valueOf(num);
     }
-    public static double strToDouble(String cad){
+
+    public static double strToDouble(String cad) {
         return Double.parseDouble(cad);
     }
-    public static String doubleToStr(double num){
+
+    public static String doubleToStr(double num) {
         return String.valueOf(num);
     }
-    
+
+    public static char strToChar(String cad) {
+        return cad.charAt(0);
+    }
+
+    public static String charToStr(char c) {
+        return String.valueOf(c);
+    }
+
     //O lucas Boeira me ajudou nessa parte, eu usei o chat mas não parecia em nada com oque a gente viu na sala. 
-    
-    public static Date strToDate(String cad){
-        
-    try {
-        return new java.text.SimpleDateFormat("dd/MM/yyyy").parse(cad);//obrigatorio estar formatado os campos [date] se não da B.O. (eu acho, ainda nao testei no banco)
-    } catch (Exception e) { //cath para se a STR estiver sem formatção não crashar o progama.
-        return null;
+    public static Date strToDate(String cad) {
+
+        try {
+            return new java.text.SimpleDateFormat("dd/MM/yyyy").parse(cad);//obrigatorio estar formatado os campos [date] se não da B.O. (eu acho, ainda nao testei no banco)
+        } catch (Exception e) { //cath para se a STR estiver sem formatção não crashar o progama.
+            return null;
+        }
+
     }
-    
-    }
-    public static String dateToStr(Date data){
+
+    public static String dateToStr(Date data) {
         return new java.text.SimpleDateFormat("dd/MM/yyyy").format(data);
     }
 }

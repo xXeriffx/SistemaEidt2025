@@ -1,5 +1,5 @@
 package bean;
-// Generated 11/12/2025 09:40:56 by Hibernate Tools 4.3.1
+// Generated 12/12/2025 17:12:25 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -41,7 +41,6 @@ public class Clientes  implements java.io.Serializable {
      private String gmeCnpj;
      private String gmeCep;
      private String gmeNumero;
-    
 
     public Clientes() {
     }
@@ -78,7 +77,7 @@ public class Clientes  implements java.io.Serializable {
        this.gmeCnpj = gmeCnpj;
        this.gmeCep = gmeCep;
        this.gmeNumero = gmeNumero;
-       
+    
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -232,8 +231,7 @@ public class Clientes  implements java.io.Serializable {
     public void setGmeNumero(String gmeNumero) {
         this.gmeNumero = gmeNumero;
     }
-
-
+    
     @Override
     public String toString() {
         return this.gmeNomePessoal;
@@ -243,15 +241,12 @@ public class Clientes  implements java.io.Serializable {
     public boolean equals(Object object) {
         if (object instanceof Clientes) {
             Clientes clientes = (Clientes) object;
-            if (this.getGmeIdClientes() == clientes.getGmeIdClientes()) {
+            if (this.getGmeIdClientes()== clientes.getGmeIdClientes()) {
                 return true;
             }
         }
         return false;
     }
-
-
-
 
 }
 

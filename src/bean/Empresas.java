@@ -1,5 +1,5 @@
 package bean;
-// Generated 11/12/2025 09:40:56 by Hibernate Tools 4.3.1
+// Generated 12/12/2025 17:12:25 by Hibernate Tools 4.3.1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -136,7 +136,7 @@ public class Empresas implements java.io.Serializable {
 
     @Override
     public boolean equals(Object object) {
-        if (object instanceof Empresas) {
+        if (object instanceof Clientes) {
             Empresas empresas = (Empresas) object;
             if (this.getGmeIdEmpresas() == empresas.getGmeIdEmpresas()) {
                 return true;

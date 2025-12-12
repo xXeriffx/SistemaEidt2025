@@ -1,5 +1,5 @@
 package bean;
-// Generated 11/12/2025 09:40:56 by Hibernate Tools 4.3.1
+// Generated 12/12/2025 17:12:25 by Hibernate Tools 4.3.1
 
 import java.util.Date;
 import java.util.HashSet;
@@ -29,25 +29,22 @@ public class Venda implements java.io.Serializable {
     private int gmeIdVenda;
     private Clientes clientes;
     private Empresas empresas;
-    private Usuarios usuarios;
     private Date gmeData;
     private double gmeTotal;
 
     public Venda() {
     }
 
-    public Venda(Clientes clientes, Empresas empresas, Usuarios usuarios, Date gmeData, double gmeTotal) {
+    public Venda(Clientes clientes, Empresas empresas, Date gmeData, double gmeTotal) {
         this.clientes = clientes;
         this.empresas = empresas;
-        this.usuarios = usuarios;
         this.gmeData = gmeData;
         this.gmeTotal = gmeTotal;
     }
 
-    public Venda(Clientes clientes, Empresas empresas, Usuarios usuarios, Date gmeData, double gmeTotal, Set vendaProdutos) {
+    public Venda(Clientes clientes, Empresas empresas, Date gmeData, double gmeTotal, Set vendaProdutos) {
         this.clientes = clientes;
         this.empresas = empresas;
-        this.usuarios = usuarios;
         this.gmeData = gmeData;
         this.gmeTotal = gmeTotal;
 
@@ -85,16 +82,6 @@ public class Venda implements java.io.Serializable {
         this.empresas = empresas;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "gme_fk_usuarios", nullable = false)
-    public Usuarios getUsuarios() {
-        return this.usuarios;
-    }
-
-    public void setUsuarios(Usuarios usuarios) {
-        this.usuarios = usuarios;
-    }
-
     @Temporal(TemporalType.DATE)
     @Column(name = "gme_data", nullable = false, length = 10)
     public Date getGmeData() {
@@ -112,22 +99,6 @@ public class Venda implements java.io.Serializable {
 
     public void setGmeTotal(double gmeTotal) {
         this.gmeTotal = gmeTotal;
-    }
-    
-    @Override
-    public String toString() {
-        return this.empresas.getGmeNomeEmpresa();
-    }
-    
-    @Override
-    public boolean equals(Object object) {
-        if (object instanceof Empresas) {
-            Venda venda = (Venda) object;
-            if (this.getGmeIdVenda() == venda.getGmeIdVenda()) {
-                return true;
-            }
-        }
-        return false;
     }
 
 }

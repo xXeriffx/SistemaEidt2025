@@ -1,17 +1,13 @@
 package bean;
-// Generated 11/12/2025 09:40:56 by Hibernate Tools 4.3.1
+// Generated 12/12/2025 17:12:25 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -33,23 +29,12 @@ public class Usuarios  implements java.io.Serializable {
      private Date gmeDatanasc;
      private String gmeSenha;
      private int gmeNivel;
-     private String gmeAtivo;
-     
+     private char gmeAtivo;
 
     public Usuarios() {
     }
 
-	
-    public Usuarios(String gmeApelido, String gmeCpf, String gmeNome, Date gmeDatanasc, String gmeSenha, int gmeNivel, String gmeAtivo) {
-        this.gmeApelido = gmeApelido;
-        this.gmeCpf = gmeCpf;
-        this.gmeNome = gmeNome;
-        this.gmeDatanasc = gmeDatanasc;
-        this.gmeSenha = gmeSenha;
-        this.gmeNivel = gmeNivel;
-        this.gmeAtivo = gmeAtivo;
-    }
-    public Usuarios(String gmeApelido, String gmeCpf, String gmeNome, Date gmeDatanasc, String gmeSenha, int gmeNivel, String gmeAtivo, Set vendas) {
+    public Usuarios(String gmeApelido, String gmeCpf, String gmeNome, Date gmeDatanasc, String gmeSenha, int gmeNivel, char gmeAtivo) {
        this.gmeApelido = gmeApelido;
        this.gmeCpf = gmeCpf;
        this.gmeNome = gmeNome;
@@ -57,7 +42,6 @@ public class Usuarios  implements java.io.Serializable {
        this.gmeSenha = gmeSenha;
        this.gmeNivel = gmeNivel;
        this.gmeAtivo = gmeAtivo;
-       
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -134,29 +118,28 @@ public class Usuarios  implements java.io.Serializable {
 
     
     @Column(name="gme_ativo", nullable=false, length=1)
-    public String getGmeAtivo() {
+    public char getGmeAtivo() {
         return this.gmeAtivo;
     }
     
-    public void setGmeAtivo(String gmeAtivo) {
+    public void setGmeAtivo(char gmeAtivo) {
         this.gmeAtivo = gmeAtivo;
     }
+    @Override
+    public String toString() {
+        return this.gmeNome;
+    }
 
-@Override
-public String toString() {
-return this.gmeNome;
-}
-@Override
-public boolean equals(Object object) {
-if (object instanceof Usuarios) {
-Usuarios usuarios = (Usuarios) object;
-if (this.getGmeIdUsuarios()== usuarios.getGmeIdUsuarios()) {
-return true;
-}
-}
-return false;
-}
-
+    @Override
+    public boolean equals(Object object) {
+        if (object instanceof Clientes) {
+            Usuarios usuarios = (Usuarios) object;
+            if (this.getGmeIdUsuarios()== usuarios.getGmeIdUsuarios()) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 
 }

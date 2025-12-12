@@ -1,6 +1,5 @@
 package bean;
-// Generated 11/12/2025 09:40:56 by Hibernate Tools 4.3.1
-
+// Generated 12/12/2025 17:12:25 by Hibernate Tools 4.3.1
 
 
 import javax.persistence.Column;
@@ -28,15 +27,17 @@ public class VendaProduto  implements java.io.Serializable {
      private Venda venda;
      private int gmeQuantidade;
      private double gmeValorUnitario;
+     private double gmeValorTotal;
 
     public VendaProduto() {
     }
 
-    public VendaProduto(Produtos produtos, Venda venda, int gmeQuantidade, double gmeValorUnitario) {
+    public VendaProduto(Produtos produtos, Venda venda, int gmeQuantidade, double gmeValorUnitario, double gmeValorTotal) {
        this.produtos = produtos;
        this.venda = venda;
        this.gmeQuantidade = gmeQuantidade;
        this.gmeValorUnitario = gmeValorUnitario;
+       this.gmeValorTotal = gmeValorTotal;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -91,8 +92,15 @@ public class VendaProduto  implements java.io.Serializable {
         this.gmeValorUnitario = gmeValorUnitario;
     }
 
-
-
+    
+    @Column(name="gme_valor_total", nullable=false, precision=11)
+    public double getGmeValorTotal() {
+        return this.gmeValorTotal;
+    }
+    
+    public void setGmeValorTotal(double gmeValorTotal) {
+        this.gmeValorTotal = gmeValorTotal;
+    }
 
 }
 

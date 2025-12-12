@@ -50,15 +50,10 @@
                               <Component id="jLbl_code_clientes_GME" pref="82" max="32767" attributes="0"/>
                               <Component id="jCbx_clientes_GME" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLbl_code_usuario_GME" max="32767" attributes="0"/>
-                              <Component id="jCbx_usuarios_GME" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLbl_code_empresas_GME" max="32767" attributes="0"/>
-                              <Component id="jCbx_empresas_GME" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jCbx_empresas_GME" min="-2" pref="82" max="-2" attributes="0"/>
+                              <Component id="jLbl_code_empresas_GME" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -94,15 +89,14 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLbl_code_GME" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLbl_code_usuario_GME" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLbl_code_clientes_GME" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLbl_code_empresas_GME" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jTxt_code_GME" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jCbx_clientes_GME" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jCbx_empresas_GME" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCbx_usuarios_GME" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
@@ -115,10 +109,6 @@
                           <Component id="jTxt_data_GME" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTxt_valor_GME" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="jLbl_code_empresas_GME" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -201,11 +191,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtn_incluir_GMEActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLbl_code_usuario_GME">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="C&#xf3;digo Usuario"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jBtn_alterar_GME">
       <Properties>
@@ -335,17 +320,6 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JComboBox&lt;Empresas&gt;()"/>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Empresas&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="jCbx_usuarios_GME">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="0"/>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JComboBox&lt;Usuarios&gt;()"/>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Usuarios&gt;"/>
       </AuxValues>
     </Component>
   </SubComponents>
