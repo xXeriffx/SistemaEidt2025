@@ -136,7 +136,7 @@ public class Empresas implements java.io.Serializable {
 
     @Override
     public boolean equals(Object object) {
-        if (object instanceof Clientes) {
+        if (object instanceof Empresas) {
             Empresas empresas = (Empresas) object;
             if (this.getGmeIdEmpresas() == empresas.getGmeIdEmpresas()) {
                 return true;

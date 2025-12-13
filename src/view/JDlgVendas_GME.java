@@ -16,6 +16,7 @@ import dao.VendaDAO;
 import dao.VendaProdutoDAO;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
 /**
@@ -24,7 +25,7 @@ import javax.swing.JTable;
  */
 public class JDlgVendas_GME extends javax.swing.JDialog {
 
-    ControllerVendaProdutos_GME controllerVendaProdutos;
+    ControllerVendaProdutos_GME controllerVendaProdutos_GME;
 
     /**
      * Creates new form JDlgVendas_GME
@@ -49,14 +50,15 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
         }
 
         Util_GME.habilitar(false, jTxt_code_GME, jCbx_clientes_GME, jCbx_empresas_GME, jBtn_cancelar_GME,
-                jTxt_data_GME, jTxt_valor_GME, jBtn_alterar_GME, jBtn_excluir_GME, jBtn_confirmar_GME,
+                jFmtData_GME, jTxt_valor_GME, jBtn_excluir_GME, jBtn_confirmar_GME,
                 jBtn_side_adicionar_side, jBtn_side_alterar_GME, jBtn_side_delete_GME);
-        controllerVendaProdutos = new ControllerVendaProdutos_GME();
-        controllerVendaProdutos.setList(new ArrayList());
-        jTbl_Colunas_GME.setModel(controllerVendaProdutos);
+        controllerVendaProdutos_GME = new ControllerVendaProdutos_GME();
+        controllerVendaProdutos_GME.setList(new ArrayList());
+        jTbl_Colunas_GME.setModel(controllerVendaProdutos_GME);
     }
 
     private boolean incluir;
+    private boolean pesquisar;
 
     public Venda viewBean() {
         Venda venda = new Venda();
@@ -65,7 +67,7 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
         venda.setClientes((Clientes) jCbx_clientes_GME.getSelectedItem());
         venda.setEmpresas((Empresas) jCbx_empresas_GME.getSelectedItem());
 
-        venda.setGmeData(Util_GME.strToDate(jTxt_data_GME.getText()));
+        venda.setGmeData(Util_GME.strToDate(jFmtData_GME.getText()));
         venda.setGmeTotal(Util_GME.strToDouble(jTxt_valor_GME.getText()));
 
         return venda;
@@ -74,7 +76,7 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
     public void beanView(Venda venda) {
 
         jTxt_code_GME.setText(Util_GME.intToStr(venda.getGmeIdVenda()));
-        jTxt_data_GME.setText(Util_GME.dateToStr(venda.getGmeData()));
+        jFmtData_GME.setText(Util_GME.dateToStr(venda.getGmeData()));
         jTxt_valor_GME.setText(Util_GME.doubleToStr(venda.getGmeTotal()));
 
         jCbx_clientes_GME.setSelectedItem(venda.getClientes());
@@ -82,9 +84,10 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
 
         VendaProdutoDAO vendaProdutoDAO = new VendaProdutoDAO();
         List lista = (List) vendaProdutoDAO.listVenda(venda);
-        controllerVendaProdutos.setList(lista);
+        controllerVendaProdutos_GME.setList(lista);
     }
-    public JTable getjTable1() {
+
+    public JTable getjTbl_Colunas_GME() {
         return jTbl_Colunas_GME;
     }
 
@@ -101,7 +104,7 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTbl_Colunas_GME = new javax.swing.JTable();
         jLbl_code_GME = new javax.swing.JLabel();
-        jLbl_code_clientes_GME = new javax.swing.JLabel();
+        jLbl_Nome_clientes_GME = new javax.swing.JLabel();
         jBtn_incluir_GME = new javax.swing.JButton();
         jBtn_alterar_GME = new javax.swing.JButton();
         jLbl_valor_GME = new javax.swing.JLabel();
@@ -114,10 +117,10 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
         jBtn_side_adicionar_side = new javax.swing.JButton();
         jTxt_valor_GME = new javax.swing.JTextField();
         jBtn_side_alterar_GME = new javax.swing.JButton();
-        jTxt_data_GME = new javax.swing.JTextField();
         jLbl_code_empresas_GME = new javax.swing.JLabel();
         jCbx_clientes_GME = new javax.swing.JComboBox<Clientes>();
         jCbx_empresas_GME = new javax.swing.JComboBox<Empresas>();
+        jFmtData_GME = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -149,7 +152,7 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
 
         jLbl_code_GME.setText("Código");
 
-        jLbl_code_clientes_GME.setText("Código Clientes");
+        jLbl_Nome_clientes_GME.setText("Nome de Clientes");
 
         jBtn_incluir_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/incluir.png"))); // NOI18N
         jBtn_incluir_GME.setText("Incluir");
@@ -230,13 +233,18 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
             }
         });
 
-        jTxt_data_GME.addActionListener(new java.awt.event.ActionListener() {
+        jLbl_code_empresas_GME.setText("Nome da Empresas");
+
+        try {
+            jFmtData_GME.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFmtData_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxt_data_GMEActionPerformed(evt);
+                jFmtData_GMEActionPerformed(evt);
             }
         });
-
-        jLbl_code_empresas_GME.setText("Código Empresas");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -244,7 +252,7 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jBtn_incluir_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -257,35 +265,34 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
                         .addComponent(jBtn_cancelar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jBtn_Pesquisar_GME))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLbl_code_GME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTxt_code_GME, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLbl_code_clientes_GME, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
-                                .addComponent(jCbx_clientes_GME, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jCbx_empresas_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLbl_code_empresas_GME))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTxt_valor_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLbl_valor_GME, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jTxt_data_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLbl_data_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(34, 34, 34)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jBtn_side_delete_GME, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
-                                .addComponent(jBtn_side_alterar_GME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jBtn_side_adicionar_side, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLbl_code_GME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTxt_code_GME, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLbl_Nome_clientes_GME)
+                            .addComponent(jCbx_clientes_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLbl_code_empresas_GME)
+                            .addComponent(jCbx_empresas_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLbl_valor_GME, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTxt_valor_GME, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jFmtData_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLbl_data_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jBtn_side_delete_GME, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
+                            .addComponent(jBtn_side_alterar_GME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jBtn_side_adicionar_side, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -295,7 +302,7 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLbl_code_GME)
-                            .addComponent(jLbl_code_clientes_GME)
+                            .addComponent(jLbl_Nome_clientes_GME)
                             .addComponent(jLbl_code_empresas_GME))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -307,28 +314,29 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
                             .addComponent(jLbl_valor_GME)
                             .addComponent(jLbl_data_GME))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTxt_data_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jFmtData_GME, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTxt_valor_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jBtn_side_adicionar_side, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jBtn_side_alterar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jBtn_side_delete_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(124, 124, 124)))
+                        .addGap(124, 124, 124))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBtn_incluir_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBtn_alterar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBtn_excluir_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBtn_confirmar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBtn_cancelar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBtn_Pesquisar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23))
+                    .addComponent(jBtn_Pesquisar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         pack();
@@ -336,7 +344,13 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
 
 
     private void jBtn_side_delete_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_side_delete_GMEActionPerformed
-        if (Util_GME.perguntar("Deseja Deletar esse registro de Venda?") == true) {
+        if (jTbl_Colunas_GME.getSelectedRow() == -1) {
+            Util_GME.messagem("Precisa selecionar uma linha!");
+        } else {
+            if (Util_GME.perguntar("Deseja excluir o produto ?") == true) {
+                controllerVendaProdutos_GME.removeBean(jTbl_Colunas_GME.getSelectedRow());
+                // ADICIONA AQUI
+            }
         }
     }//GEN-LAST:event_jBtn_side_delete_GMEActionPerformed
 
@@ -344,15 +358,33 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
         incluir = true;
 
         Util_GME.habilitar(true, jTxt_code_GME, jCbx_clientes_GME, jCbx_empresas_GME,
-                jTxt_data_GME, jTxt_valor_GME,
-                jBtn_alterar_GME, jBtn_excluir_GME, jBtn_confirmar_GME, jBtn_cancelar_GME,
+                jFmtData_GME, jTxt_valor_GME,
+                jBtn_excluir_GME, jBtn_confirmar_GME, jBtn_cancelar_GME,
                 jBtn_side_adicionar_side, jBtn_side_alterar_GME, jBtn_side_delete_GME
         );
-        Util_GME.habilitar(false, jBtn_incluir_GME, jBtn_Pesquisar_GME);
+        Util_GME.habilitar(false, jBtn_alterar_GME, jBtn_incluir_GME, jBtn_Pesquisar_GME);
+
+        jTxt_code_GME.grabFocus();
     }//GEN-LAST:event_jBtn_incluir_GMEActionPerformed
 
     private void jBtn_alterar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_alterar_GMEActionPerformed
         incluir = false;
+        if (pesquisar == true) {
+            Util_GME.habilitar(true, jTxt_code_GME, jCbx_clientes_GME, jCbx_empresas_GME,
+                    jFmtData_GME, jTxt_valor_GME, jBtn_excluir_GME, jBtn_confirmar_GME,
+                    jBtn_cancelar_GME, jBtn_side_adicionar_side, jBtn_side_alterar_GME, jBtn_side_delete_GME);
+            Util_GME.habilitar(false, jBtn_alterar_GME, jBtn_incluir_GME, jBtn_Pesquisar_GME);
+
+            jFmtData_GME.grabFocus();
+        } else {
+
+            JOptionPane.showMessageDialog(this,
+                    "Pesquise um Venda antes",
+                    "Erro em venda pesquisar",
+                    JOptionPane.ERROR_MESSAGE);
+            jBtn_incluir_GME.grabFocus();;
+        }
+
     }//GEN-LAST:event_jBtn_alterar_GMEActionPerformed
 
     private void jBtn_excluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_excluir_GMEActionPerformed
@@ -361,46 +393,57 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
             VendaDAO vendaDAO = new VendaDAO();
             VendaProdutoDAO vendaProdutoDAO = new VendaProdutoDAO();
             for (int ind = 0; ind < jTbl_Colunas_GME.getRowCount(); ind++) {
-                VendaProduto vendaProduto = controllerVendaProdutos.getBean(ind);
+                VendaProduto vendaProduto = controllerVendaProdutos_GME.getBean(ind);
                 vendaProdutoDAO.delete(vendaProduto);
             }
             vendaDAO.delete(viewBean());
         }
 
         Util_GME.Limpar(jTxt_code_GME, jCbx_clientes_GME, jCbx_empresas_GME,
-                jTxt_data_GME, jTxt_valor_GME);
+                jFmtData_GME, jTxt_valor_GME);
 
         Util_GME.habilitar(false, jTxt_code_GME, jCbx_clientes_GME, jCbx_empresas_GME,
-                jTxt_data_GME, jTxt_valor_GME,
+                jFmtData_GME, jTxt_valor_GME,
                 jBtn_alterar_GME, jBtn_excluir_GME, jBtn_confirmar_GME, jBtn_cancelar_GME,
-                jBtn_side_adicionar_side, jBtn_side_alterar_GME, jBtn_side_delete_GME
+                jBtn_side_adicionar_side, jBtn_side_delete_GME
         );
-        Util_GME.habilitar(true, jBtn_incluir_GME, jBtn_Pesquisar_GME);
+        Util_GME.habilitar(true, jBtn_side_alterar_GME, jBtn_incluir_GME, jBtn_Pesquisar_GME);
 
     }//GEN-LAST:event_jBtn_excluir_GMEActionPerformed
 
     private void jBtn_confirmar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_confirmar_GMEActionPerformed
-
+        pesquisar = false;
         VendaDAO vendaDAO = new VendaDAO();
-
+        VendaProdutoDAO vendasProdutosDAO = new VendaProdutoDAO();
+        Venda venda = viewBean();
         if (incluir == true) {
-
-            vendaDAO.insert(viewBean());
-
+            vendaDAO.insert(venda);
+            for (int ind = 0; ind < jTbl_Colunas_GME.getRowCount(); ind++) {
+                VendaProduto vendaProduto = controllerVendaProdutos_GME.getBean(ind);
+                vendaProduto.setVenda(venda);
+                vendasProdutosDAO.insert(vendaProduto);
+            }
         } else {
+            vendaDAO.update(venda);
 
-            vendaDAO.update(viewBean());
+            vendasProdutosDAO.deleteProdutos(venda);
+
+            for (int ind = 0; ind < jTbl_Colunas_GME.getRowCount(); ind++) {
+                VendaProduto VendaProduto = controllerVendaProdutos_GME.getBean(ind);
+                VendaProduto.setVenda(venda);
+                vendasProdutosDAO.insert(VendaProduto);
+            }
         }
+        controllerVendaProdutos_GME.setList(new ArrayList<VendaProduto>());//code do chat para o limpar funcionar na Jtable
 
         Util_GME.Limpar(jTxt_code_GME, jCbx_clientes_GME, jCbx_empresas_GME,
-                jTxt_data_GME, jTxt_valor_GME);
+                jFmtData_GME, jTxt_valor_GME, jTbl_Colunas_GME);
 
         Util_GME.habilitar(false, jTxt_code_GME, jCbx_clientes_GME, jCbx_empresas_GME,
-                jTxt_data_GME, jTxt_valor_GME,
-                jBtn_alterar_GME, jBtn_excluir_GME, jBtn_confirmar_GME, jBtn_cancelar_GME,
-                jBtn_side_adicionar_side, jBtn_side_alterar_GME, jBtn_side_delete_GME
-        );
-        Util_GME.habilitar(true, jBtn_incluir_GME, jBtn_Pesquisar_GME);
+                    jFmtData_GME, jTxt_valor_GME, jTbl_Colunas_GME, jBtn_excluir_GME, jBtn_confirmar_GME,
+                    jBtn_side_alterar_GME, jBtn_cancelar_GME, jBtn_side_adicionar_side, jBtn_side_delete_GME
+            );
+            Util_GME.habilitar(true, jBtn_incluir_GME, jBtn_Pesquisar_GME);
     }//GEN-LAST:event_jBtn_confirmar_GMEActionPerformed
 
     private void jTxt_code_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_code_GMEActionPerformed
@@ -408,23 +451,36 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jTxt_code_GMEActionPerformed
 
     private void jBtn_cancelar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_cancelar_GMEActionPerformed
+        pesquisar = false;
+
         if (Util_GME.perguntar("Deseja cancelar esse registro de Venda?") == true) {
+
+            controllerVendaProdutos_GME.setList(new ArrayList<VendaProduto>());//code do chat para o limpar funcionar na Jtable
+
             Util_GME.Limpar(jTxt_code_GME, jCbx_clientes_GME, jCbx_empresas_GME,
-                    jTxt_data_GME, jTxt_valor_GME);
+                    jFmtData_GME, jTxt_valor_GME, jTbl_Colunas_GME);
 
             Util_GME.habilitar(false, jTxt_code_GME, jCbx_clientes_GME, jCbx_empresas_GME,
-                    jTxt_data_GME, jTxt_valor_GME,
-                    jBtn_alterar_GME, jBtn_excluir_GME, jBtn_confirmar_GME, jBtn_cancelar_GME,
-                    jBtn_side_adicionar_side, jBtn_side_alterar_GME, jBtn_side_delete_GME
+                    jFmtData_GME, jTxt_valor_GME, jTbl_Colunas_GME, jBtn_excluir_GME, jBtn_confirmar_GME,
+                    jBtn_side_alterar_GME, jBtn_cancelar_GME, jBtn_side_adicionar_side, jBtn_side_delete_GME
             );
             Util_GME.habilitar(true, jBtn_incluir_GME, jBtn_Pesquisar_GME);
         }
+
     }//GEN-LAST:event_jBtn_cancelar_GMEActionPerformed
 
     private void jBtn_Pesquisar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_Pesquisar_GMEActionPerformed
+        pesquisar = false;
+
         JDlgVendasPesquisar_GME jDlgVendasPesquisar_GME = new JDlgVendasPesquisar_GME(null, true);
         jDlgVendasPesquisar_GME.setTelaAnterior(this);
         jDlgVendasPesquisar_GME.setVisible(true);
+
+        Util_GME.habilitar(false, jTxt_code_GME, jCbx_clientes_GME, jCbx_empresas_GME,
+                jFmtData_GME, jTxt_valor_GME, jBtn_side_delete_GME, jBtn_incluir_GME, jBtn_Pesquisar_GME,
+                jBtn_side_adicionar_side, jBtn_side_alterar_GME, jTbl_Colunas_GME
+        );
+        Util_GME.habilitar(true, jBtn_alterar_GME, jBtn_excluir_GME, jBtn_confirmar_GME, jBtn_cancelar_GME);
     }//GEN-LAST:event_jBtn_Pesquisar_GMEActionPerformed
 
     private void jBtn_side_adicionar_sideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_side_adicionar_sideActionPerformed
@@ -438,12 +494,18 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jTxt_valor_GMEActionPerformed
 
     private void jBtn_side_alterar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_side_alterar_GMEActionPerformed
-
+        if (jTbl_Colunas_GME.getSelectedRow() == -1) {
+            Util_GME.messagem("É preciso selecionar uma linha");
+        }
+        JDlgVendas_produtos_GME Vendas_produtos_GME = new JDlgVendas_produtos_GME(null, true);
+        VendaProduto vendaProduto = controllerVendaProdutos_GME.getBean(jTbl_Colunas_GME.getSelectedRow());
+        Vendas_produtos_GME.setTelaAnterior(this, vendaProduto);
+        Vendas_produtos_GME.setVisible(true);
     }//GEN-LAST:event_jBtn_side_alterar_GMEActionPerformed
 
-    private void jTxt_data_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_data_GMEActionPerformed
-
-    }//GEN-LAST:event_jTxt_data_GMEActionPerformed
+    private void jFmtData_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmtData_GMEActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFmtData_GMEActionPerformed
 
     /**
      * @param args the command line arguments
@@ -499,15 +561,15 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
     private javax.swing.JButton jBtn_side_delete_GME;
     private javax.swing.JComboBox<Clientes> jCbx_clientes_GME;
     private javax.swing.JComboBox<Empresas> jCbx_empresas_GME;
+    private javax.swing.JFormattedTextField jFmtData_GME;
+    private javax.swing.JLabel jLbl_Nome_clientes_GME;
     private javax.swing.JLabel jLbl_code_GME;
-    private javax.swing.JLabel jLbl_code_clientes_GME;
     private javax.swing.JLabel jLbl_code_empresas_GME;
     private javax.swing.JLabel jLbl_data_GME;
     private javax.swing.JLabel jLbl_valor_GME;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTbl_Colunas_GME;
     private javax.swing.JTextField jTxt_code_GME;
-    private javax.swing.JTextField jTxt_data_GME;
     private javax.swing.JTextField jTxt_valor_GME;
     // End of variables declaration//GEN-END:variables
 

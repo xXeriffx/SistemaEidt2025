@@ -6,6 +6,7 @@ package view;
 
 import bean.Empresas;
 import dao.EmpresasDAO;
+import javax.swing.JOptionPane;
 import tools.Util_GME;
 
 /**
@@ -25,11 +26,12 @@ public class JDlgEmpresas_GME extends javax.swing.JDialog {
 
         Util_GME.habilitar(false, jTxtCodigo_GME, jTxtNomeEMPRE_GME, jTxtNomeREP_GME, jTxtnumero_GME, jTxtCodigo_GME,
                 jTxtnumero_GME, jFmt_CEP_GME, jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME, jBtnCancelar_GME,
-                jBtnConfirmar_GME, jBtnExcluir_GME, jBtnAlterar_GME);
-        Util_GME.habilitar(true, jBtnIncluir_GME, jBtnPesquisar_GME);
+                jBtnConfirmar_GME, jBtnExcluir_GME);
+        Util_GME.habilitar(true, jBtnIncluir_GME, jBtnPesquisar_GME, jBtnAlterar_GME);
     }
 
     private boolean incluir;
+    private boolean pesquisar;
 
     public Empresas viewBean() {
         Empresas empresa = new Empresas();
@@ -302,28 +304,34 @@ public class JDlgEmpresas_GME extends javax.swing.JDialog {
 
     private void jBtnAlterar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterar_GMEActionPerformed
         incluir = false;
-        
-        
-        
-        Util_GME.habilitar(true, jTxtNomeEMPRE_GME, jTxtNomeREP_GME, jTxtnumero_GME, jTxtnumero_GME,
-                jFmt_CEP_GME, jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
-                jBtnCancelar_GME, jBtnExcluir_GME, jBtnConfirmar_GME
-        );
-        Util_GME.habilitar(false, jBtnIncluir_GME, jBtnPesquisar_GME, jBtnAlterar_GME);
+        if (pesquisar == true) {
+            Util_GME.habilitar(true, jTxtNomeEMPRE_GME, jTxtNomeREP_GME, jTxtnumero_GME, jTxtnumero_GME,
+                    jFmt_CEP_GME, jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
+                    jBtnCancelar_GME, jBtnExcluir_GME, jBtnConfirmar_GME, jBtnAlterar_GME);
+            Util_GME.habilitar(false, jBtnIncluir_GME, jBtnPesquisar_GME);
+        } else {
+
+            JOptionPane.showMessageDialog(this,
+                    "Pesquise uma Empresa antes",
+                    "Erro de pesquisa",
+                    JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jBtnAlterar_GMEActionPerformed
 
     private void jBtnIncluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluir_GMEActionPerformed
-       incluir = true;
-        
+        incluir = true;
+
         Util_GME.habilitar(true, jTxtCodigo_GME, jTxtNomeEMPRE_GME, jTxtNomeREP_GME, jTxtnumero_GME, jTxtCodigo_GME,
-                jTxtnumero_GME,
-                jFmt_CEP_GME, jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
-                jBtnCancelar_GME, jBtnConfirmar_GME
-        );
+                jTxtnumero_GME, jFmt_CEP_GME, jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
+                jBtnCancelar_GME, jBtnConfirmar_GME);
         Util_GME.habilitar(false, jBtnIncluir_GME, jBtnPesquisar_GME, jBtnExcluir_GME, jBtnAlterar_GME);
+
+        jTxtCodigo_GME.grabFocus();
     }//GEN-LAST:event_jBtnIncluir_GMEActionPerformed
 
     private void jBtnConfirmar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmar_GMEActionPerformed
+        pesquisar = false;
+
         EmpresasDAO empresasDAO = new EmpresasDAO();
         if (incluir == true) {
 
@@ -333,7 +341,7 @@ public class JDlgEmpresas_GME extends javax.swing.JDialog {
 
             empresasDAO.update(viewBean());
         }
-        
+
         Util_GME.Limpar(jTxtCodigo_GME, jTxtNomeEMPRE_GME, jTxtNomeREP_GME, jTxtnumero_GME, jTxtCodigo_GME,
                 jTxtnumero_GME, jFmt_CEP_GME, jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
                 jBtnCancelar_GME, jBtnConfirmar_GME, jBtnExcluir_GME, jBtnAlterar_GME);
@@ -354,14 +362,22 @@ public class JDlgEmpresas_GME extends javax.swing.JDialog {
         if (Util_GME.perguntar("Deseja excluir esse registro de Empresa?") == true) {
             EmpresasDAO empresasDAO = new EmpresasDAO();
             empresasDAO.delete(viewBean());
-            
+
             Util_GME.Limpar(jTxtCodigo_GME, jTxtNomeEMPRE_GME, jTxtNomeREP_GME, jTxtnumero_GME, jTxtCodigo_GME,
                     jTxtnumero_GME, jFmt_CEP_GME, jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
                     jBtnCancelar_GME, jBtnConfirmar_GME, jBtnExcluir_GME, jBtnAlterar_GME);
+            Util_GME.habilitar(false, jTxtCodigo_GME, jTxtNomeEMPRE_GME, jTxtNomeREP_GME, jTxtnumero_GME, jTxtCodigo_GME,
+                    jTxtnumero_GME,
+                    jFmt_CEP_GME, jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
+                    jBtnCancelar_GME, jBtnConfirmar_GME, jBtnExcluir_GME
+            );
+            Util_GME.habilitar(true, jBtnIncluir_GME, jBtnPesquisar_GME, jBtnAlterar_GME);
         }
     }//GEN-LAST:event_jBtnExcluir_GMEActionPerformed
 
     private void jBtnCancelar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelar_GMEActionPerformed
+        pesquisar = false;
+
         if (Util_GME.perguntar("Deseja excluir esse registro de Empresa?") == true) {
             Util_GME.Limpar(jTxtCodigo_GME, jTxtNomeEMPRE_GME, jTxtNomeREP_GME, jTxtnumero_GME, jTxtCodigo_GME,
                     jTxtnumero_GME, jFmt_CEP_GME, jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
@@ -370,13 +386,16 @@ public class JDlgEmpresas_GME extends javax.swing.JDialog {
             Util_GME.habilitar(false, jTxtCodigo_GME, jTxtNomeEMPRE_GME, jTxtNomeREP_GME, jTxtnumero_GME, jTxtCodigo_GME,
                     jTxtnumero_GME,
                     jFmt_CEP_GME, jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
-                    jBtnCancelar_GME, jBtnConfirmar_GME, jBtnExcluir_GME, jBtnAlterar_GME
+                    jBtnCancelar_GME, jBtnConfirmar_GME, jBtnExcluir_GME
             );
-            Util_GME.habilitar(true, jBtnIncluir_GME, jBtnPesquisar_GME);
+            Util_GME.habilitar(true, jBtnIncluir_GME, jBtnPesquisar_GME, jBtnAlterar_GME);
         }
+
     }//GEN-LAST:event_jBtnCancelar_GMEActionPerformed
 
     private void jBtnPesquisar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisar_GMEActionPerformed
+        pesquisar = true;
+
         JDlgEmpresasPesquisar_GME jDlgEmpresasPesquisar_GME = new JDlgEmpresasPesquisar_GME(null, true);
         jDlgEmpresasPesquisar_GME.setTelaAnterior(this);
         jDlgEmpresasPesquisar_GME.setVisible(true);

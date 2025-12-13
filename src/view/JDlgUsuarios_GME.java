@@ -7,6 +7,7 @@ package view;
 
 import bean.Usuarios;
 import dao.UsuariosDAO;
+import javax.swing.JOptionPane;
 import tools.Util_GME;
 
 /**
@@ -23,34 +24,34 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
 
         Util_GME.habilitar(false, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
                 jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME,
-                jBtnAlterar_GME, jBtnConfirmar_GME, jBtnExcluir_GME, jBtnCancelar_GME
-        );
+                 jBtnConfirmar_GME, jBtnExcluir_GME, jBtnCancelar_GME );
 
     }
 
     private boolean incluir;
-    
-    public Usuarios viewBean(){
-    Usuarios usuarios = new Usuarios();
-    int codigo = Util_GME.strToInt(jTxtCodigo_GME.getText());
-    usuarios.setGmeIdUsuarios(codigo);
-    
-    usuarios.setGmeApelido(jTxtApelido_GME.getText());
-    usuarios.setGmeCpf(jFmtCpf_GME.getText());
-    usuarios.setGmeNome(jTxtNome_GME.getText());
-    usuarios.setGmeDatanasc(Util_GME.strToDate(jFmtDataDeNascimento_GME.getText()));
-    usuarios.setGmeSenha(jPwfSenha_GME.getText());
-    usuarios.setGmeNivel(jCboNivel_GME.getSelectedIndex());
-    if(jChbAtivo_GME.isSelected()== true){
-       usuarios.setGmeAtivo(Util_GME.strToChar("S"));
-       }else{
-       usuarios.setGmeAtivo(Util_GME.strToChar("N"));
-       }
-    
-    return usuarios;
+    private boolean pesquisar;
+
+    public Usuarios viewBean() {
+        Usuarios usuarios = new Usuarios();
+        int codigo = Util_GME.strToInt(jTxtCodigo_GME.getText());
+        usuarios.setGmeIdUsuarios(codigo);
+
+        usuarios.setGmeApelido(jTxtApelido_GME.getText());
+        usuarios.setGmeCpf(jFmtCpf_GME.getText());
+        usuarios.setGmeNome(jTxtNome_GME.getText());
+        usuarios.setGmeDatanasc(Util_GME.strToDate(jFmtDataDeNascimento_GME.getText()));
+        usuarios.setGmeSenha(jPwfSenha_GME.getText());
+        usuarios.setGmeNivel(jCboNivel_GME.getSelectedIndex());
+        if (jChbAtivo_GME.isSelected() == true) {
+            usuarios.setGmeAtivo(Util_GME.strToChar("S"));
+        } else {
+            usuarios.setGmeAtivo(Util_GME.strToChar("N"));
+        }
+
+        return usuarios;
     }
-    
-    public void beanView(Usuarios usuarios){
+
+    public void beanView(Usuarios usuarios) {
         jTxtCodigo_GME.setText(Util_GME.intToStr(usuarios.getGmeIdUsuarios()));
         jTxtNome_GME.setText(usuarios.getGmeNome());
         jTxtApelido_GME.setText(usuarios.getGmeApelido());
@@ -58,12 +59,12 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
         jFmtDataDeNascimento_GME.setText(Util_GME.dateToStr(usuarios.getGmeDatanasc()));
         jPwfSenha_GME.setText(usuarios.getGmeSenha());
         jCboNivel_GME.setSelectedIndex(usuarios.getGmeNivel());
-        if (usuarios.getGmeAtivo() =='S'){
-        jChbAtivo_GME.setSelected(true);
-        }else{
-        jChbAtivo_GME.setSelected(false);
+        if (usuarios.getGmeAtivo() == 'S') {
+            jChbAtivo_GME.setSelected(true);
+        } else {
+            jChbAtivo_GME.setSelected(false);
         }
-        
+
     }
 
     /**
@@ -120,7 +121,19 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
 
         jLbl_cpf_GME.setText("CPF");
 
+        try {
+            jFmtCpf_GME.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         jLbl_date_GME.setText("Data de Nascimento");
+
+        try {
+            jFmtDataDeNascimento_GME.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         jLbl_senha_GME.setText("Senha");
 
@@ -298,33 +311,41 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
         incluir = true;
         Util_GME.habilitar(true, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
                 jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME, jBtnConfirmar_GME, jBtnCancelar_GME);
-        Util_GME.habilitar(false, jBtnIncluir_GME, jBtnPesquisar_GME);
+        Util_GME.habilitar(false, jBtnIncluir_GME, jBtnPesquisar_GME, jBtnAlterar_GME);
 
         jTxtCodigo_GME.grabFocus();
     }//GEN-LAST:event_jBtnIncluir_GMEActionPerformed
 
     private void jBtnAlterar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterar_GMEActionPerformed
         incluir = false;
-        Util_GME.habilitar(true, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
-                jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME, jBtnConfirmar_GME, jBtnCancelar_GME);
-        Util_GME.habilitar(false, jTxtCodigo_GME, jBtnAlterar_GME);
+        if (pesquisar == true) {
+            Util_GME.habilitar(true, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
+                    jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME, jBtnConfirmar_GME, jBtnCancelar_GME);
+            Util_GME.habilitar(false, jTxtCodigo_GME, jBtnAlterar_GME);
+        } else {
+
+            JOptionPane.showMessageDialog(this,
+                    "Pesquise um Usuario antes",
+                    "Erro em venda pesquisar",
+                    JOptionPane.ERROR_MESSAGE);
+        }
 
     }//GEN-LAST:event_jBtnAlterar_GMEActionPerformed
 
     private void jBtnExcluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluir_GMEActionPerformed
         if (Util_GME.perguntar("Deseja excluir esse registro de Usuario?") == true) {
-            
+
             UsuariosDAO lvbUsuariosDAO = new UsuariosDAO();
             lvbUsuariosDAO.delete(viewBean());
-            
+
             Util_GME.Limpar(jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
                     jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME);
 
             Util_GME.habilitar(false, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
                     jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME,
-                    jBtnAlterar_GME, jBtnConfirmar_GME, jBtnExcluir_GME, jBtnCancelar_GME
+                     jBtnConfirmar_GME, jBtnExcluir_GME, jBtnCancelar_GME
             );
-            Util_GME.habilitar(true, jBtnIncluir_GME, jBtnPesquisar_GME);
+            Util_GME.habilitar(true, jBtnIncluir_GME, jBtnPesquisar_GME,jBtnAlterar_GME);
         } else {
 
         }
@@ -332,7 +353,7 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
 
 
     private void jBtnConfirmar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmar_GMEActionPerformed
-
+        pesquisar = false;
         UsuariosDAO usuariosDAO = new UsuariosDAO();
         if (incluir == true) {
 
@@ -352,6 +373,8 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtnConfirmar_GMEActionPerformed
 
     private void jBtnPesquisar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisar_GMEActionPerformed
+        pesquisar = true;
+        
         JDlgUsuariosPesquisar_GME jDlgUsuariosPesquisar_GME = new JDlgUsuariosPesquisar_GME(null, true);
         jDlgUsuariosPesquisar_GME.setTelaAnterior(this);
         jDlgUsuariosPesquisar_GME.setVisible(true);
@@ -365,7 +388,7 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtnPesquisar_GMEActionPerformed
 
     private void jBtnCancelar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelar_GMEActionPerformed
-
+        pesquisar = false;
         //System.out.println("incluir = " + incluir);
         //if((Util_GME.perguntar("Deseja cancelar esse registro de Usuario?") == true)){
         //    if(incluir == true){
@@ -395,14 +418,14 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
 
             Util_GME.habilitar(false, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
                     jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME,
-                    jBtnAlterar_GME, jBtnConfirmar_GME, jBtnExcluir_GME, jBtnCancelar_GME
+                    jBtnConfirmar_GME, jBtnExcluir_GME, jBtnCancelar_GME
             );
 
-            Util_GME.habilitar(true, jBtnIncluir_GME, jBtnPesquisar_GME
+            Util_GME.habilitar(true,jBtnAlterar_GME, jBtnIncluir_GME, jBtnPesquisar_GME
             );
 
         }
-
+      
     }//GEN-LAST:event_jBtnCancelar_GMEActionPerformed
 
     private void jTxtCodigo_GMEFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTxtCodigo_GMEFocusLost

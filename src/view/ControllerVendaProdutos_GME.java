@@ -57,7 +57,9 @@ public class ControllerVendaProdutos_GME extends AbstractTableModel {
         } else if (columnIndex ==2) {
             return vendaProduto.getGmeQuantidade();
         } else if (columnIndex ==3) {
-            return vendaProduto.getGmeValorUnitario();
+             int quant = vendaProduto.getGmeQuantidade();
+             double valorUni = vendaProduto.getGmeValorUnitario();
+            return quant * valorUni;
         }
         return "";
     }
@@ -71,7 +73,7 @@ public class ControllerVendaProdutos_GME extends AbstractTableModel {
         } else if ( columnIndex == 2) {
             return "Quantidade";
         } else if ( columnIndex == 3) {
-            return "Valor";
+            return "Valor Total";
         } 
         return "";
     }

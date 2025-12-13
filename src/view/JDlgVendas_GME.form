@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
   </Properties>
@@ -25,7 +25,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jBtn_incluir_GME" min="-2" pref="122" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -39,45 +39,43 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jBtn_Pesquisar_GME" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jLbl_code_GME" alignment="1" max="32767" attributes="0"/>
-                              <Component id="jTxt_code_GME" alignment="1" pref="99" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLbl_code_clientes_GME" pref="82" max="32767" attributes="0"/>
-                              <Component id="jCbx_clientes_GME" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jCbx_empresas_GME" min="-2" pref="82" max="-2" attributes="0"/>
-                              <Component id="jLbl_code_empresas_GME" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTxt_valor_GME" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
-                              <Component id="jLbl_valor_GME" alignment="1" min="-2" pref="98" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jTxt_data_GME" min="-2" pref="99" max="-2" attributes="0"/>
-                              <Component id="jLbl_data_GME" min="-2" pref="99" max="-2" attributes="0"/>
-                          </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="jLbl_code_GME" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jTxt_code_GME" alignment="1" pref="99" max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jScrollPane1" min="-2" pref="604" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jBtn_side_delete_GME" alignment="0" pref="73" max="32767" attributes="0"/>
-                              <Component id="jBtn_side_alterar_GME" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jBtn_side_adicionar_side" alignment="0" max="32767" attributes="0"/>
-                          </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLbl_Nome_clientes_GME" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCbx_clientes_GME" min="-2" pref="93" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLbl_code_empresas_GME" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCbx_empresas_GME" min="-2" pref="100" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLbl_valor_GME" alignment="1" min="-2" pref="98" max="-2" attributes="0"/>
+                          <Component id="jTxt_valor_GME" alignment="1" min="-2" pref="98" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jFmtData_GME" min="-2" pref="106" max="-2" attributes="0"/>
+                          <Component id="jLbl_data_GME" min="-2" pref="99" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jScrollPane1" min="-2" pref="604" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jBtn_side_delete_GME" alignment="0" pref="73" max="32767" attributes="0"/>
+                          <Component id="jBtn_side_alterar_GME" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jBtn_side_adicionar_side" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -89,7 +87,7 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLbl_code_GME" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLbl_code_clientes_GME" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLbl_Nome_clientes_GME" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLbl_code_empresas_GME" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -105,24 +103,26 @@
                           <Component id="jLbl_data_GME" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTxt_data_GME" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTxt_valor_GME" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jFmtData_GME" alignment="1" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="jTxt_valor_GME" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jScrollPane1" min="-2" pref="344" max="-2" attributes="0"/>
-                      <EmptySpace pref="28" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="jBtn_side_adicionar_side" min="-2" pref="60" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jBtn_side_alterar_GME" min="-2" pref="60" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jBtn_side_delete_GME" min="-2" pref="60" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="306" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -133,7 +133,6 @@
                   <Component id="jBtn_cancelar_GME" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
                   <Component id="jBtn_Pesquisar_GME" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -176,9 +175,9 @@
         <Property name="text" type="java.lang.String" value="C&#xf3;digo"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLbl_code_clientes_GME">
+    <Component class="javax.swing.JLabel" name="jLbl_Nome_clientes_GME">
       <Properties>
-        <Property name="text" type="java.lang.String" value="C&#xf3;digo Clientes"/>
+        <Property name="text" type="java.lang.String" value="Nome de Clientes"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jBtn_incluir_GME">
@@ -290,14 +289,9 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtn_side_alterar_GMEActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTxt_data_GME">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTxt_data_GMEActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLbl_code_empresas_GME">
       <Properties>
-        <Property name="text" type="java.lang.String" value="C&#xf3;digo Empresas"/>
+        <Property name="text" type="java.lang.String" value="Nome da Empresas"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="jCbx_clientes_GME">
@@ -321,6 +315,16 @@
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JComboBox&lt;Empresas&gt;()"/>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Empresas&gt;"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="jFmtData_GME">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+          <Format format="##/##/##" subtype="-1" type="5"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFmtData_GMEActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

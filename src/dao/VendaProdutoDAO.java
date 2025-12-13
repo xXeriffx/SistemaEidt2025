@@ -41,6 +41,20 @@ public class VendaProdutoDAO extends AbstractDAO {
         session.delete(object);
         session.getTransaction().commit();
     }
+    public void deleteProdutos(Venda venda) {
+        //listar todos os produtos do pedido
+        List lista = (List) listVenda(venda);
+        //deleta  a lista acima 
+        session.beginTransaction();
+        for (int i = 0; i < lista.size(); i++) {
+            VendaProduto vendaprod = (VendaProduto) lista.get(i);
+            
+            session.flush();
+            session.clear();
+            session.delete(vendaprod);
+        }
+        session.getTransaction().commit();
+    }
 
     @Override
     public Object list(int codigo) {
@@ -64,7 +78,7 @@ public class VendaProdutoDAO extends AbstractDAO {
     public Object listVenda(Venda venda) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(VendaProduto.class);
-        criteria.add(Restrictions.eq("Venda", venda));
+        criteria.add(Restrictions.eq("venda", venda));
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;

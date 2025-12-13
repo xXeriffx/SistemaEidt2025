@@ -61,7 +61,7 @@ public class ControllerVenda_GME extends AbstractTableModel {
         } else if ( columnIndex == 2) {
             return "Data";
         } else if ( columnIndex == 3) {
-            return "Total";
+            return "Valor";
         } 
         return "";
     }
