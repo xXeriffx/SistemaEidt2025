@@ -5,7 +5,6 @@
  */
 package dao;
 
-
 import bean.Empresas;
 import java.util.List;
 import org.hibernate.Criteria;
@@ -46,7 +45,7 @@ public class EmpresasDAO extends AbstractDAO {
     public Object list(int codigo) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(Empresas.class);
-        criteria.add(Restrictions.eq("gme_id_empresas", codigo) );
+        criteria.add(Restrictions.eq("gme_id_empresas", codigo));
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
@@ -56,6 +55,34 @@ public class EmpresasDAO extends AbstractDAO {
     public Object listAll() {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(Empresas.class);
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+
+    public Object listNomeEmpre(String empresas) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(Empresas.class);
+        criteria.add(Restrictions.like("gmeNomeEmpresa", "%" + empresas + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+
+    public Object listNomeRep(String representante) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(Empresas.class);
+        criteria.add(Restrictions.like("gmeNomeRepresentante", "%" + representante + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+
+    public Object listNomeEmpreNomeRep(String empresas, String representante) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(Empresas.class);
+        criteria.add(Restrictions.like("gmeNomeEmpresa", "%" + empresas + "%"));
+        criteria.add(Restrictions.like("gmeNomeRepresentante", "%" + representante + "%"));
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;

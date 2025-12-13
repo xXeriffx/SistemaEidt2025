@@ -5,7 +5,6 @@
  */
 package dao;
 
-
 import bean.Venda;
 import java.util.List;
 import org.hibernate.Criteria;
@@ -46,7 +45,7 @@ public class VendaDAO extends AbstractDAO {
     public Object list(int codigo) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(Venda.class);
-        criteria.add(Restrictions.eq("gme_id_venda", codigo) );
+        criteria.add(Restrictions.eq("gme_id_venda", codigo));
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
@@ -57,6 +56,38 @@ public class VendaDAO extends AbstractDAO {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(Venda.class);
         List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+
+    public Object listEmpresa(String nomeEmpresa) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(Venda.class, "v");
+        criteria.createAlias("v.Empresas", "ve");
+        criteria.add(Restrictions.like("ve.gmeNomeEmpresa", "%" + nomeEmpresa + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+
+    public Object listCliente(String nomeCliente) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(Venda.class, "v");
+        criteria.createAlias("v.Clientes", "c");
+        criteria.add(Restrictions.like("c.gmeNomePessoal", "%" + nomeCliente + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+
+    public Object listEmpresaCliente(String nomeEmpresa, String nomeCliente) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(Venda.class, "v");
+        criteria.createAlias("v.Clientes", "c");
+        criteria.createAlias("v.Empresas", "ve");
+        criteria.add(Restrictions.like("c.gmeNomePessoal", "%" + nomeCliente + "%"));
+        criteria.add(Restrictions.like("ve.gmeNomeEmpresa", "%" + nomeEmpresa + "%"));
+         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
     }

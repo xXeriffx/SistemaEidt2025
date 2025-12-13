@@ -16,6 +16,7 @@ import dao.VendaDAO;
 import dao.VendaProdutoDAO;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JTable;
 
 /**
  *
@@ -82,6 +83,9 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
         VendaProdutoDAO vendaProdutoDAO = new VendaProdutoDAO();
         List lista = (List) vendaProdutoDAO.listVenda(venda);
         controllerVendaProdutos.setList(lista);
+    }
+    public JTable getjTable1() {
+        return jTbl_Colunas_GME;
     }
 
     /**
@@ -425,6 +429,7 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
 
     private void jBtn_side_adicionar_sideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_side_adicionar_sideActionPerformed
         JDlgVendas_produtos_GME jDlgVendas_produtos_GME = new JDlgVendas_produtos_GME(null, true);
+        jDlgVendas_produtos_GME.setTelaAnterior(this, null);
         jDlgVendas_produtos_GME.setVisible(true);
     }//GEN-LAST:event_jBtn_side_adicionar_sideActionPerformed
 

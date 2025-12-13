@@ -5,55 +5,47 @@
  */
 package view;
 
-import bean.Produtos;
-import bean.Venda;
 import bean.VendaProduto;
+import bean.Produtos;
 import dao.ProdutosDAO;
-import dao.VendaDAO;
-import dao.VendaProdutoDAO;
 import java.util.List;
 import tools.Util_GME;
 
 /**
  *
- * @author u07273579130
+ * @author u07880060103
  */
 public class JDlgVendas_produtos_GME extends javax.swing.JDialog {
-
-    boolean incluir;
-    
     JDlgVendas_GME jDlgVenda;
-    
+    boolean incluir;
     /**
-     * Creates new form JDlgVendas_produtos_GME
+     * Creates new form JDlgVendaProduto
      */
-    public JDlgVendas_produtos_GME(java.awt.Frame parent, boolean modal){super(parent, modal);
+    public JDlgVendas_produtos_GME(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
-        setTitle("Tela de Vendas Produtos");
         setLocationRelativeTo(null);
-        jTxt_quantidade_GME.setText("1");
-        Util_GME.habilitar(true, jCbxProduto_GME, jTxt_quantidade_GME,
-                jBtn_OK_GME, jBtn_Sair_GME);
-        Util_GME.habilitar(false, jTxt_ValorUnitario_GME, jTxt_code_GME, jTxt_Total_GME);
-        ProdutosDAO produtosDAO = new ProdutosDAO();
-        List listaPD = (List) produtosDAO.listAll();
-        for (Object object : listaPD) {
-            jCbxProduto_GME.addItem((Produtos) object);
-        }
-    
+        setTitle("Pedidos Produtos");
+        Util_GME.habilitar(false, jTxtValorUnitario, jTxtTotal);
+        jTxtQuantidade.setText("1");
+        ProdutosDAO veiculosDAO = new ProdutosDAO();
+        List lista = (List) veiculosDAO.listAll();
+        for (Object object : lista) {
+            jCboVeiculos.addItem((Produtos) object);
+        }   
     }
-    public void setTelaAnterior(JDlgVendas_GME jDlgVenda_GME, VendaProduto vendaProduto) {
-        this.jDlgVenda = jDlgVenda_GME;
+    
+    public void setTelaAnterior(JDlgVendas_GME jDlgVenda, VendaProduto vendaProduto) {
+        this.jDlgVenda = jDlgVenda;
            if (vendaProduto != null) {
             incluir = false;
-            jCbxProduto_GME.setSelectedItem(vendaProduto.getGmeIdVendaProduto());
-            jTxt_quantidade_GME.setText(Util_GME.intToStr(vendaProduto.getGmeQuantidade()));
+            jCboVeiculos.setSelectedItem(vendaProduto.getProdutos());
+            jTxtQuantidade.setText(Util_GME.intToStr(vendaProduto.getGmeQuantidade()));
         } else {
             incluir = true;
         }
     }
-   
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -63,74 +55,63 @@ public class JDlgVendas_produtos_GME extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTxt_quantidade_GME = new javax.swing.JTextField();
-        jLbl_Quantidade_GME = new javax.swing.JLabel();
-        jTxt_ValorUnitario_GME = new javax.swing.JTextField();
-        jLbl_ValorUnitario_GME = new javax.swing.JLabel();
-        jBtn_OK_GME = new javax.swing.JButton();
-        jTxt_code_GME = new javax.swing.JTextField();
-        jBtn_Sair_GME = new javax.swing.JButton();
-        jLbl_code_GME = new javax.swing.JLabel();
-        jLbl_produto_GME = new javax.swing.JLabel();
-        jCbxProduto_GME = new javax.swing.JComboBox<Produtos>();
-        jLbl_Total_GME = new javax.swing.JLabel();
-        jTxt_Total_GME = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jCboVeiculos = new javax.swing.JComboBox<Produtos>();
+        jLabel2 = new javax.swing.JLabel();
+        jTxtQuantidade = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jTxtValorUnitario = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jTxtTotal = new javax.swing.JTextField();
+        jBtnOk = new javax.swing.JButton();
+        jBtnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jTxt_quantidade_GME.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setText("Veiculos");
+
+        jCboVeiculos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxt_quantidade_GMEActionPerformed(evt);
+                jCboVeiculosActionPerformed(evt);
             }
         });
 
-        jLbl_Quantidade_GME.setText(" Quantidade");
+        jLabel2.setText("Quantidade");
 
-        jTxt_ValorUnitario_GME.addActionListener(new java.awt.event.ActionListener() {
+        jTxtQuantidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxt_ValorUnitario_GMEActionPerformed(evt);
+                jTxtQuantidadeActionPerformed(evt);
+            }
+        });
+        jTxtQuantidade.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTxtQuantidadeKeyReleased(evt);
             }
         });
 
-        jLbl_ValorUnitario_GME.setText("Valor Unitario");
+        jLabel3.setText("Valor Unitário");
 
-        jBtn_OK_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/confirmar.png"))); // NOI18N
-        jBtn_OK_GME.setText("Ok");
-        jBtn_OK_GME.addActionListener(new java.awt.event.ActionListener() {
+        jLabel4.setText("Total");
+
+        jTxtTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtn_OK_GMEActionPerformed(evt);
+                jTxtTotalActionPerformed(evt);
             }
         });
 
-        jTxt_code_GME.addActionListener(new java.awt.event.ActionListener() {
+        jBtnOk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/ok.png"))); // NOI18N
+        jBtnOk.setText("Ok");
+        jBtnOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxt_code_GMEActionPerformed(evt);
+                jBtnOkActionPerformed(evt);
             }
         });
 
-        jBtn_Sair_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/exit_1.png"))); // NOI18N
-        jBtn_Sair_GME.setText("Sair");
-        jBtn_Sair_GME.addActionListener(new java.awt.event.ActionListener() {
+        jBtnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cancelar.png"))); // NOI18N
+        jBtnCancelar.setText("Cancelar");
+        jBtnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtn_Sair_GMEActionPerformed(evt);
-            }
-        });
-
-        jLbl_code_GME.setText("Código");
-
-        jLbl_produto_GME.setText("Produto Vendido");
-
-        jCbxProduto_GME.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCbxProduto_GMEActionPerformed(evt);
-            }
-        });
-
-        jLbl_Total_GME.setText("Valor total");
-
-        jTxt_Total_GME.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxt_Total_GMEActionPerformed(evt);
+                jBtnCancelarActionPerformed(evt);
             }
         });
 
@@ -139,119 +120,100 @@ public class JDlgVendas_produtos_GME extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTxt_code_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLbl_code_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(23, 23, 23)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLbl_Total_GME)
-                            .addComponent(jTxt_Total_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBtn_OK_GME))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCbxProduto_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLbl_produto_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTxt_quantidade_GME)
-                            .addComponent(jLbl_Quantidade_GME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jBtn_Sair_GME, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTxt_ValorUnitario_GME, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLbl_ValorUnitario_GME, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(16, Short.MAX_VALUE))
+                        .addComponent(jBtnOk)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jBtnCancelar))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel1)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTxtQuantidade))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                                .addComponent(jTxtValorUnitario))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel4)
+                                .addComponent(jTxtTotal)))
+                        .addComponent(jCboVeiculos, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 10, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCboVeiculos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTxtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTxtValorUnitario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTxtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jBtn_Sair_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jBtn_OK_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLbl_produto_GME)
-                            .addComponent(jLbl_Quantidade_GME)
-                            .addComponent(jLbl_ValorUnitario_GME))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCbxProduto_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTxt_quantidade_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTxt_ValorUnitario_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLbl_code_GME)
-                            .addComponent(jLbl_Total_GME))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTxt_code_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTxt_Total_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
+                    .addComponent(jBtnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jBtnOk, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTxt_quantidade_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_quantidade_GMEActionPerformed
-        if (jTxt_quantidade_GME.getText().isEmpty() == false) {
-            Produtos produtos = (Produtos) jCbxProduto_GME.getSelectedItem();
-            int quant = Util_GME.strToInt(jTxt_quantidade_GME.getText());
-            jTxt_Total_GME.setText(Util_GME.doubleToStr(quant * produtos.getGmeValorUnitario()));
-        } else {
-            jTxt_Total_GME.setText("");
-        }
-    }//GEN-LAST:event_jTxt_quantidade_GMEActionPerformed
+    private void jTxtQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtQuantidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTxtQuantidadeActionPerformed
 
-    private void jTxt_ValorUnitario_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_ValorUnitario_GMEActionPerformed
+    private void jTxtTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtTotalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTxtTotalActionPerformed
 
-    }//GEN-LAST:event_jTxt_ValorUnitario_GMEActionPerformed
-
-    private void jBtn_OK_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_OK_GMEActionPerformed
-        
-        VendaProduto vendaProdutos = new VendaProduto();
-        vendaProdutos.setGmeIdVendaProduto((Produtos)jCbxProduto_GME.getSelectedItem());
-        vendaProdutos.setGmeQuantidade(Util_GME.strToInt(jTxt_quantidade_GME.getText()));
-        vendaProdutos.setGmeValorUnitario(Util_GME.strToDouble(jTxt_ValorUnitario_GME.getText()));
+    private void jBtnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnOkActionPerformed
+        // TODO add your handling code here:
+      VendaProduto vendaProduto = new VendaProduto();
+        vendaProduto.setProdutos((Produtos) jCboVeiculos.getSelectedItem());
+        vendaProduto.setGmeQuantidade(Util_GME.strToInt(jTxtQuantidade.getText()));
+        vendaProduto.setGmeValorUnitario(Util_GME.strToDouble(jTxtValorUnitario.getText()));
         if (incluir == true) {
-            jDlgVenda.controllerVendaProdutos.addBean(vendaProdutos);
+            jDlgVenda.controllerVendaProdutos.addBean(vendaProduto);
         } else {
             jDlgVenda.controllerVendaProdutos.removeBean(jDlgVenda.getjTable1().getSelectedRow());
-            jDlgVenda.controllerVendaProdutos.addBean(vendaProdutos);
+            jDlgVenda.controllerVendaProdutos.addBean(vendaProduto);
         }
-            setVisible(false);
-    }//GEN-LAST:event_jBtn_OK_GMEActionPerformed
+        setVisible(false);
+    }//GEN-LAST:event_jBtnOkActionPerformed
 
-    private void jTxt_code_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_code_GMEActionPerformed
-
-    }//GEN-LAST:event_jTxt_code_GMEActionPerformed
-
-    private void jBtn_Sair_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_Sair_GMEActionPerformed
-        if (Util_GME.perguntar("Deseja cancelar esse registro de Venda Produto?") == true) {
-            dispose();
-
-        }
-    }//GEN-LAST:event_jBtn_Sair_GMEActionPerformed
-
-    private void jTxt_Total_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_Total_GMEActionPerformed
-
-    }//GEN-LAST:event_jTxt_Total_GMEActionPerformed
-
-    private void jCbxProduto_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCbxProduto_GMEActionPerformed
+    private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
         // TODO add your handling code here:
-        Produtos produtos = (Produtos) jCbxProduto_GME.getSelectedItem();
-        jTxt_ValorUnitario_GME.setText(Util_GME.doubleToStr(produtos.getGmeValorUnitario()));
-        int quant = Util_GME.strToInt(jTxt_quantidade_GME.getText());
-        jTxt_Total_GME.setText(Util_GME.doubleToStr(quant * produtos.getGmeValorUnitario()));
-    }//GEN-LAST:event_jCbxProduto_GMEActionPerformed
+        setVisible(false);
+    }//GEN-LAST:event_jBtnCancelarActionPerformed
+
+    private void jCboVeiculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCboVeiculosActionPerformed
+        // TODO add your handling code here:
+        Produtos produtos = (Produtos) jCboVeiculos.getSelectedItem();
+        jTxtValorUnitario.setText(Util_GME.doubleToStr(produtos.getGmeValorUnitario()));
+        int quant = Util_GME.strToInt(jTxtQuantidade.getText());
+        jTxtTotal.setText(Util_GME.doubleToStr(quant * produtos.getGmeValorUnitario()));        
+    }//GEN-LAST:event_jCboVeiculosActionPerformed
+
+    private void jTxtQuantidadeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtQuantidadeKeyReleased
+        // TODO add your handling code here:
+        if (jTxtQuantidade.getText().isEmpty()== false) {
+            Produtos produtos = (Produtos) jCboVeiculos.getSelectedItem();        
+            int quant = Util_GME.strToInt(jTxtQuantidade.getText());
+            jTxtTotal.setText(Util_GME.doubleToStr(quant * produtos.getGmeValorUnitario()));                
+        } else {
+            jTxtTotal.setText("");
+        }
+    }//GEN-LAST:event_jTxtQuantidadeKeyReleased
 
     /**
      * @param args the command line arguments
@@ -279,6 +241,13 @@ public class JDlgVendas_produtos_GME extends javax.swing.JDialog {
             java.util.logging.Logger.getLogger(JDlgVendas_produtos_GME.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -296,17 +265,15 @@ public class JDlgVendas_produtos_GME extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBtn_OK_GME;
-    private javax.swing.JButton jBtn_Sair_GME;
-    private javax.swing.JComboBox<Produtos> jCbxProduto_GME;
-    private javax.swing.JLabel jLbl_Quantidade_GME;
-    private javax.swing.JLabel jLbl_Total_GME;
-    private javax.swing.JLabel jLbl_ValorUnitario_GME;
-    private javax.swing.JLabel jLbl_code_GME;
-    private javax.swing.JLabel jLbl_produto_GME;
-    private javax.swing.JTextField jTxt_Total_GME;
-    private javax.swing.JTextField jTxt_ValorUnitario_GME;
-    private javax.swing.JTextField jTxt_code_GME;
-    private javax.swing.JTextField jTxt_quantidade_GME;
+    private javax.swing.JButton jBtnCancelar;
+    private javax.swing.JButton jBtnOk;
+    private javax.swing.JComboBox<Produtos> jCboVeiculos;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JTextField jTxtQuantidade;
+    private javax.swing.JTextField jTxtTotal;
+    private javax.swing.JTextField jTxtValorUnitario;
     // End of variables declaration//GEN-END:variables
 }

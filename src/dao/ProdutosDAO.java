@@ -59,6 +59,32 @@ public class ProdutosDAO extends AbstractDAO {
         session.getTransaction().commit();
         return lista;
     }
+    
+    public Object listNome(String nome) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(Produtos.class);
+        criteria.add(Restrictions.like("gmeNomeProduto", "%" + nome + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+     public Object listValorUni(double valor) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(Produtos.class);
+        criteria.add(Restrictions.ge("gmeValorUnitario", valor));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+     public Object listNomeValorUni(String nome, double valor) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(Produtos.class);
+        criteria.add(Restrictions.like("gmeNomeProduto", "%" + nome + "%"));
+        criteria.add(Restrictions.ge("gmeValorUnitario", valor));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
 
     public static void main(String[] args) {
         ProdutosDAO usuariosDAO = new ProdutosDAO();

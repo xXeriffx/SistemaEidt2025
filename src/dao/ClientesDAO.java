@@ -46,7 +46,7 @@ public class ClientesDAO extends AbstractDAO {
     public Object list(int codigo) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(Clientes.class);
-        criteria.add(Restrictions.eq("gme_id_Cliente", codigo) );
+        criteria.add(Restrictions.eq("gme_id_Cliente", codigo));
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
@@ -56,6 +56,34 @@ public class ClientesDAO extends AbstractDAO {
     public Object listAll() {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(Clientes.class);
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+
+    public Object listNome(String nome) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(Clientes.class);
+        criteria.add(Restrictions.like("gmeNomePessoal", "%" + nome + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+
+    public Object listLoja(String Profissao) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(Clientes.class);
+        criteria.add(Restrictions.like("gmeNomeLoja", "%" + Profissao + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+
+    public Object listNomeLoja(String nome, String loja) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(Clientes.class);
+        criteria.add(Restrictions.like("gmeNomePessoal", "%" + nome + "%"));
+        criteria.add(Restrictions.ge("gmeNomeLoja", "%" + loja + "%"));
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;

@@ -4,7 +4,7 @@
  */
 package view;
 
-import bean.Produtos;
+import bean.Clientes;
 
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -14,18 +14,18 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author Marcos
  */
-public class ControllerConsultasProdutos_GME extends AbstractTableModel {
+public class ControllerConsultasClientes_GME extends AbstractTableModel {
 
-    private List lstProduto;
+    private List lstCliente;
 
-    public void setList(List lstProduto) {
-        this.lstProduto = lstProduto;
+    public void setList(List lstCliente) {
+        this.lstCliente = lstCliente;
         this.fireTableDataChanged();
     }
 
     @Override
     public int getRowCount() {
-        return lstProduto.size();
+        return lstCliente.size();
                 
     }
 
@@ -36,13 +36,13 @@ public class ControllerConsultasProdutos_GME extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Produtos produtos = (Produtos) lstProduto.get( rowIndex);
+        Clientes produtos = (Clientes) lstCliente.get( rowIndex);
         if ( columnIndex == 0 ){
-            return produtos.getGmeIdProdutos();
+            return produtos.getGmeIdClientes();
         } else if (columnIndex ==1) {
-            return produtos.getGmeNomeProduto();        
+            return produtos.getGmeNomePessoal();        
         } else if (columnIndex ==2) {
-            return produtos.getGmeValorUnitario();
+            return produtos.getGmeNomeLoja();
         } 
         return "";
     }
@@ -52,9 +52,9 @@ public class ControllerConsultasProdutos_GME extends AbstractTableModel {
         if ( columnIndex == 0) {
             return "Código";
         } else if ( columnIndex == 1) {
-            return "Nome Produto";         
+            return "Nome";         
         } else if ( columnIndex == 2) {
-            return "Valor Unitario";
+            return "Loja";
         }
         return "";
     }

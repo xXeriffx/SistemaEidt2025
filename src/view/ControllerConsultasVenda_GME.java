@@ -4,7 +4,7 @@
  */
 package view;
 
-import bean.Produtos;
+import bean.Venda;
 
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -14,18 +14,18 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author Marcos
  */
-public class ControllerConsultasProdutos_GME extends AbstractTableModel {
+public class ControllerConsultasVenda_GME extends AbstractTableModel {
 
-    private List lstProduto;
+    private List lsVendaConsultar;
 
-    public void setList(List lstProduto) {
-        this.lstProduto = lstProduto;
+    public void setList(List lsVendaConsultar) {
+        this.lsVendaConsultar = lsVendaConsultar;
         this.fireTableDataChanged();
     }
 
     @Override
     public int getRowCount() {
-        return lstProduto.size();
+        return lsVendaConsultar.size();
                 
     }
 
@@ -36,13 +36,13 @@ public class ControllerConsultasProdutos_GME extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Produtos produtos = (Produtos) lstProduto.get( rowIndex);
+        Venda venda = (Venda) lsVendaConsultar.get( rowIndex);
         if ( columnIndex == 0 ){
-            return produtos.getGmeIdProdutos();
+            return venda.getGmeIdVenda();
         } else if (columnIndex ==1) {
-            return produtos.getGmeNomeProduto();        
+            return venda.getEmpresas().getGmeNomeEmpresa();        
         } else if (columnIndex ==2) {
-            return produtos.getGmeValorUnitario();
+            return venda.getClientes().getGmeNomePessoal();
         } 
         return "";
     }
@@ -52,9 +52,9 @@ public class ControllerConsultasProdutos_GME extends AbstractTableModel {
         if ( columnIndex == 0) {
             return "Código";
         } else if ( columnIndex == 1) {
-            return "Nome Produto";         
+            return "Empresa";         
         } else if ( columnIndex == 2) {
-            return "Valor Unitario";
+            return "Cliente";
         }
         return "";
     }
