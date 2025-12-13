@@ -4,12 +4,20 @@
  */
 package view;
 
+import bean.Produtos;
+import dao.ProdutosDAO;
+import java.util.List;
+import tools.Util_GME;
+
 /**
  *
  * @author guilh
  */
 public class JDlgProdutosPesquisar_GME extends javax.swing.JDialog {
 
+    
+    private JDlgProdutos_GME jDlgProdutos;
+    ControllerProdutos_GME controllerProdutos;
     /**
      * Creates new form JDlgProdutosPesquisar_GME
      */
@@ -18,6 +26,15 @@ public class JDlgProdutosPesquisar_GME extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Tela de Pesquisa de Produto");
+        controllerProdutos = new ControllerProdutos_GME();
+        
+        ProdutosDAO produtosDAO = new ProdutosDAO();
+        List lista = (List) produtosDAO.listAll();
+        controllerProdutos.setList(lista);
+        jTable1.setModel(controllerProdutos);
+    }
+    public void setTelaAnterior(JDlgProdutos_GME jDlgProdutos) {
+        this.jDlgProdutos = jDlgProdutos;
     }
 
     /**
@@ -92,7 +109,13 @@ public class JDlgProdutosPesquisar_GME extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtn_Selecionar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_Selecionar_GMEActionPerformed
-       dispose();
+      if (jTable1.getSelectedRow() == -1) {
+            Util_GME.messagem("Nenhuma linha foi selecionada.");
+        } else {
+            Produtos produtos = controllerProdutos.getBean(jTable1.getSelectedRow());
+            jDlgProdutos.beanView(produtos);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_jBtn_Selecionar_GMEActionPerformed
 
     private void jBtn_Cancelar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_Cancelar_GMEActionPerformed

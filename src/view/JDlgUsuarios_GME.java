@@ -353,6 +353,7 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
 
     private void jBtnPesquisar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisar_GMEActionPerformed
         JDlgUsuariosPesquisar_GME jDlgUsuariosPesquisar_GME = new JDlgUsuariosPesquisar_GME(null, true);
+        jDlgUsuariosPesquisar_GME.setTelaAnterior(this);
         jDlgUsuariosPesquisar_GME.setVisible(true);
 
         incluir = true;

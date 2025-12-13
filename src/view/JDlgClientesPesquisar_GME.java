@@ -4,11 +4,21 @@
  */
 package view;
 
+import bean.Clientes;
+import dao.ClientesDAO;
+import java.util.List;
+import tools.Util_GME;
+
 /**
  *
  * @author guilh
  */
+    
+
 public class JDlgClientesPesquisar_GME extends javax.swing.JDialog {
+    
+    private JDlgClientes_GME jDlgClientes;
+    ControllerClientes_GME controllerClientes;
 
     /**
      * Creates new form JDlgClientesPesquisar_GME
@@ -18,8 +28,18 @@ public class JDlgClientesPesquisar_GME extends javax.swing.JDialog {
         initComponents();
          setLocationRelativeTo(null);
         setTitle("Tela de Pesquisa de Clientes");
+        controllerClientes = new ControllerClientes_GME();
+        
+        ClientesDAO clienteDAO = new ClientesDAO();
+        List lista = (List) clienteDAO.listAll();
+        controllerClientes.setList(lista);
+        jTable1.setModel(controllerClientes);
+        
     }
-
+    
+    public void setTelaAnterior(JDlgClientes_GME jDlgClientes) {
+        this.jDlgClientes = jDlgClientes;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -96,7 +116,13 @@ public class JDlgClientesPesquisar_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtn_Cancelar_GMEActionPerformed
 
     private void jBtn_Selecionar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_Selecionar_GMEActionPerformed
-        dispose();
+         if (jTable1.getSelectedRow() == -1) {
+            Util_GME.messagem("Nenhuma linha foi selecionada.");
+        } else {
+            Clientes cliente = controllerClientes.getBean(jTable1.getSelectedRow());
+            jDlgClientes.beanView(cliente);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_jBtn_Selecionar_GMEActionPerformed
 
     /**

@@ -7,11 +7,14 @@ package view;
 import bean.Empresas;
 import bean.Clientes;
 import bean.Venda;
+import bean.VendaProduto;
 import tools.Util_GME;
 import dao.ClientesDAO;
 import dao.EmpresasDAO;
 import dao.UsuariosDAO;
 import dao.VendaDAO;
+import dao.VendaProdutoDAO;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,6 +22,8 @@ import java.util.List;
  * @author guilh
  */
 public class JDlgVendas_GME extends javax.swing.JDialog {
+
+    ControllerVendaProdutos_GME controllerVendaProdutos;
 
     /**
      * Creates new form JDlgVendas_GME
@@ -31,7 +36,7 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
 
         jCbx_clientes_GME.removeAllItems();
         ClientesDAO clientesdao = new ClientesDAO();
-        List listaCL = (List)clientesdao.listAll();
+        List listaCL = (List) clientesdao.listAll();
         for (Object object : listaCL) {
             jCbx_clientes_GME.addItem((Clientes) object);
         }
@@ -42,9 +47,12 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
             jCbx_empresas_GME.addItem((Empresas) object);
         }
 
-        Util_GME.habilitar(false, jTxt_code_GME, jCbx_clientes_GME,jCbx_empresas_GME, jBtn_cancelar_GME,
-                jTxt_data_GME, jTxt_valor_GME, jBtn_alterar_GME, jBtn_excluir_GME, jBtn_confirmar_GME, 
+        Util_GME.habilitar(false, jTxt_code_GME, jCbx_clientes_GME, jCbx_empresas_GME, jBtn_cancelar_GME,
+                jTxt_data_GME, jTxt_valor_GME, jBtn_alterar_GME, jBtn_excluir_GME, jBtn_confirmar_GME,
                 jBtn_side_adicionar_side, jBtn_side_alterar_GME, jBtn_side_delete_GME);
+        controllerVendaProdutos = new ControllerVendaProdutos_GME();
+        controllerVendaProdutos.setList(new ArrayList());
+        jTbl_Colunas_GME.setModel(controllerVendaProdutos);
     }
 
     private boolean incluir;
@@ -52,15 +60,28 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
     public Venda viewBean() {
         Venda venda = new Venda();
         venda.setGmeIdVenda(Util_GME.strToInt(jTxt_code_GME.getText()));
-            
-      
+
         venda.setClientes((Clientes) jCbx_clientes_GME.getSelectedItem());
         venda.setEmpresas((Empresas) jCbx_empresas_GME.getSelectedItem());
-        
+
         venda.setGmeData(Util_GME.strToDate(jTxt_data_GME.getText()));
         venda.setGmeTotal(Util_GME.strToDouble(jTxt_valor_GME.getText()));
-        
+
         return venda;
+    }
+
+    public void beanView(Venda venda) {
+
+        jTxt_code_GME.setText(Util_GME.intToStr(venda.getGmeIdVenda()));
+        jTxt_data_GME.setText(Util_GME.dateToStr(venda.getGmeData()));
+        jTxt_valor_GME.setText(Util_GME.doubleToStr(venda.getGmeTotal()));
+
+        jCbx_clientes_GME.setSelectedItem(venda.getClientes());
+        jCbx_empresas_GME.setSelectedItem(venda.getEmpresas());
+
+        VendaProdutoDAO vendaProdutoDAO = new VendaProdutoDAO();
+        List lista = (List) vendaProdutoDAO.listVenda(venda);
+        controllerVendaProdutos.setList(lista);
     }
 
     /**
@@ -309,7 +330,7 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+
     private void jBtn_side_delete_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_side_delete_GMEActionPerformed
         if (Util_GME.perguntar("Deseja Deletar esse registro de Venda?") == true) {
         }
@@ -317,8 +338,8 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
 
     private void jBtn_incluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_incluir_GMEActionPerformed
         incluir = true;
-        
-        Util_GME.habilitar(true, jTxt_code_GME,  jCbx_clientes_GME,jCbx_empresas_GME, 
+
+        Util_GME.habilitar(true, jTxt_code_GME, jCbx_clientes_GME, jCbx_empresas_GME,
                 jTxt_data_GME, jTxt_valor_GME,
                 jBtn_alterar_GME, jBtn_excluir_GME, jBtn_confirmar_GME, jBtn_cancelar_GME,
                 jBtn_side_adicionar_side, jBtn_side_alterar_GME, jBtn_side_delete_GME
@@ -331,23 +352,33 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtn_alterar_GMEActionPerformed
 
     private void jBtn_excluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_excluir_GMEActionPerformed
-        if (Util_GME.perguntar("Deseja excluir esse registro de Venda?") == true) {
-            Util_GME.Limpar(jTxt_code_GME,  jCbx_clientes_GME,jCbx_empresas_GME,
-                    jTxt_data_GME, jTxt_valor_GME);
 
-            Util_GME.habilitar(false, jTxt_code_GME,  jCbx_clientes_GME,jCbx_empresas_GME,
-                    jTxt_data_GME, jTxt_valor_GME,
-                    jBtn_alterar_GME, jBtn_excluir_GME, jBtn_confirmar_GME, jBtn_cancelar_GME,
-                    jBtn_side_adicionar_side, jBtn_side_alterar_GME, jBtn_side_delete_GME
-            );
-            Util_GME.habilitar(true, jBtn_incluir_GME, jBtn_Pesquisar_GME);
+        if (Util_GME.perguntar("Deseja Realizar a exclusão ?") == true) {
+            VendaDAO vendaDAO = new VendaDAO();
+            VendaProdutoDAO vendaProdutoDAO = new VendaProdutoDAO();
+            for (int ind = 0; ind < jTbl_Colunas_GME.getRowCount(); ind++) {
+                VendaProduto vendaProduto = controllerVendaProdutos.getBean(ind);
+                vendaProdutoDAO.delete(vendaProduto);
+            }
+            vendaDAO.delete(viewBean());
         }
+
+        Util_GME.Limpar(jTxt_code_GME, jCbx_clientes_GME, jCbx_empresas_GME,
+                jTxt_data_GME, jTxt_valor_GME);
+
+        Util_GME.habilitar(false, jTxt_code_GME, jCbx_clientes_GME, jCbx_empresas_GME,
+                jTxt_data_GME, jTxt_valor_GME,
+                jBtn_alterar_GME, jBtn_excluir_GME, jBtn_confirmar_GME, jBtn_cancelar_GME,
+                jBtn_side_adicionar_side, jBtn_side_alterar_GME, jBtn_side_delete_GME
+        );
+        Util_GME.habilitar(true, jBtn_incluir_GME, jBtn_Pesquisar_GME);
+
     }//GEN-LAST:event_jBtn_excluir_GMEActionPerformed
 
     private void jBtn_confirmar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_confirmar_GMEActionPerformed
-        
+
         VendaDAO vendaDAO = new VendaDAO();
-        
+
         if (incluir == true) {
 
             vendaDAO.insert(viewBean());
@@ -356,11 +387,11 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
 
             vendaDAO.update(viewBean());
         }
-        
-        Util_GME.Limpar(jTxt_code_GME,  jCbx_clientes_GME,jCbx_empresas_GME,
+
+        Util_GME.Limpar(jTxt_code_GME, jCbx_clientes_GME, jCbx_empresas_GME,
                 jTxt_data_GME, jTxt_valor_GME);
 
-        Util_GME.habilitar(false, jTxt_code_GME,  jCbx_clientes_GME,jCbx_empresas_GME,
+        Util_GME.habilitar(false, jTxt_code_GME, jCbx_clientes_GME, jCbx_empresas_GME,
                 jTxt_data_GME, jTxt_valor_GME,
                 jBtn_alterar_GME, jBtn_excluir_GME, jBtn_confirmar_GME, jBtn_cancelar_GME,
                 jBtn_side_adicionar_side, jBtn_side_alterar_GME, jBtn_side_delete_GME
@@ -374,10 +405,10 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
 
     private void jBtn_cancelar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_cancelar_GMEActionPerformed
         if (Util_GME.perguntar("Deseja cancelar esse registro de Venda?") == true) {
-            Util_GME.Limpar(jTxt_code_GME,  jCbx_clientes_GME,jCbx_empresas_GME,
+            Util_GME.Limpar(jTxt_code_GME, jCbx_clientes_GME, jCbx_empresas_GME,
                     jTxt_data_GME, jTxt_valor_GME);
 
-            Util_GME.habilitar(false, jTxt_code_GME,  jCbx_clientes_GME,jCbx_empresas_GME, 
+            Util_GME.habilitar(false, jTxt_code_GME, jCbx_clientes_GME, jCbx_empresas_GME,
                     jTxt_data_GME, jTxt_valor_GME,
                     jBtn_alterar_GME, jBtn_excluir_GME, jBtn_confirmar_GME, jBtn_cancelar_GME,
                     jBtn_side_adicionar_side, jBtn_side_alterar_GME, jBtn_side_delete_GME
@@ -388,11 +419,12 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
 
     private void jBtn_Pesquisar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_Pesquisar_GMEActionPerformed
         JDlgVendasPesquisar_GME jDlgVendasPesquisar_GME = new JDlgVendasPesquisar_GME(null, true);
+        jDlgVendasPesquisar_GME.setTelaAnterior(this);
         jDlgVendasPesquisar_GME.setVisible(true);
     }//GEN-LAST:event_jBtn_Pesquisar_GMEActionPerformed
 
     private void jBtn_side_adicionar_sideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_side_adicionar_sideActionPerformed
-        JDlgVendas_produtos_GME jDlgVendas_produtos_GME = new JDlgVendas_produtos_GME(null,true);
+        JDlgVendas_produtos_GME jDlgVendas_produtos_GME = new JDlgVendas_produtos_GME(null, true);
         jDlgVendas_produtos_GME.setVisible(true);
     }//GEN-LAST:event_jBtn_side_adicionar_sideActionPerformed
 

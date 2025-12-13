@@ -53,11 +53,12 @@ public class JDlgProdutos_GME extends javax.swing.JDialog {
         jTxt_Codigo_GME.setText(Util_GME.intToStr(produto.getGmeIdProdutos()));
         jTxtNome_GME.setText(produto.getGmeNomeProduto());
         jTxtValor_GME.setText(Util_GME.doubleToStr(produto.getGmeValorUnitario()));
-
-        jCbo_categoria_GME.setSelectedItem(produto.getGmeCategoria());
         jTxtSabor_GME.setText(produto.getGmeSabor());
-        jCboACUCAR_GME.setSelectedItem(produto.getGmeAcucar());
-        jCboLitragemXQuant_GME.setSelectedItem(produto.getGmeLitragem());
+        
+        jCbo_categoria_GME.setSelectedIndex(produto.getGmeCategoria());
+        jCboACUCAR_GME.setSelectedIndex(produto.getGmeAcucar());
+        jCboLitragemXQuant_GME.setSelectedIndex(produto.getGmeLitragem());
+        
         if (produto.getGmeEdicaoLimitada() == 'S') {
             jCbx_Edição_Limitadal_GME.setSelected(true);
         } else {
@@ -280,7 +281,7 @@ public class JDlgProdutos_GME extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtnIncluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluir_GMEActionPerformed
-
+incluir = true;
         Util_GME.habilitar(true, jTxtNome_GME, jTxtValor_GME, jTxt_Catagoria_GME, jTxt_Codigo_GME, jCboACUCAR_GME,
                 jCboLitragemXQuant_GME, jTxtSabor_GME, jCbo_categoria_GME, jCbx_Edição_Limitadal_GME,
                 jBtnConfirmar_GME, jBtnCancelar_GME);
@@ -288,7 +289,6 @@ public class JDlgProdutos_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtnIncluir_GMEActionPerformed
 
     private void jBtnConfirmar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmar_GMEActionPerformed
-        incluir = true;
 
         ProdutosDAO produtosDAO = new ProdutosDAO();
 
@@ -312,6 +312,10 @@ public class JDlgProdutos_GME extends javax.swing.JDialog {
 
     private void jBtnExcluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluir_GMEActionPerformed
         if (Util_GME.perguntar("Deseja excluir esse registro de Produto?") == true) {
+            
+            ProdutosDAO produtosDAO = new ProdutosDAO();
+            produtosDAO.delete(viewBean());
+            
             Util_GME.Limpar(jTxtNome_GME, jTxtValor_GME, jTxt_Catagoria_GME, jTxt_Codigo_GME, jCboACUCAR_GME,
                     jCboLitragemXQuant_GME, jTxtSabor_GME, jCbo_categoria_GME, jCbx_Edição_Limitadal_GME);
 
@@ -336,6 +340,7 @@ public class JDlgProdutos_GME extends javax.swing.JDialog {
 
     private void jBtnPesquisar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisar_GMEActionPerformed
         JDlgProdutosPesquisar_GME jDlgProdutosPesquisar_GME = new JDlgProdutosPesquisar_GME(null, true);
+        jDlgProdutosPesquisar_GME.setTelaAnterior(this);
         jDlgProdutosPesquisar_GME.setVisible(true);
 
         Util_GME.habilitar(false, jTxtNome_GME, jTxtValor_GME, jTxt_Catagoria_GME, jTxt_Codigo_GME, jCboACUCAR_GME,

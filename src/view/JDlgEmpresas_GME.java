@@ -352,6 +352,9 @@ public class JDlgEmpresas_GME extends javax.swing.JDialog {
 
     private void jBtnExcluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluir_GMEActionPerformed
         if (Util_GME.perguntar("Deseja excluir esse registro de Empresa?") == true) {
+            EmpresasDAO empresasDAO = new EmpresasDAO();
+            empresasDAO.delete(viewBean());
+            
             Util_GME.Limpar(jTxtCodigo_GME, jTxtNomeEMPRE_GME, jTxtNomeREP_GME, jTxtnumero_GME, jTxtCodigo_GME,
                     jTxtnumero_GME, jFmt_CEP_GME, jFmt_TEL_EMPRE_GME, jFmt_TEL_REP_GME, jFmt_cnpj_GME,
                     jBtnCancelar_GME, jBtnConfirmar_GME, jBtnExcluir_GME, jBtnAlterar_GME);
@@ -375,6 +378,7 @@ public class JDlgEmpresas_GME extends javax.swing.JDialog {
 
     private void jBtnPesquisar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisar_GMEActionPerformed
         JDlgEmpresasPesquisar_GME jDlgEmpresasPesquisar_GME = new JDlgEmpresasPesquisar_GME(null, true);
+        jDlgEmpresasPesquisar_GME.setTelaAnterior(this);
         jDlgEmpresasPesquisar_GME.setVisible(true);
 
         Util_GME.habilitar(false, jTxtCodigo_GME, jTxtNomeEMPRE_GME, jTxtNomeREP_GME, jTxtnumero_GME, jTxtCodigo_GME,

@@ -20,11 +20,14 @@ import tools.Util_GME;
  */
 public class JDlgVendas_produtos_GME extends javax.swing.JDialog {
 
+    boolean incluir;
+    
+    JDlgVendas_GME jDlgVenda;
+    
     /**
      * Creates new form JDlgVendas_produtos_GME
      */
-    public JDlgVendas_produtos_GME(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public JDlgVendas_produtos_GME(java.awt.Frame parent, boolean modal){super(parent, modal);
         initComponents();
         setTitle("Tela de Vendas Produtos");
         setLocationRelativeTo(null);
@@ -37,23 +40,20 @@ public class JDlgVendas_produtos_GME extends javax.swing.JDialog {
         for (Object object : listaPD) {
             jCbxProduto_GME.addItem((Produtos) object);
         }
-
+    
     }
-
-    private boolean incluir;
-
-    public VendaProduto viewBean() {
-        VendaProduto vendaProduto = new VendaProduto();
-        vendaProduto.setGmeIdVendaProduto(Util_GME.strToInt(jTxt_code_GME.getText()));
-
-        vendaProduto.setProdutos((Produtos) jCbxProduto_GME.getSelectedItem());
-
-        vendaProduto.setGmeQuantidade(Util_GME.strToInt(jTxt_quantidade_GME.getText()));
-        vendaProduto.setGmeValorUnitario(Util_GME.strToDouble(jTxt_ValorUnitario_GME.getText()));
-
-        return vendaProduto;
+    public void setTelaAnterior(JDlgVendas_GME jDlgVenda_GME, VendaProduto vendaProduto) {
+        this.jDlgVenda = jDlgVenda_GME;
+           if (vendaProduto != null) {
+            incluir = false;
+            jCbxProduto_GME.setSelectedItem(vendaProduto.getGmeIdVendaProduto());
+            jTxt_quantidade_GME.setText(Util_GME.intToStr(vendaProduto.getGmeQuantidade()));
+        } else {
+            incluir = true;
+        }
     }
-
+   
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -216,25 +216,18 @@ public class JDlgVendas_produtos_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jTxt_ValorUnitario_GMEActionPerformed
 
     private void jBtn_OK_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_OK_GMEActionPerformed
-        incluir = true;
-
-        VendaProdutoDAO vendaProdutoDAO = new VendaProdutoDAO();
-
+        
+        VendaProduto vendaProdutos = new VendaProduto();
+        vendaProdutos.setGmeIdVendaProduto((Produtos)jCbxProduto_GME.getSelectedItem());
+        vendaProdutos.setGmeQuantidade(Util_GME.strToInt(jTxt_quantidade_GME.getText()));
+        vendaProdutos.setGmeValorUnitario(Util_GME.strToDouble(jTxt_ValorUnitario_GME.getText()));
         if (incluir == true) {
-
-            vendaProdutoDAO.insert(viewBean());
-
+            jDlgVenda.controllerVendaProdutos.addBean(vendaProdutos);
         } else {
-
-            vendaProdutoDAO.update(viewBean());
+            jDlgVenda.controllerVendaProdutos.removeBean(jDlgVenda.getjTable1().getSelectedRow());
+            jDlgVenda.controllerVendaProdutos.addBean(vendaProdutos);
         }
-
-        Util_GME.Limpar(jTxt_code_GME, jTxt_ValorUnitario_GME, jCbxProduto_GME, jTxt_quantidade_GME);
-
-        Util_GME.habilitar(false, jTxt_code_GME, jTxt_ValorUnitario_GME, jCbxProduto_GME, jTxt_quantidade_GME,
-                jBtn_OK_GME, jBtn_Sair_GME);
-
-
+            setVisible(false);
     }//GEN-LAST:event_jBtn_OK_GMEActionPerformed
 
     private void jTxt_code_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_code_GMEActionPerformed

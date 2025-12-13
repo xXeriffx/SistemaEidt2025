@@ -4,6 +4,11 @@
  */
 package view;
 
+import bean.Venda;
+import dao.VendaDAO;
+import java.util.List;
+import tools.Util_GME;
+
 /**
  *
  * @author guilh
@@ -13,11 +18,22 @@ public class JDlgVendasPesquisar_GME extends javax.swing.JDialog {
     /**
      * Creates new form JDlgVendasPesquisar_GME
      */
+    private JDlgVendas_GME jDlgVenda;
+    ControllerVenda_GME controllerVenda;
+    
     public JDlgVendasPesquisar_GME(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Tela de Pesquisa de Vendas");
+        controllerVenda = new ControllerVenda_GME();
+        VendaDAO vendaDAO = new VendaDAO();
+        List lista = (List) vendaDAO.listAll();
+        controllerVenda.setList(lista);
+        jTable1.setModel(controllerVenda);
+    }
+    public void setTelaAnterior(JDlgVendas_GME jDlgVenda) {;
+        this.jDlgVenda = jDlgVenda;
     }
 
     /**
@@ -95,7 +111,13 @@ public class JDlgVendasPesquisar_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtn_SairActionPerformed
 
     private void jBtn_selecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_selecionarActionPerformed
-        dispose();
+        if (jTable1.getSelectedRow() == -1) {
+            Util_GME.messagem("Nenhuma linha selecionada.");
+        } else {
+            Venda venda = controllerVenda.getBean(jTable1.getSelectedRow());
+            jDlgVenda.beanView(venda);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_jBtn_selecionarActionPerformed
 
     /**

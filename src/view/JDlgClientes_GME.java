@@ -43,7 +43,7 @@ public class JDlgClientes_GME extends javax.swing.JDialog {
         clientes.setGmeCargo(jTxtCargo_GME.getText());
         clientes.setGmeNomeLoja(jTxtNomeLoja_GME.getText());
         clientes.setGmeEmailLoja(jTxtEmailLoja_GME.getText());
-        clientes.setGmeTelefoneLoja(jTxtNomeLoja_GME.getText());
+        clientes.setGmeTelefoneLoja(jFmt_telefone_loja_GME.getText());
         clientes.setGmeDataCadastro(Util_GME.strToDate(jFmt_DataCadastro_GME.getText()));
         clientes.setGmeCnpj(jFmt_CNPJ_GME.getText());
         clientes.setGmeCep(jFmt_CEP_GME.getText());
@@ -67,6 +67,7 @@ public class JDlgClientes_GME extends javax.swing.JDialog {
         jFmt_CEP_GME.setText(clientes.getGmeCep());
         jFmt_CNPJ_GME.setText(clientes.getGmeCnpj());
         jFmt_telefone_pessoal_GME.setText(clientes.getGmeTelefonePessoal());
+        jFmt_telefone_loja_GME.setText(clientes.getGmeTelefoneLoja());
         jFmt_Datanasc_GME.setText(Util_GME.dateToStr(clientes.getGmeDatanasc()));
         jFmt_DataCadastro_GME.setText(Util_GME.dateToStr(clientes.getGmeDataCadastro()));
     }
@@ -448,6 +449,12 @@ public class JDlgClientes_GME extends javax.swing.JDialog {
 
     private void jBtnExcluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluir_GMEActionPerformed
         if (Util_GME.perguntar("Deseja excluir esse registro de Clientes?") == true) {
+            
+            ClientesDAO clientesDAO = new ClientesDAO();
+            clientesDAO.delete(viewBean());
+
+            
+            
             Util_GME.Limpar(jTxtCodigo_GME, jTxtCargo_GME, jTxtCodigo_GME, jTxtEmailLoja_GME, jTxtEmail_pessoal_GME,
                     jTxtNomeLoja_GME, jTxtNomePessoal_GME, jTxtnumero_GME, jFmt_CEP_GME, jFmt_CNPJ_GME, jFmt_DataCadastro_GME,
                     jFmt_Datanasc_GME, jFmt_telefone_loja_GME, jFmt_telefone_pessoal_GME, jCbxEstadoCivil_GME, jCbxGenero_GME);
@@ -483,8 +490,9 @@ public class JDlgClientes_GME extends javax.swing.JDialog {
 
     private void jBtnPesquisar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisar_GMEActionPerformed
         JDlgClientesPesquisar_GME jDlgClientesPesquisar_GME = new JDlgClientesPesquisar_GME(null, true);
+        jDlgClientesPesquisar_GME.setTelaAnterior(this);
         jDlgClientesPesquisar_GME.setVisible(true);
-
+    
         Util_GME.habilitar(false, jTxtCodigo_GME, jTxtCargo_GME, jTxtCodigo_GME, jTxtEmailLoja_GME, jTxtEmail_pessoal_GME,
                 jTxtNomeLoja_GME, jTxtNomePessoal_GME, jTxtnumero_GME,
                 jFmt_CEP_GME, jFmt_CNPJ_GME, jFmt_DataCadastro_GME, jFmt_Datanasc_GME, jFmt_telefone_loja_GME, jFmt_telefone_pessoal_GME,

@@ -4,11 +4,19 @@
  */
 package view;
 
+import bean.Empresas;
+import dao.EmpresasDAO;
+import java.util.List;
+import tools.Util_GME;
+
 /**
  *
  * @author guilh
  */
 public class JDlgEmpresasPesquisar_GME extends javax.swing.JDialog {
+    
+    private JDlgEmpresas_GME jDlgEmpresas;
+    ControllerEmpresas_GME controllerEmpresas;
 
     /**
      * Creates new form jDlgEmpresasPesquisar_GME
@@ -18,6 +26,14 @@ public class JDlgEmpresasPesquisar_GME extends javax.swing.JDialog {
         initComponents();
          setLocationRelativeTo(null);
         setTitle("Tela de Pesquisa de Empresas");
+        controllerEmpresas = new ControllerEmpresas_GME();
+        EmpresasDAO vendedorDAO = new EmpresasDAO();
+        List lista = (List) vendedorDAO.listAll();
+        controllerEmpresas.setList(lista);
+        jTable1.setModel(controllerEmpresas);
+    }
+    public void setTelaAnterior(JDlgEmpresas_GME jDlgEmpresas) {
+        this.jDlgEmpresas = jDlgEmpresas;
     }
 
     /**
@@ -96,7 +112,13 @@ public class JDlgEmpresasPesquisar_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtn_Cancelar_GMEActionPerformed
 
     private void jBtn_Selecionar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_Selecionar_GMEActionPerformed
-        dispose();
+         if (jTable1.getSelectedRow() == -1) {
+            Util_GME.messagem("Nenhuma linha foi selecionada.");
+        } else {
+            Empresas empresas = controllerEmpresas.getBean(jTable1.getSelectedRow());
+            jDlgEmpresas.beanView(empresas);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_jBtn_Selecionar_GMEActionPerformed
 
     /**

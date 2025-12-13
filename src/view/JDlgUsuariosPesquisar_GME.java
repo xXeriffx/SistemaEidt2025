@@ -4,11 +4,19 @@
  */
 package view;
 
+import bean.Usuarios;
+import dao.UsuariosDAO;
+import java.util.List;
+import tools.Util_GME;
+
 /**
  *
  * @author guilh
  */
 public class JDlgUsuariosPesquisar_GME extends javax.swing.JDialog {
+
+    private JDlgUsuarios_GME jDlgUsuarios;
+    ControllerUsuarios_GME controllerUsuarios;
 
     /**
      * Creates new form jDlgUsuariosPesquisar_GME
@@ -18,6 +26,15 @@ public class JDlgUsuariosPesquisar_GME extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Tela de Pesquisa de Usuarios");
+        controllerUsuarios = new ControllerUsuarios_GME();
+        
+        UsuariosDAO csuariosDAO = new UsuariosDAO();
+        List lista = (List) csuariosDAO.listAll();
+        controllerUsuarios.setList(lista);
+        jTable1.setModel(controllerUsuarios);
+    }
+    public void setTelaAnterior(JDlgUsuarios_GME jDlgUsuarios) {
+        this.jDlgUsuarios = jDlgUsuarios;
     }
 
     /**
@@ -91,7 +108,13 @@ public class JDlgUsuariosPesquisar_GME extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtn_selecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_selecionarActionPerformed
-        dispose();
+        if (jTable1.getSelectedRow() == -1) {
+            Util_GME.messagem("Nenhuma linha foi selecionada.");
+        } else {
+            Usuarios usuarios = controllerUsuarios.getBean(jTable1.getSelectedRow());
+            jDlgUsuarios.beanView(usuarios);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_jBtn_selecionarActionPerformed
 
     private void jBtn_SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_SairActionPerformed
