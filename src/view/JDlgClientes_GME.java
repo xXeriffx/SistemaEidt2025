@@ -502,10 +502,10 @@ public class JDlgClientes_GME extends javax.swing.JDialog {
         Util_GME.habilitar(false, jTxtCodigo_GME, jTxtCargo_GME, jTxtCodigo_GME, jTxtEmailLoja_GME, jTxtEmail_pessoal_GME,
                 jTxtNomeLoja_GME, jTxtNomePessoal_GME, jTxtnumero_GME,
                 jFmt_CEP_GME, jFmt_CNPJ_GME, jFmt_DataCadastro_GME, jFmt_Datanasc_GME, jFmt_telefone_loja_GME, jFmt_telefone_pessoal_GME,
-                jCbxEstadoCivil_GME, jCbxGenero_GME,
-                jBtnConfirmar_GME, jBtnIncluir_GME, jBtnPesquisar_GME
+                jCbxEstadoCivil_GME, jCbxGenero_GME, jBtnCancelar_GME,
+                jBtnConfirmar_GME, jBtnPesquisar_GME
         );
-        Util_GME.habilitar(true, jBtnAlterar_GME, jBtnCancelar_GME, jBtnExcluir_GME);
+        Util_GME.habilitar(true, jBtnAlterar_GME, jBtnIncluir_GME, jBtnExcluir_GME);
     }//GEN-LAST:event_jBtnPesquisar_GMEActionPerformed
 
     private void jBtnAlterar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterar_GMEActionPerformed
@@ -515,7 +515,7 @@ public class JDlgClientes_GME extends javax.swing.JDialog {
                     jTxtNomeLoja_GME, jTxtNomePessoal_GME, jTxtnumero_GME,
                     jFmt_CEP_GME, jFmt_CNPJ_GME, jFmt_DataCadastro_GME, jFmt_Datanasc_GME, jFmt_telefone_loja_GME, jFmt_telefone_pessoal_GME,
                     jCbxEstadoCivil_GME, jCbxGenero_GME, jBtnCancelar_GME, jBtnConfirmar_GME, jBtnExcluir_GME);
-            Util_GME.habilitar(false, jTxtCodigo_GME, jBtnIncluir_GME, jBtnPesquisar_GME, jBtnAlterar_GME);
+            Util_GME.habilitar(false, jTxtCodigo_GME, jBtnIncluir_GME, jBtnPesquisar_GME);
         } else {
 
             JOptionPane.showMessageDialog(this,
@@ -533,6 +533,10 @@ public class JDlgClientes_GME extends javax.swing.JDialog {
     private void jBtnIncluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluir_GMEActionPerformed
         incluir = true;
 
+        Util_GME.Limpar(jTxtCodigo_GME, jTxtCargo_GME, jTxtCodigo_GME, jTxtEmailLoja_GME, jTxtEmail_pessoal_GME,
+                jTxtNomeLoja_GME, jTxtNomePessoal_GME,jCbxEstadoCivil_GME, jCbxGenero_GME, jTxtnumero_GME,
+                jFmt_CEP_GME, jFmt_CNPJ_GME, jFmt_DataCadastro_GME, jFmt_Datanasc_GME, jFmt_telefone_loja_GME, jFmt_telefone_pessoal_GME);
+        
         Util_GME.habilitar(true, jTxtCodigo_GME, jTxtCargo_GME, jTxtCodigo_GME, jTxtEmailLoja_GME, jTxtEmail_pessoal_GME,
                 jTxtNomeLoja_GME, jTxtNomePessoal_GME, jTxtnumero_GME,
                 jFmt_CEP_GME, jFmt_CNPJ_GME, jFmt_DataCadastro_GME, jFmt_Datanasc_GME, jFmt_telefone_loja_GME, jFmt_telefone_pessoal_GME,

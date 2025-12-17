@@ -75,6 +75,7 @@ public class JDlgClientesPesquisar_GME extends javax.swing.JDialog {
         jScrollPane1.setViewportView(jTable1);
 
         jBtn_Cancelar_GME.setForeground(new java.awt.Color(255, 0, 0));
+        jBtn_Cancelar_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logout.png"))); // NOI18N
         jBtn_Cancelar_GME.setText("Cancelar");
         jBtn_Cancelar_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,7 +83,8 @@ public class JDlgClientesPesquisar_GME extends javax.swing.JDialog {
             }
         });
 
-        jBtn_Selecionar_GME.setForeground(new java.awt.Color(0, 102, 102));
+        jBtn_Selecionar_GME.setForeground(new java.awt.Color(0, 51, 204));
+        jBtn_Selecionar_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/OK2.0.png"))); // NOI18N
         jBtn_Selecionar_GME.setText("Selecionar");
         jBtn_Selecionar_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

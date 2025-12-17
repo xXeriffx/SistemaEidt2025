@@ -307,11 +307,14 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jTxtNome_GMEActionPerformed
 
     private void jBtnIncluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluir_GMEActionPerformed
-
         incluir = true;
-        Util_GME.habilitar(true, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
+
+        Util_GME.Limpar(jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,jBtnCancelar_GME,
+                jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME);
+        
+        Util_GME.habilitar(true, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,jBtnCancelar_GME,
                 jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME, jBtnConfirmar_GME, jBtnCancelar_GME);
-        Util_GME.habilitar(false, jBtnIncluir_GME, jBtnPesquisar_GME, jBtnAlterar_GME);
+        Util_GME.habilitar(false, jBtnIncluir_GME, jBtnPesquisar_GME, jBtnAlterar_GME, jBtnExcluir_GME);
 
         jTxtCodigo_GME.grabFocus();
     }//GEN-LAST:event_jBtnIncluir_GMEActionPerformed
@@ -321,7 +324,7 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
         if (pesquisar == true) {
             Util_GME.habilitar(true, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
                     jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME, jBtnConfirmar_GME, jBtnCancelar_GME);
-            Util_GME.habilitar(false, jTxtCodigo_GME, jBtnAlterar_GME);
+            Util_GME.habilitar(false, jTxtCodigo_GME,jBtnIncluir_GME);
         } else {
 
             JOptionPane.showMessageDialog(this,
@@ -380,11 +383,11 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
         jDlgUsuariosPesquisar_GME.setVisible(true);
 
         incluir = true;
-
+        
         Util_GME.habilitar(false, jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
-                jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME, jBtnIncluir_GME, jBtnPesquisar_GME
+                jFmtDataDeNascimento_GME, jBtnCancelar_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME, jBtnPesquisar_GME
         );
-        Util_GME.habilitar(true, jBtnAlterar_GME, jBtnExcluir_GME, jBtnCancelar_GME);
+        Util_GME.habilitar(true, jBtnAlterar_GME, jBtnExcluir_GME, jBtnIncluir_GME);
     }//GEN-LAST:event_jBtnPesquisar_GMEActionPerformed
 
     private void jBtnCancelar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelar_GMEActionPerformed

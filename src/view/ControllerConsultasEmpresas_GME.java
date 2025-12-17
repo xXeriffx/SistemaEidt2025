@@ -42,7 +42,7 @@ public class ControllerConsultasEmpresas_GME extends AbstractTableModel {
         } else if (columnIndex ==1) {
             return produtos.getGmeNomeEmpresa();        
         } else if (columnIndex ==2) {
-            return produtos.getGmeTelefoneEmpresa();
+            return produtos.getGmeNomeRepresentante();
         } 
         return "";
     }
@@ -52,9 +52,9 @@ public class ControllerConsultasEmpresas_GME extends AbstractTableModel {
         if ( columnIndex == 0) {
             return "Código";
         } else if ( columnIndex == 1) {
-            return "Nome";         
+            return "Nome Empresa";         
         } else if ( columnIndex == 2) {
-            return "Telefone";
+            return "Nome Representante";
         }
         return "";
     }

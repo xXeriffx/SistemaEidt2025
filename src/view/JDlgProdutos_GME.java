@@ -285,6 +285,10 @@ public class JDlgProdutos_GME extends javax.swing.JDialog {
 
     private void jBtnIncluir_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluir_GMEActionPerformed
         incluir = true;
+        
+        Util_GME.Limpar(jTxtNome_GME, jTxtValor_GME, jTxt_Catagoria_GME, jTxt_Codigo_GME, jCboACUCAR_GME,
+                jCboLitragemXQuant_GME, jTxtSabor_GME, jCbo_categoria_GME, jCbx_Edição_Limitadal_GME);
+        
         Util_GME.habilitar(true, jTxtNome_GME, jTxtValor_GME, jTxt_Catagoria_GME, jTxt_Codigo_GME, jCboACUCAR_GME,
                 jCboLitragemXQuant_GME, jTxtSabor_GME, jCbo_categoria_GME, jCbx_Edição_Limitadal_GME,
                 jBtnConfirmar_GME, jBtnCancelar_GME);
@@ -328,6 +332,8 @@ public class JDlgProdutos_GME extends javax.swing.JDialog {
                     jCboLitragemXQuant_GME, jTxtSabor_GME, jCbo_categoria_GME, jCbx_Edição_Limitadal_GME,
                      jBtnExcluir_GME, jBtnConfirmar_GME, jBtnCancelar_GME);
             Util_GME.habilitar(true, jBtnIncluir_GME, jBtnPesquisar_GME,jBtnAlterar_GME);
+        }else {
+
         }
     }//GEN-LAST:event_jBtnExcluir_GMEActionPerformed
 
@@ -354,8 +360,8 @@ public class JDlgProdutos_GME extends javax.swing.JDialog {
 
         Util_GME.habilitar(false, jTxtNome_GME, jTxtValor_GME, jTxt_Catagoria_GME, jTxt_Codigo_GME, jCboACUCAR_GME,
                 jCboLitragemXQuant_GME, jTxtSabor_GME, jCbo_categoria_GME, jCbx_Edição_Limitadal_GME,
-                jBtnIncluir_GME, jBtnPesquisar_GME, jBtnConfirmar_GME);
-        Util_GME.habilitar(true, jBtnAlterar_GME, jBtnExcluir_GME, jBtnCancelar_GME);
+                jBtnCancelar_GME, jBtnPesquisar_GME, jBtnConfirmar_GME);
+        Util_GME.habilitar(true, jBtnAlterar_GME, jBtnExcluir_GME,jBtnIncluir_GME);
     }//GEN-LAST:event_jBtnPesquisar_GMEActionPerformed
 
     private void jBtnAlterar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterar_GMEActionPerformed
@@ -364,7 +370,7 @@ public class JDlgProdutos_GME extends javax.swing.JDialog {
             Util_GME.habilitar(true, jTxtNome_GME, jTxtValor_GME, jTxt_Catagoria_GME, jCboACUCAR_GME,
                     jCboLitragemXQuant_GME, jTxtSabor_GME, jCbo_categoria_GME, jCbx_Edição_Limitadal_GME,
                     jBtnExcluir_GME, jBtnCancelar_GME, jBtnConfirmar_GME);
-            Util_GME.habilitar(false, jBtnAlterar_GME, jBtnIncluir_GME, jBtnPesquisar_GME);
+            Util_GME.habilitar(false, jBtnIncluir_GME, jBtnPesquisar_GME);
         } else {
 
             JOptionPane.showMessageDialog(this,

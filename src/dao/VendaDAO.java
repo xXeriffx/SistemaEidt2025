@@ -63,7 +63,7 @@ public class VendaDAO extends AbstractDAO {
     public Object listEmpresa(String nomeEmpresa) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(Venda.class, "v");
-        criteria.createAlias("v.Empresas", "ve");
+        criteria.createAlias("v.empresas", "ve");
         criteria.add(Restrictions.like("ve.gmeNomeEmpresa", "%" + nomeEmpresa + "%"));
         List lista = criteria.list();
         session.getTransaction().commit();
@@ -73,7 +73,7 @@ public class VendaDAO extends AbstractDAO {
     public Object listCliente(String nomeCliente) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(Venda.class, "v");
-        criteria.createAlias("v.Clientes", "c");
+        criteria.createAlias("v.clientes", "c");
         criteria.add(Restrictions.like("c.gmeNomePessoal", "%" + nomeCliente + "%"));
         List lista = criteria.list();
         session.getTransaction().commit();
@@ -83,8 +83,8 @@ public class VendaDAO extends AbstractDAO {
     public Object listEmpresaCliente(String nomeEmpresa, String nomeCliente) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(Venda.class, "v");
-        criteria.createAlias("v.Clientes", "c");
-        criteria.createAlias("v.Empresas", "ve");
+        criteria.createAlias("v.clientes", "c");
+        criteria.createAlias("v.empresas", "ve");
         criteria.add(Restrictions.like("c.gmeNomePessoal", "%" + nomeCliente + "%"));
         criteria.add(Restrictions.like("ve.gmeNomeEmpresa", "%" + nomeEmpresa + "%"));
          List lista = criteria.list();

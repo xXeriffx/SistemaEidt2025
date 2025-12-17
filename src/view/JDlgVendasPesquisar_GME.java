@@ -53,6 +53,7 @@ public class JDlgVendasPesquisar_GME extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jBtn_Sair_GME.setForeground(new java.awt.Color(255, 0, 0));
+        jBtn_Sair_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logout.png"))); // NOI18N
         jBtn_Sair_GME.setText("Cancelar");
         jBtn_Sair_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,7 +79,8 @@ public class JDlgVendasPesquisar_GME extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jBtn_selecionar_GME.setForeground(new java.awt.Color(0, 102, 102));
+        jBtn_selecionar_GME.setForeground(new java.awt.Color(0, 51, 204));
+        jBtn_selecionar_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/OK2.0.png"))); // NOI18N
         jBtn_selecionar_GME.setText("Selecionar");
         jBtn_selecionar_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

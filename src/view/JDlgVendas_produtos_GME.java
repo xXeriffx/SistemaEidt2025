@@ -99,7 +99,8 @@ public class JDlgVendas_produtos_GME extends javax.swing.JDialog {
             }
         });
 
-        jBtnOk_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/confirmar.png"))); // NOI18N
+        jBtnOk_GME.setForeground(new java.awt.Color(0, 51, 204));
+        jBtnOk_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/OK2.0.png"))); // NOI18N
         jBtnOk_GME.setText("Ok");
         jBtnOk_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,7 +108,8 @@ public class JDlgVendas_produtos_GME extends javax.swing.JDialog {
             }
         });
 
-        jBtnSair_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/exit.png"))); // NOI18N
+        jBtnSair_GME.setForeground(new java.awt.Color(255, 0, 51));
+        jBtnSair_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logout.png"))); // NOI18N
         jBtnSair_GME.setText("Sair");
         jBtnSair_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

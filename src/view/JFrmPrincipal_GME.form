@@ -7,7 +7,7 @@
         <Menu class="javax.swing.JMenu" name="jMnuSair_GME">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagens/gravar.png"/>
+              <Image iconType="3" name="/imagens/Casdastro2.0.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Cadastros"/>
           </Properties>
@@ -21,7 +21,7 @@
                   <KeyStroke key="Ctrl+U"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/usuario.png"/>
+                  <Image iconType="3" name="/imagens/man.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Usuarios"/>
               </Properties>
@@ -35,7 +35,7 @@
                   <KeyStroke key="Ctrl+C"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/cliente.png"/>
+                  <Image iconType="3" name="/imagens/client.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Clientes"/>
               </Properties>
@@ -49,7 +49,7 @@
                   <KeyStroke key="Ctrl+E"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/grupo.png"/>
+                  <Image iconType="3" name="/imagens/enterprise.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Empresas"/>
               </Properties>
@@ -63,7 +63,7 @@
                   <KeyStroke key="Ctrl+P"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/produto.png"/>
+                  <Image iconType="3" name="/imagens/soft-drink.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Produtos"/>
               </Properties>
@@ -79,7 +79,7 @@
                   <KeyStroke key="Ctrl+BACK_SPACE"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/exit.png"/>
+                  <Image iconType="3" name="/imagens/logout.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="SAIR"/>
               </Properties>
@@ -92,7 +92,7 @@
         <Menu class="javax.swing.JMenu" name="jMnuMovimento_GME">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagens/produto.png"/>
+              <Image iconType="3" name="/imagens/Movimento.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Movimento"/>
           </Properties>
@@ -103,7 +103,7 @@
                   <KeyStroke key="Ctrl+V"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/alterar_1.png"/>
+                  <Image iconType="3" name="/imagens/Venda.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Venda"/>
               </Properties>
@@ -116,7 +116,7 @@
         <Menu class="javax.swing.JMenu" name="jMnuConsultas_GME">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagens/pesquisar_1.png"/>
+              <Image iconType="3" name="/imagens/Pedidos.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Consultar"/>
           </Properties>
@@ -127,7 +127,7 @@
                   <KeyStroke key="Shift+C"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/cliente.png"/>
+                  <Image iconType="3" name="/imagens/ConsCliente.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Clientes"/>
               </Properties>
@@ -141,7 +141,7 @@
                   <KeyStroke key="Shift+V"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/alterar.png"/>
+                  <Image iconType="3" name="/imagens/ConsVenda.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Venda"/>
               </Properties>
@@ -155,7 +155,7 @@
                   <KeyStroke key="Shift+E"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/grupo_1.png"/>
+                  <Image iconType="3" name="/imagens/ConsEmpre.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Empresas"/>
               </Properties>
@@ -169,7 +169,7 @@
                   <KeyStroke key="Shift+P"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/produto.png"/>
+                  <Image iconType="3" name="/imagens/ConsProduto.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Produtos"/>
               </Properties>
@@ -216,7 +216,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="jToolBar1" min="-2" pref="61" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="205" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="203" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -232,7 +232,7 @@
         <Component class="javax.swing.JButton" name="jBtnUsuario_GME">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagens/usuario.png"/>
+              <Image iconType="3" name="/imagens/man.png"/>
             </Property>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -242,10 +242,23 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnUsuario_GMEActionPerformed"/>
           </Events>
         </Component>
+        <Component class="javax.swing.JButton" name="jBtnProdutos_GME">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imagens/soft-drink.png"/>
+            </Property>
+            <Property name="focusable" type="boolean" value="false"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="verticalTextPosition" type="int" value="3"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnProdutos_GMEActionPerformed"/>
+          </Events>
+        </Component>
         <Component class="javax.swing.JButton" name="jBtnMovimentoVenda_GME">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagens/produto.png"/>
+              <Image iconType="3" name="/imagens/Venda.png"/>
             </Property>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -255,23 +268,10 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnMovimentoVenda_GMEActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jBtnEmpresas_GME">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagens/grupo_1.png"/>
-            </Property>
-            <Property name="focusable" type="boolean" value="false"/>
-            <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="verticalTextPosition" type="int" value="3"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnEmpresas_GMEActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JButton" name="jBtnConsCliente_GME">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagens/cliente.png"/>
+              <Image iconType="3" name="/imagens/ConsCliente.png"/>
             </Property>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -284,7 +284,7 @@
         <Component class="javax.swing.JButton" name="jBtnConsVenda_GME">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagens/alterar.png"/>
+              <Image iconType="3" name="/imagens/ConsVenda.png"/>
             </Property>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
