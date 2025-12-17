@@ -157,7 +157,7 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
 
         jLbl_Nome_clientes_GME.setText("Nome de Clientes");
 
-        jBtn_incluir_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/incluir.png"))); // NOI18N
+        jBtn_incluir_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/novoincluir.png"))); // NOI18N
         jBtn_incluir_GME.setText("Incluir");
         jBtn_incluir_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,7 +165,7 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
             }
         });
 
-        jBtn_alterar_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/alterar.png"))); // NOI18N
+        jBtn_alterar_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/novoalterar.png"))); // NOI18N
         jBtn_alterar_GME.setText("Alterar");
         jBtn_alterar_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,7 +175,7 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
 
         jLbl_valor_GME.setText("Valor Total");
 
-        jBtn_excluir_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Excluir.png"))); // NOI18N
+        jBtn_excluir_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/novoExcluir.png"))); // NOI18N
         jBtn_excluir_GME.setText("Excluir");
         jBtn_excluir_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,7 +199,7 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
             }
         });
 
-        jBtn_cancelar_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/CANCELAR.png"))); // NOI18N
+        jBtn_cancelar_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/novoCANCELAR.png"))); // NOI18N
         jBtn_cancelar_GME.setText("Cancelar");
         jBtn_cancelar_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,7 +207,7 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
             }
         });
 
-        jBtn_Pesquisar_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/PESQUISAR.png"))); // NOI18N
+        jBtn_Pesquisar_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/novoPESQUISAR.png"))); // NOI18N
         jBtn_Pesquisar_GME.setText("Pesquisar");
         jBtn_Pesquisar_GME.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

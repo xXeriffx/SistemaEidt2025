@@ -70,10 +70,10 @@ public class ClientesDAO extends AbstractDAO {
         return lista;
     }
 
-    public Object listLoja(String Profissao) {
+    public Object listLoja(String loja) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(Clientes.class);
-        criteria.add(Restrictions.like("gmeNomeLoja", "%" + Profissao + "%"));
+        criteria.add(Restrictions.like("gmeNomeLoja", "%" + loja + "%"));
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
@@ -83,7 +83,7 @@ public class ClientesDAO extends AbstractDAO {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(Clientes.class);
         criteria.add(Restrictions.like("gmeNomePessoal", "%" + nome + "%"));
-        criteria.add(Restrictions.ge("gmeNomeLoja", "%" + loja + "%"));
+        criteria.add(Restrictions.like("gmeNomeLoja", "%" + loja + "%"));
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;

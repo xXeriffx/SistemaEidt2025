@@ -61,7 +61,7 @@ public class JDlgProdutos_GME extends javax.swing.JDialog {
         jCboACUCAR_GME.setSelectedIndex(produto.getGmeAcucar());
         jCboLitragemXQuant_GME.setSelectedIndex(produto.getGmeLitragem());
 
-        if (produto.getGmeEdicaoLimitada() == 'S') {
+        if (produto.getGmeEdicaoLimitada() == 's') {
             jCbx_Edição_Limitadal_GME.setSelected(true);
         } else {
             jCbx_Edição_Limitadal_GME.setSelected(false);

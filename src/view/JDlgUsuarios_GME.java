@@ -55,7 +55,7 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
         jTxtCodigo_GME.setText(Util_GME.intToStr(usuarios.getGmeIdUsuarios()));
         jTxtNome_GME.setText(usuarios.getGmeNome());
         jTxtApelido_GME.setText(usuarios.getGmeApelido());
-        jFmtCpf_GME.setText(usuarios.getGmeSenha());
+        jFmtCpf_GME.setText(usuarios.getGmeCpf());
         jFmtDataDeNascimento_GME.setText(Util_GME.dateToStr(usuarios.getGmeDatanasc()));
         jPwfSenha_GME.setText(usuarios.getGmeSenha());
         jCboNivel_GME.setSelectedIndex(usuarios.getGmeNivel());
