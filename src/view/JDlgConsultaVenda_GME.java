@@ -77,6 +77,8 @@ public class JDlgConsultaVenda_GME extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        jBtnSair_GME.setForeground(new java.awt.Color(255, 0, 0));
+        jBtnSair_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logout.png"))); // NOI18N
         jBtnSair_GME.setText("Sair");
         jBtnSair_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,6 +102,8 @@ public class JDlgConsultaVenda_GME extends javax.swing.JDialog {
 
         jLbl_ValiorUni_GME.setText("Nome do Cliente");
 
+        jBtnConsulta_GME.setForeground(new java.awt.Color(0, 102, 0));
+        jBtnConsulta_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Lupa.png"))); // NOI18N
         jBtnConsulta_GME.setText("Consultar");
         jBtnConsulta_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,6 +111,8 @@ public class JDlgConsultaVenda_GME extends javax.swing.JDialog {
             }
         });
 
+        jBtnImprimir_GME.setForeground(new java.awt.Color(0, 51, 204));
+        jBtnImprimir_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Impressora.png"))); // NOI18N
         jBtnImprimir_GME.setText("Imprimir");
         jBtnImprimir_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

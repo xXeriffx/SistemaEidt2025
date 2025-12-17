@@ -77,6 +77,8 @@ public class JDlgConsultaProdutos_GME extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        jBtnSair_GME.setForeground(new java.awt.Color(255, 0, 0));
+        jBtnSair_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logout.png"))); // NOI18N
         jBtnSair_GME.setText("Sair");
         jBtnSair_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,6 +102,8 @@ public class JDlgConsultaProdutos_GME extends javax.swing.JDialog {
 
         jLbl_ValiorUni_GME.setText("Valor Unitario");
 
+        jBtnConsulta_GME.setForeground(new java.awt.Color(0, 102, 0));
+        jBtnConsulta_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Lupa.png"))); // NOI18N
         jBtnConsulta_GME.setText("Consultar");
         jBtnConsulta_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,6 +111,8 @@ public class JDlgConsultaProdutos_GME extends javax.swing.JDialog {
             }
         });
 
+        jBtnImprimir_GME.setForeground(new java.awt.Color(0, 51, 204));
+        jBtnImprimir_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Impressora.png"))); // NOI18N
         jBtnImprimir_GME.setText("Imprimir");
         jBtnImprimir_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,18 +150,16 @@ public class JDlgConsultaProdutos_GME extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLbl_Nome_GME)
-                                    .addComponent(jLbl_ValiorUni_GME))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTxtNome_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTxtValroUni_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLbl_ValiorUni_GME, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLbl_Nome_GME))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTxtNome_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTxtValroUni_GME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jBtnConsulta_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jBtnImprimir_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)

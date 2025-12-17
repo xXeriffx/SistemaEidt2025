@@ -278,7 +278,7 @@
     <Component class="javax.swing.JButton" name="jBtnConfirmar_GME">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/confirmar.png"/>
+          <Image iconType="3" name="/imagens/OK2.0.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Confirmar"/>
       </Properties>
@@ -294,7 +294,7 @@
     <Component class="javax.swing.JButton" name="jBtnExcluir_GME">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/Excluir_1.png"/>
+          <Image iconType="3" name="/imagens/novoExcluir.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Excluir"/>
       </Properties>
@@ -310,7 +310,7 @@
     <Component class="javax.swing.JButton" name="jBtnCancelar_GME">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/cancelar_1.png"/>
+          <Image iconType="3" name="/imagens/novoCANCELAR.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
@@ -323,7 +323,7 @@
     <Component class="javax.swing.JButton" name="jBtnPesquisar_GME">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/pesquisar.png"/>
+          <Image iconType="3" name="/imagens/novoPESQUISAR.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Pesquisar"/>
       </Properties>
@@ -339,7 +339,7 @@
     <Component class="javax.swing.JButton" name="jBtnAlterar_GME">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/alterar_1.png"/>
+          <Image iconType="3" name="/imagens/novoalterar.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Alterar"/>
       </Properties>
@@ -366,7 +366,7 @@
     <Component class="javax.swing.JButton" name="jBtnIncluir_GME">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/incluir_1.png"/>
+          <Image iconType="3" name="/imagens/novoincluir.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Incluir"/>
       </Properties>
