@@ -474,9 +474,9 @@ public class JDlgClientes_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtnExcluir_GMEActionPerformed
 
     private void jBtnCancelar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelar_GMEActionPerformed
-        pesquisar = false;
-        
+
         if (Util_GME.perguntar("Deseja cancelar esse registro de Clientes?") == true) {
+            pesquisar = false;
             Util_GME.Limpar(jTxtCodigo_GME, jTxtCargo_GME, jTxtCodigo_GME, jTxtEmailLoja_GME, jTxtEmail_pessoal_GME,
                     jTxtNomeLoja_GME, jTxtNomePessoal_GME, jTxtnumero_GME, jFmt_CEP_GME, jFmt_CNPJ_GME, jFmt_DataCadastro_GME,
                     jFmt_Datanasc_GME, jFmt_telefone_loja_GME, jFmt_telefone_pessoal_GME, jCbxEstadoCivil_GME, jCbxGenero_GME);

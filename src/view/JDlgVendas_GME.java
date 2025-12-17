@@ -206,6 +206,11 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
 
         jBtn_Pesquisar_GME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pesquisar_1.png"))); // NOI18N
         jBtn_Pesquisar_GME.setText("Pesquisar");
+        jBtn_Pesquisar_GME.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBtn_Pesquisar_GMEMouseClicked(evt);
+            }
+        });
         jBtn_Pesquisar_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtn_Pesquisar_GMEActionPerformed(evt);
@@ -358,9 +363,8 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
         incluir = true;
 
         Util_GME.habilitar(true, jTxt_code_GME, jCbx_clientes_GME, jCbx_empresas_GME,
-                jFmtData_GME, jTxt_valor_GME,
-                jBtn_excluir_GME, jBtn_confirmar_GME, jBtn_cancelar_GME,
-                jBtn_side_adicionar_side, jBtn_side_alterar_GME, jBtn_side_delete_GME
+                jFmtData_GME, jTxt_valor_GME, jTbl_Colunas_GME, jBtn_excluir_GME, jBtn_confirmar_GME,
+                 jBtn_cancelar_GME, jBtn_side_adicionar_side, jBtn_side_alterar_GME, jBtn_side_delete_GME
         );
         Util_GME.habilitar(false, jBtn_alterar_GME, jBtn_incluir_GME, jBtn_Pesquisar_GME);
 
@@ -397,17 +401,18 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
                 vendaProdutoDAO.delete(vendaProduto);
             }
             vendaDAO.delete(viewBean());
+
+            Util_GME.Limpar(jTxt_code_GME, jCbx_clientes_GME, jCbx_empresas_GME,
+                    jFmtData_GME, jTxt_valor_GME, jTbl_Colunas_GME);
+
+            Util_GME.habilitar(false, jTxt_code_GME, jCbx_clientes_GME, jCbx_empresas_GME,
+                    jFmtData_GME, jTxt_valor_GME,
+                    jBtn_alterar_GME, jBtn_excluir_GME, jBtn_confirmar_GME, jBtn_cancelar_GME,
+                    jBtn_side_adicionar_side, jBtn_side_delete_GME
+            );
+            Util_GME.habilitar(true, jBtn_side_alterar_GME, jBtn_incluir_GME, jBtn_Pesquisar_GME);
         }
 
-        Util_GME.Limpar(jTxt_code_GME, jCbx_clientes_GME, jCbx_empresas_GME,
-                jFmtData_GME, jTxt_valor_GME);
-
-        Util_GME.habilitar(false, jTxt_code_GME, jCbx_clientes_GME, jCbx_empresas_GME,
-                jFmtData_GME, jTxt_valor_GME,
-                jBtn_alterar_GME, jBtn_excluir_GME, jBtn_confirmar_GME, jBtn_cancelar_GME,
-                jBtn_side_adicionar_side, jBtn_side_delete_GME
-        );
-        Util_GME.habilitar(true, jBtn_side_alterar_GME, jBtn_incluir_GME, jBtn_Pesquisar_GME);
 
     }//GEN-LAST:event_jBtn_excluir_GMEActionPerformed
 
@@ -440,10 +445,10 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
                 jFmtData_GME, jTxt_valor_GME, jTbl_Colunas_GME);
 
         Util_GME.habilitar(false, jTxt_code_GME, jCbx_clientes_GME, jCbx_empresas_GME,
-                    jFmtData_GME, jTxt_valor_GME, jTbl_Colunas_GME, jBtn_excluir_GME, jBtn_confirmar_GME,
-                    jBtn_side_alterar_GME, jBtn_cancelar_GME, jBtn_side_adicionar_side, jBtn_side_delete_GME
-            );
-            Util_GME.habilitar(true, jBtn_incluir_GME, jBtn_Pesquisar_GME);
+                jFmtData_GME, jTxt_valor_GME, jTbl_Colunas_GME, jBtn_excluir_GME, jBtn_confirmar_GME,
+                jBtn_side_alterar_GME, jBtn_cancelar_GME, jBtn_side_adicionar_side, jBtn_side_delete_GME
+        );
+        Util_GME.habilitar(true, jBtn_incluir_GME, jBtn_Pesquisar_GME);
     }//GEN-LAST:event_jBtn_confirmar_GMEActionPerformed
 
     private void jTxt_code_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_code_GMEActionPerformed
@@ -451,10 +456,9 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jTxt_code_GMEActionPerformed
 
     private void jBtn_cancelar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_cancelar_GMEActionPerformed
-        pesquisar = false;
 
         if (Util_GME.perguntar("Deseja cancelar esse registro de Venda?") == true) {
-
+            pesquisar = false;
             controllerVendaProdutos_GME.setList(new ArrayList<VendaProduto>());//code do chat para o limpar funcionar na Jtable
 
             Util_GME.Limpar(jTxt_code_GME, jCbx_clientes_GME, jCbx_empresas_GME,
@@ -487,6 +491,7 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
         JDlgVendas_produtos_GME jDlgVendas_produtos_GME = new JDlgVendas_produtos_GME(null, true);
         jDlgVendas_produtos_GME.setTelaAnterior(this, null);
         jDlgVendas_produtos_GME.setVisible(true);
+        Util_GME.habilitar(true, jTbl_Colunas_GME);
     }//GEN-LAST:event_jBtn_side_adicionar_sideActionPerformed
 
     private void jTxt_valor_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_valor_GMEActionPerformed
@@ -506,6 +511,10 @@ public class JDlgVendas_GME extends javax.swing.JDialog {
     private void jFmtData_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmtData_GMEActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFmtData_GMEActionPerformed
+
+    private void jBtn_Pesquisar_GMEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtn_Pesquisar_GMEMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBtn_Pesquisar_GMEMouseClicked
 
     /**
      * @param args the command line arguments

@@ -388,7 +388,7 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtnPesquisar_GMEActionPerformed
 
     private void jBtnCancelar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelar_GMEActionPerformed
-        pesquisar = false;
+        
         //System.out.println("incluir = " + incluir);
         //if((Util_GME.perguntar("Deseja cancelar esse registro de Usuario?") == true)){
         //    if(incluir == true){
@@ -412,7 +412,7 @@ public class JDlgUsuarios_GME extends javax.swing.JDialog {
         //                        MEGA FUNÇÃO PARA FAZRE O CANCELAR RECONHCER DEPOIS DE QUEM QUE ELE FOI ATIVADO!
         //  }
         if (Util_GME.perguntar("Deseja cancelar esse registro de Usuarios?") == true) {
-
+            pesquisar = false;
             Util_GME.Limpar(jTxtCodigo_GME, jTxtNome_GME, jTxtApelido_GME, jFmtCpf_GME,
                     jFmtDataDeNascimento_GME, jCboNivel_GME, jChbAtivo_GME, jPwfSenha_GME);
 

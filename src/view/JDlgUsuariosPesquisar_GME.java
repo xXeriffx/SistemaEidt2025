@@ -48,8 +48,8 @@ public class JDlgUsuariosPesquisar_GME extends javax.swing.JDialog {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jBtn_selecionar = new javax.swing.JButton();
-        jBtn_Sair = new javax.swing.JButton();
+        jBtn_selecionar_GME = new javax.swing.JButton();
+        jBtn_Sair_GME = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -64,21 +64,26 @@ public class JDlgUsuariosPesquisar_GME extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
-        jBtn_selecionar.setForeground(new java.awt.Color(0, 102, 102));
-        jBtn_selecionar.setText("Selecionar");
-        jBtn_selecionar.addActionListener(new java.awt.event.ActionListener() {
+        jBtn_selecionar_GME.setForeground(new java.awt.Color(0, 102, 102));
+        jBtn_selecionar_GME.setText("Selecionar");
+        jBtn_selecionar_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtn_selecionarActionPerformed(evt);
+                jBtn_selecionar_GMEActionPerformed(evt);
             }
         });
 
-        jBtn_Sair.setForeground(new java.awt.Color(255, 0, 0));
-        jBtn_Sair.setText("Cancelar");
-        jBtn_Sair.addActionListener(new java.awt.event.ActionListener() {
+        jBtn_Sair_GME.setForeground(new java.awt.Color(255, 0, 0));
+        jBtn_Sair_GME.setText("Cancelar");
+        jBtn_Sair_GME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtn_SairActionPerformed(evt);
+                jBtn_Sair_GMEActionPerformed(evt);
             }
         });
 
@@ -89,9 +94,9 @@ public class JDlgUsuariosPesquisar_GME extends javax.swing.JDialog {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBtn_selecionar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBtn_selecionar_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jBtn_Sair, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jBtn_Sair_GME, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,15 +104,15 @@ public class JDlgUsuariosPesquisar_GME extends javax.swing.JDialog {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBtn_selecionar)
-                    .addComponent(jBtn_Sair))
+                    .addComponent(jBtn_selecionar_GME)
+                    .addComponent(jBtn_Sair_GME))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBtn_selecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_selecionarActionPerformed
+    private void jBtn_selecionar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_selecionar_GMEActionPerformed
         if (jTable1.getSelectedRow() == -1) {
             Util_GME.messagem("Nenhuma linha foi selecionada.");
         } else {
@@ -115,11 +120,17 @@ public class JDlgUsuariosPesquisar_GME extends javax.swing.JDialog {
             jDlgUsuarios.beanView(usuarios);
             this.setVisible(false);
         }
-    }//GEN-LAST:event_jBtn_selecionarActionPerformed
+    }//GEN-LAST:event_jBtn_selecionar_GMEActionPerformed
 
-    private void jBtn_SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_SairActionPerformed
+    private void jBtn_Sair_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_Sair_GMEActionPerformed
         dispose();
-    }//GEN-LAST:event_jBtn_SairActionPerformed
+    }//GEN-LAST:event_jBtn_Sair_GMEActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        if (evt.getClickCount() == 2) {
+            jBtn_selecionar_GMEActionPerformed(null);
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -165,8 +176,8 @@ public class JDlgUsuariosPesquisar_GME extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBtn_Sair;
-    private javax.swing.JButton jBtn_selecionar;
+    private javax.swing.JButton jBtn_Sair_GME;
+    private javax.swing.JButton jBtn_selecionar_GME;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

@@ -332,8 +332,9 @@ public class JDlgProdutos_GME extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtnExcluir_GMEActionPerformed
 
     private void jBtnCancelar_GMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelar_GMEActionPerformed
-        pesquisar = false;
+
         if (Util_GME.perguntar("Deseja cancelar esse registro de Produto?") == true) {
+            pesquisar = false;
             Util_GME.Limpar(jTxtNome_GME, jTxtValor_GME, jTxt_Catagoria_GME, jTxt_Codigo_GME, jCboACUCAR_GME,
                     jCboLitragemXQuant_GME, jTxtSabor_GME, jCbo_categoria_GME, jCbx_Edição_Limitadal_GME);
 
